@@ -4,7 +4,7 @@
     only:
       - master
 
-  version: 1.0.{build}
+  version: 1.1.{build}
 
   assembly_info:
     patch: true
@@ -40,9 +40,18 @@
 -
   branches:
     only:
-      - master
+      - dev
 
-  version: 1.0.{build}
+  version: 1.2.{build}
+
+  assembly_info:
+    patch: true
+    file: AssemblyInfo.*
+    assembly_version: "{version}"
+    assembly_file_version: "{version}"
+    assembly_informational_version: "{version}"
+
+  platform: Any CPU
 
   configuration:
     - Release
@@ -53,6 +62,4 @@
   skip_tags: true
 
   build:
-    parallel: true                                            # enable MSBuild parallel builds
     project: SiteServer.Plugin.sln       # path to Visual Studio solution or project
-    verbosity: minimal
