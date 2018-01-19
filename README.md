@@ -22,9 +22,10 @@ SiteServer CMS 是基于.NET平台的一款免费，[开源](https://github.com/
 
 稳定版 `(master)` ：
 
-[![Build status](https://ci.appveyor.com/api/projects/status/plx37i94y9gsqkru/branch/master?svg=true)](https://ci.appveyor.com/project/starlying/cms/branch/master)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/dv89ciqao5u9fjgv/branch/master?svg=true)](https://ci.appveyor.com/project/starlying/siteserver-plugin/branch/master)
 
 
 开发版 `(dev)` ：
 
-[![Build status](https://ci.appveyor.com/api/projects/status/plx37i94y9gsqkru/branch/dev?svg=true)](https://ci.appveyor.com/project/starlying/cms/branch/dev)
+[![Build status](https://ci.appveyor.com/api/projects/status/dv89ciqao5u9fjgv/branch/dev?svg=true)](https://ci.appveyor.com/project/starlying/siteserver-plugin/branch/dev)

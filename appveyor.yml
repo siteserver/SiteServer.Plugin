@@ -6,6 +6,15 @@
 
   version: 1.0.{build}
 
+  assembly_info:
+    patch: true
+    file: AssemblyInfo.*
+    assembly_version: "{version}"
+    assembly_file_version: "{version}"
+    assembly_informational_version: "{version}"
+
+  platform: Any CPU
+
   configuration:
     - Release
 
@@ -15,9 +24,17 @@
   skip_tags: true
 
   build:
-    parallel: true                                            # enable MSBuild parallel builds
     project: SiteServer.Plugin.sln       # path to Visual Studio solution or project
-    verbosity: minimal
+    publish_nuget: true
+
+  deploy:
+    provider: NuGet
+    server:                  # remove to push to NuGet.org
+    api_key:
+      secure: cKpWZvlfFA7EfagAXc/mZfTGHXxfoKNOYTQd6v4ImalbNV1mtNR55M2HMJJ4jCAo
+    skip_symbols: false
+    symbol_server:           # remove to push symbols to SymbolSource.org
+    artifact: /.*\.nupkg/
 
 # configuration for "dev" branch
 -
