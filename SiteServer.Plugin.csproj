@@ -91,7 +91,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include="app.config" />
+    <None Include="appveyor.yml" />
+    <None Include="LICENSE" />
     <None Include="README.md" />
     <None Include="SiteServer.Plugin.nuspec" />
   </ItemGroup>

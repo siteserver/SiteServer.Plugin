@@ -5,11 +5,11 @@
     <version>$version$</version>
     <title>SiteServer.Plugin</title>
     <authors>SiteServer CMS</authors>
-    <licenseUrl>https://github.com/siteserver/cms/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/siteserver/cms</projectUrl>
+    <licenseUrl>https://github.com/siteserver/SiteServer.Plugin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/siteserver/SiteServer.Plugin</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Reference this library if you want to develop a SiteServer CMS plugin.</description>
-    <copyright>Copyright © SiteServer CMS 2017</copyright>
-    <tags>SiteServer Plugin</tags>
+    <copyright>Copyright © SiteServer CMS 2018</copyright>
+    <tags>SiteServer CMS Plugin</tags>
   </metadata>
 </package>
