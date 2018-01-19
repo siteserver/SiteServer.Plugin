@@ -1,0 +1,41 @@
+# configuration for "master" branch
+-
+  branches:
+    only:
+      - master
+
+  version: 1.0.{build}
+
+  configuration:
+    - Release
+
+  environment:
+    TreatWarningsAsErrors: false
+
+  skip_tags: true
+
+  build:
+    parallel: true                                            # enable MSBuild parallel builds
+    project: SiteServer.Plugin.sln       # path to Visual Studio solution or project
+    verbosity: minimal
+
+# configuration for "dev" branch
+-
+  branches:
+    only:
+      - master
+
+  version: 1.0.{build}
+
+  configuration:
+    - Release
+
+  environment:
+    TreatWarningsAsErrors: false
+
+  skip_tags: true
+
+  build:
+    parallel: true                                            # enable MSBuild parallel builds
+    project: SiteServer.Plugin.sln       # path to Visual Studio solution or project
+    verbosity: minimal
