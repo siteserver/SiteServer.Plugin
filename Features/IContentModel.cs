@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SiteServer.Plugin.Models;
 
 namespace SiteServer.Plugin.Features
 {
@@ -7,6 +6,6 @@ namespace SiteServer.Plugin.Features
     {
         string ContentTableName { get; }
 
-        List<PluginTableColumn> ContentTableColumns { get; }
+        List<TableColumn> ContentTableColumns { get; }
     }
 }

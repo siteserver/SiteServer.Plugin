@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using SiteServer.Plugin.Models;
 
 namespace SiteServer.Plugin.Features
 {

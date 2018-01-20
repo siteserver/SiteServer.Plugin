@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
-    public class PluginInputStyle
+    public class InputStyle
     {
         public string InputType { get; set; }
 

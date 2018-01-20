@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SiteServer.Plugin.Models;
 
 namespace SiteServer.Plugin.Apis
 {
@@ -20,7 +19,7 @@ namespace SiteServer.Plugin.Apis
 
         string GetTableName(int publishmentSystemId, int channelId);
 
-        List<PluginTableColumn> GetTableColumns(int publishmentSystemId, int channelId);
+        List<TableColumn> GetTableColumns(int publishmentSystemId, int channelId);
 
         int Insert(int publishmentSystemId, int channelId, IContentInfo contentInfo);
 

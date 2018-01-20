@@ -1,12 +1,12 @@
 ﻿using SiteServer.Plugin.Apis;
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
-    public interface IPluginContext
+    public interface IContext
     {
-        IPluginEnvironment Environment { get; }
+        IEnvironment Environment { get; }
 
-        IPluginMetadata Metadata { get; }
+        IMetadata Metadata { get; }
 
         IAdminApi AdminApi { get; }
 

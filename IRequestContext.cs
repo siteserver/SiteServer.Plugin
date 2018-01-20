@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
     /// <summary>
     /// Web.API request that plugin can use

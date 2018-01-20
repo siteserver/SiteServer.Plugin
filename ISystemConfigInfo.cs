@@ -1,4 +1,4 @@
-﻿namespace SiteServer.Plugin.Models
+﻿namespace SiteServer.Plugin
 {
     public interface ISystemConfigInfo
     {

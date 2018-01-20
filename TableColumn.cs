@@ -1,6 +1,6 @@
-﻿namespace SiteServer.Plugin.Models
+﻿namespace SiteServer.Plugin
 {
-    public class PluginTableColumn
+    public class TableColumn
     {
         public string AttributeName { get; set; }
 
@@ -8,6 +8,6 @@
 
         public int DataLength { get; set; } = 50;
 
-        public PluginInputStyle InputStyle { get; set; }
+        public InputStyle InputStyle { get; set; }
     }
 }

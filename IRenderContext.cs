@@ -1,6 +1,6 @@
-﻿namespace SiteServer.Plugin.Models
+﻿namespace SiteServer.Plugin
 {
-    public interface IPluginRenderContext
+    public interface IRenderContext
     {
         string Html  { get; }
         int PublishmentSystemId { get; }

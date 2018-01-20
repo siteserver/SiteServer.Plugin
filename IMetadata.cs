@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
-    public interface IPluginMetadata
+    public interface IMetadata
     {
         string Id { get; }
         string Version { get; }

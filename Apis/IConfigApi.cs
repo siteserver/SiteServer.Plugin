@@ -1,6 +1,4 @@
-﻿using SiteServer.Plugin.Models;
-
-namespace SiteServer.Plugin.Apis
+﻿namespace SiteServer.Plugin.Apis
 {
     public interface IConfigApi
     {

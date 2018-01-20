@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
     public interface IAttributes
     {

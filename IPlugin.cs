@@ -1,5 +1,4 @@
-﻿using SiteServer.Plugin.Models;
-using System;
+﻿using System;
 
 namespace SiteServer.Plugin
 {
@@ -8,11 +7,11 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 激活插件，执行初始化
         /// </summary>
-        Action<IPluginContext> PluginActive { get; }
+        Action<IContext> PluginActive { get; }
 
         /// <summary>
         /// 卸载插件
         /// </summary>
-        Action<IPluginContext> PluginUninstall { get; }
+        Action<IContext> PluginUninstall { get; }
     }
 }

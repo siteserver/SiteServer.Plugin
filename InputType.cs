@@ -1,5 +1,5 @@
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
 	public enum InputType
 	{

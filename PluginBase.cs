@@ -4,7 +4,6 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Net.Http;
 using System.Web.UI.WebControls;
-using SiteServer.Plugin.Models;
 
 namespace SiteServer.Plugin
 {
@@ -12,16 +11,16 @@ namespace SiteServer.Plugin
     {
         #region IPlugin
 
-        public virtual Action<IPluginContext> PluginActive => null;
+        public virtual Action<IContext> PluginActive => null;
 
-        public virtual Action<IPluginContext> PluginUninstall => null;
+        public virtual Action<IContext> PluginUninstall => null;
 
         #endregion
 
         #region IContentModel
 
         public virtual string ContentTableName => null;
-        public virtual List<PluginTableColumn> ContentTableColumns => null;
+        public virtual List<TableColumn> ContentTableColumns => null;
 
         #endregion
 
@@ -88,26 +87,26 @@ namespace SiteServer.Plugin
 
         #region IMenu
 
-        public virtual PluginMenu PluginMenu => null;
-        public virtual Func<int, PluginMenu> SiteMenu => null;
+        public virtual Menu PluginMenu => null;
+        public virtual Func<int, Menu> SiteMenu => null;
 
         #endregion
 
         #region IParse
 
-        public virtual Dictionary<string, Func<IPluginParseContext, string>> ElementsToParse => null;
+        public virtual Dictionary<string, Func<IParseContext, string>> ElementsToParse => null;
 
         #endregion
 
         #region IRender
 
-        public virtual Func<IPluginRenderContext, string> Render => null;
+        public virtual Func<IRenderContext, string> Render => null;
 
         #endregion
 
         #region ITable
 
-        public virtual Dictionary<string, List<PluginTableColumn>> Tables => null;
+        public virtual Dictionary<string, List<TableColumn>> Tables => null;
 
         #endregion
     }

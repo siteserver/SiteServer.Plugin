@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
-    public interface IPluginParseContext
+    public interface IParseContext
     {
         Dictionary<string, string> Attributes { get; }
         string InnerXml { get; }

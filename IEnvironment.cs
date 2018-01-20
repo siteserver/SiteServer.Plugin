@@ -1,6 +1,6 @@
-﻿namespace SiteServer.Plugin.Models
+﻿namespace SiteServer.Plugin
 {
-    public interface IPluginEnvironment
+    public interface IEnvironment
     {
         string DatabaseType { get; }
 

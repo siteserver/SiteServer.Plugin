@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SiteServer.Plugin.Models
+namespace SiteServer.Plugin
 {
     public interface IContentInfo : IAttributes
     {
