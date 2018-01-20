@@ -5,7 +5,7 @@ namespace SiteServer.Plugin
 {
     public class InputStyle
     {
-        public string InputType { get; set; }
+        public InputType InputType { get; set; }
 
         public string DisplayName { get; set; }
 
@@ -17,7 +17,7 @@ namespace SiteServer.Plugin
 
         public bool IsRequired { get; set; }
 
-        public string ValidateType { get; set; }
+        public ValidateType ValidateType { get; set; }
 
         public int MinNum { get; set; }
 

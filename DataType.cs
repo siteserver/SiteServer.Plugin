@@ -83,7 +83,7 @@ namespace SiteServer.Plugin
 
         public override int GetHashCode()
         {
-            return 539060726 + EqualityComparer<string>.Default.GetHashCode(Value);
+            return EqualityComparer<string>.Default.GetHashCode(Value);
         }
     }
 }
