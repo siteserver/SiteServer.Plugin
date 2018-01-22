@@ -8,7 +8,7 @@ namespace SiteServer.Plugin
 
         string InnerXml { get; }
 
-        int PublishmentSystemId { get; }
+        int SiteId { get; }
 
         int ChannelId { get; }
 

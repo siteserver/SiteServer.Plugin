@@ -4,7 +4,7 @@ namespace SiteServer.Plugin.Apis
 {
     public interface IFilesApi
     {
-        void MoveFiles(int sourcePublishmentSystemId, int targetPublishmentSystemId, List<string> relatedUrls);
+        void MoveFiles(int sourceSiteId, int targetSiteId, List<string> relatedUrls);
 
         void AddWaterMark(int siteId, string filePath);
 
@@ -24,11 +24,11 @@ namespace SiteServer.Plugin.Apis
 
         string GetApiPluginHttpUrl(string action = "", string id = "");
 
-        string GetPublishmentSystemUrl(int siteId);
+        string GetSiteUrl(int siteId);
 
-        string GetPublishmentSystemUrl(int siteId, string relatedUrl);
+        string GetSiteUrl(int siteId, string relatedUrl);
 
-        string GetPublishmentSystemUrlByFilePath(string filePath);
+        string GetSiteUrlByFilePath(string filePath);
 
         string GetChannelUrl(int siteId, int channelId);
 

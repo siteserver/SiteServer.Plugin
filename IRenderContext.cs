@@ -4,7 +4,7 @@
     {
         string Html  { get; }
 
-        int PublishmentSystemId { get; }
+        int SiteId { get; }
 
         int ChannelId { get; }
 

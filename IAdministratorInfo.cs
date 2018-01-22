@@ -18,9 +18,9 @@ namespace SiteServer.Plugin
 
         bool IsLockedOut { get; set; }
 
-        string PublishmentSystemIdCollection { get; set; }
+        string SiteIdCollection { get; set; }
 
-        int PublishmentSystemId { get; set; }
+        int SiteId { get; set; }
 
         int DepartmentId { get; set; }
 

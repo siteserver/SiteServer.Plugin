@@ -22,7 +22,7 @@ namespace SiteServer.Plugin
 
         int ChildrenCount { get; set; }
 
-        bool IsLastNode { get; set; }
+        bool IsLastChannel { get; set; }
 
         string IndexName { get; set; }
 

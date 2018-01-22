@@ -6,9 +6,9 @@ namespace SiteServer.Plugin
     {
         int Id { get; set; }
 
-        int NodeId { get; set; }
+        int ChannelId { get; set; }
 
-        int PublishmentSystemId { get; set; }
+        int SiteId { get; set; }
 
         string AddUserName { get; set; }
 
@@ -44,7 +44,7 @@ namespace SiteServer.Plugin
 
         bool IsColor { get; set; }
 
-        string ContentGroupNameCollection { get; set; }
+        string GroupNameCollection { get; set; }
 
         string Tags { get; set; }
 
