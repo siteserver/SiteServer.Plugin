@@ -47,8 +47,6 @@
   <ItemGroup>
     <Compile Include="Apis\IAdminApi.cs" />
     <Compile Include="Apis\IUserApi.cs" />
-    <Compile Include="Apis\IPaymentApi.cs" />
-    <Compile Include="Apis\ISmsApi.cs" />
     <Compile Include="Apis\IParseApi.cs" />
     <Compile Include="Apis\IConfigApi.cs" />
     <Compile Include="Apis\IDataApi.cs" />

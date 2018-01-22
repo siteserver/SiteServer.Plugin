@@ -22,11 +22,7 @@ namespace SiteServer.Plugin
 
         IParseApi ParseApi { get; }
 
-        IPaymentApi PaymentApi { get; }
-
         ISiteApi SiteApi { get; }
-
-        ISmsApi SmsApi { get; }
 
         IUserApi UserApi { get; }
     }
