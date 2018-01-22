@@ -52,10 +52,10 @@
     <Compile Include="Apis\IParseApi.cs" />
     <Compile Include="Apis\IConfigApi.cs" />
     <Compile Include="Apis\IDataApi.cs" />
-    <Compile Include="Apis\INodeApi.cs" />
+    <Compile Include="Apis\IChannelApi.cs" />
     <Compile Include="Apis\IFilesApi.cs" />
     <Compile Include="Apis\IContentApi.cs" />
-    <Compile Include="Apis\IPublishmentSystemApi.cs" />
+    <Compile Include="Apis\ISiteApi.cs" />
     <Compile Include="Features\IContentRelated.cs" />
     <Compile Include="DataType.cs" />
     <Compile Include="IAttributes.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="ILogInfo.cs" />
     <Compile Include="IUserInfo.cs" />
     <Compile Include="IContentInfo.cs" />
-    <Compile Include="INodeInfo.cs" />
+    <Compile Include="IChannelInfo.cs" />
     <Compile Include="ISiteInfo.cs" />
     <Compile Include="IMetadata.cs" />
     <Compile Include="IRenderContext.cs" />

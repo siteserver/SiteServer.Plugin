@@ -12,7 +12,7 @@
 
         bool IsRoot { get; set; }
 
-        int ParentSiteId { get; set; }
+        int ParentId { get; set; }
 
         int Taxis { get; set; }
 

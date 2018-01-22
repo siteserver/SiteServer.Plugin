@@ -2,13 +2,13 @@
 
 namespace SiteServer.Plugin
 {
-    public interface INodeInfo
+    public interface IChannelInfo
     {
-        int NodeId { get; set; }
+        int Id { get; set; }
 
-        string NodeName { get; set; }
+        string ChannelName { get; set; }
 
-        int PublishmentSystemId { get; set; }
+        int SiteId { get; set; }
 
         string ContentModelPluginId { get; set; }
 
@@ -24,9 +24,9 @@ namespace SiteServer.Plugin
 
         bool IsLastNode { get; set; }
 
-        string NodeIndexName { get; set; }
+        string IndexName { get; set; }
 
-        string NodeGroupNameCollection { get; set; }
+        string GroupNameCollection { get; set; }
 
         int Taxis { get; set; }
 

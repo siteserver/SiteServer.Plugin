@@ -18,13 +18,13 @@ namespace SiteServer.Plugin
 
         IFilesApi FilesApi { get; }
 
-        INodeApi NodeApi { get; }
+        IChannelApi NodeApi { get; }
 
         IParseApi ParseApi { get; }
 
         IPaymentApi PaymentApi { get; }
 
-        IPublishmentSystemApi PublishmentSystemApi { get; }
+        ISiteApi PublishmentSystemApi { get; }
 
         ISmsApi SmsApi { get; }
 

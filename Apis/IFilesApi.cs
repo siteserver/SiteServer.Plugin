@@ -6,9 +6,9 @@ namespace SiteServer.Plugin.Apis
     {
         void MoveFiles(int sourcePublishmentSystemId, int targetPublishmentSystemId, List<string> relatedUrls);
 
-        void AddWaterMark(int publishmentSystemId, string filePath);
+        void AddWaterMark(int siteId, string filePath);
 
-        string GetUploadFilePath(int publishmentSystemId, string relatedPath);
+        string GetUploadFilePath(int siteId, string relatedPath);
 
         string GetTemporaryFilesPath(string relatedPath);
 
@@ -24,15 +24,15 @@ namespace SiteServer.Plugin.Apis
 
         string GetApiPluginHttpUrl(string action = "", string id = "");
 
-        string GetPublishmentSystemUrl(int publishmentSystemId);
+        string GetPublishmentSystemUrl(int siteId);
 
-        string GetPublishmentSystemUrl(int publishmentSystemId, string relatedUrl);
+        string GetPublishmentSystemUrl(int siteId, string relatedUrl);
 
         string GetPublishmentSystemUrlByFilePath(string filePath);
 
-        string GetChannelUrl(int publishmentSystemId, int channelId);
+        string GetChannelUrl(int siteId, int channelId);
 
-        string GetContentUrl(int publishmentSystemId, int channelId, int contentId);
+        string GetContentUrl(int siteId, int channelId, int contentId);
 
         string GetRootUrl(string relatedUrl);
 

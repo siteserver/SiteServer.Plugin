@@ -10,10 +10,10 @@ namespace SiteServer.Plugin.Apis
 
         bool IsPluginAuthorized { get; }
 
-        bool IsSiteAuthorized(int publishmentSystemId);
+        bool IsSiteAuthorized(int siteId);
 
-        bool HasSitePermissions(int publishmentSystemId, params string[] sitePermissions);
+        bool HasSitePermissions(int siteId, params string[] sitePermissions);
 
-        bool HasChannelPermissions(int publishmentSystemId, int channelId, params string[] channelPermissions);
+        bool HasChannelPermissions(int siteId, int channelId, params string[] channelPermissions);
     }
 }
