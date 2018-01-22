@@ -24,10 +24,6 @@ namespace SiteServer.Plugin
 
         int ReferenceId { get; set; }
 
-        int Comments { get; set; }
-
-        int Photos { get; set; }
-
         int Hits { get; set; }
 
         int HitsByDay { get; set; }

@@ -4,7 +4,7 @@ namespace SiteServer.Plugin
 {
     public interface IUserInfo
     {
-        int UserId { get; set; }
+        int Id { get; set; }
 
         string UserName { get; set; }
 

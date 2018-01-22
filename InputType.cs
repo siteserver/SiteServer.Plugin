@@ -95,5 +95,76 @@ namespace SiteServer.Plugin
         {
             return EqualityComparer<string>.Default.GetHashCode(Value);
         }
+
+        public override string ToString()
+        {
+            return Value;
+        }
+
+        public static string GetText(InputType type)
+        {
+            if (type == CheckBox)
+            {
+                return "复选框";
+            }
+            if (type == Radio)
+            {
+                return "单选框";
+            }
+            if (type == SelectOne)
+            {
+                return "下拉列表(单选)";
+            }
+            if (type == SelectMultiple)
+            {
+                return "下拉列表(多选)";
+            }
+            if (type == SelectCascading)
+            {
+                return "下拉列表(级联)";
+            }
+            if (type == Date)
+            {
+                return "日期选择框";
+            }
+            if (type == DateTime)
+            {
+                return "日期时间选择框";
+            }
+            if (type == Image)
+            {
+                return "图片";
+            }
+            if (type == Video)
+            {
+                return "视频";
+            }
+            if (type == File)
+            {
+                return "附件";
+            }
+            if (type == Text)
+            {
+                return "文本框(单行)";
+            }
+            if (type == TextArea)
+            {
+                return "文本框(多行)";
+            }
+            if (type == TextEditor)
+            {
+                return "内容编辑器";
+            }
+            if (type == Customize)
+            {
+                return "自定义";
+            }
+            if (type == Hidden)
+            {
+                return "隐藏";
+            }
+
+            throw new Exception();
+        }
     }
 }
