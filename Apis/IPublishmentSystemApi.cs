@@ -10,8 +10,8 @@ namespace SiteServer.Plugin.Apis
 
         List<int> GetPublishmentSystemIds();
 
-        IPublishmentSystemInfo GetPublishmentSystemInfo(int publishmentSystemId);
+        ISiteInfo GetPublishmentSystemInfo(int publishmentSystemId);
 
-        List<IPublishmentSystemInfo> GetPublishmentSystemInfoList(string adminName);
+        List<ISiteInfo> GetPublishmentSystemInfoList(string adminName);
     }
 }

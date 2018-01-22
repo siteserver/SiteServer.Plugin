@@ -1,8 +1,4 @@
-﻿# SiteServer.Plugin
-
-[![NuGet](https://img.shields.io/nuget/v/SiteServer.Plugin.svg)](https://www.nuget.org/packages/SiteServer.Plugin)
-
-## 什么是 SiteServer CMS 插件
+﻿# SiteServer.Plugin SiteServer CMS 插件开发包
 
 SiteServer CMS 插件是扩展 SiteServer CMS 产品核心功能的代码包，SiteServer CMS 插件由.NET代码和其他文件(如图片、CSS和JavaScript等)组成。
 
@@ -25,7 +21,11 @@ SiteServer CMS 是基于.NET平台的一款免费，[开源](https://github.com/
 
 [![Build status](https://ci.appveyor.com/api/projects/status/dv89ciqao5u9fjgv/branch/master?svg=true)](https://ci.appveyor.com/project/starlying/siteserver-plugin/branch/master)
 
+[![NuGet](https://img.shields.io/nuget/v/SiteServer.Plugin.svg)](https://www.nuget.org/packages/SiteServer.Plugin)
+
 
 开发版 `(dev)` ：
 
 [![Build status](https://ci.appveyor.com/api/projects/status/dv89ciqao5u9fjgv/branch/dev?svg=true)](https://ci.appveyor.com/project/starlying/siteserver-plugin/branch/dev)
+
+[![MyGet](https://img.shields.io/myget/siteserver/vpre/SiteServer.Plugin.svg)](https://myget.org/feed/siteserver/package/nuget/SiteServer.Plugin)
