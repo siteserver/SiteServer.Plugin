@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SiteServer.Plugin.Apis
+﻿namespace SiteServer.Plugin
 {
     public interface IAdminApi
     {

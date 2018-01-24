@@ -2,7 +2,7 @@
 {
     public interface IEnvironment
     {
-        string DatabaseType { get; }
+        DatabaseType DatabaseType { get; }
 
         string ConnectionString { get; }
 

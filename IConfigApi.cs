@@ -1,4 +1,4 @@
-﻿namespace SiteServer.Plugin.Apis
+﻿namespace SiteServer.Plugin
 {
     public interface IConfigApi
     {

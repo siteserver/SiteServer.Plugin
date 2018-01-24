@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SiteServer.Plugin</RootNamespace>
     <AssemblyName>SiteServer.Plugin</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,18 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apis\IAdminApi.cs" />
-    <Compile Include="Apis\IUserApi.cs" />
-    <Compile Include="Apis\IParseApi.cs" />
-    <Compile Include="Apis\IConfigApi.cs" />
-    <Compile Include="Apis\IDataApi.cs" />
-    <Compile Include="Apis\IChannelApi.cs" />
-    <Compile Include="Apis\IFilesApi.cs" />
-    <Compile Include="Apis\IContentApi.cs" />
-    <Compile Include="Apis\ISiteApi.cs" />
-    <Compile Include="Features\IContentRelated.cs" />
+    <Compile Include="DatabaseType.cs" />
+    <Compile Include="TemplateType.cs" />
+    <Compile Include="ParseEventArgs.cs" />
+    <Compile Include="IAdminApi.cs" />
+    <Compile Include="IUserApi.cs" />
+    <Compile Include="IParseApi.cs" />
+    <Compile Include="IConfigApi.cs" />
+    <Compile Include="IDataApi.cs" />
+    <Compile Include="IChannelApi.cs" />
+    <Compile Include="IFilesApi.cs" />
+    <Compile Include="IContentApi.cs" />
+    <Compile Include="ISiteApi.cs" />
+    <Compile Include="ContentFormSubmitedEventArgs.cs" />
+    <Compile Include="ContentTranslateEventArgs.cs" />
+    <Compile Include="ContentEventArgs.cs" />
     <Compile Include="DataType.cs" />
     <Compile Include="IAttributes.cs" />
+    <Compile Include="IService.cs" />
     <Compile Include="ISystemConfigInfo.cs" />
     <Compile Include="IAdministratorInfo.cs" />
     <Compile Include="ILogInfo.cs" />
@@ -65,19 +72,10 @@
     <Compile Include="IChannelInfo.cs" />
     <Compile Include="ISiteInfo.cs" />
     <Compile Include="IMetadata.cs" />
-    <Compile Include="IRenderContext.cs" />
-    <Compile Include="Features\IRender.cs" />
-    <Compile Include="Features\IParse.cs" />
-    <Compile Include="Features\ITable.cs" />
     <Compile Include="IPlugin.cs" />
     <Compile Include="InputType.cs" />
-    <Compile Include="Features\IMenu.cs" />
-    <Compile Include="Features\IContentModel.cs" />
-    <Compile Include="Features\IFileSystem.cs" />
-    <Compile Include="Features\IWebApi.cs" />
     <Compile Include="InputStyle.cs" />
     <Compile Include="ValidateType.cs" />
-    <Compile Include="PluginBase.cs" />
     <Compile Include="IRequestContext.cs" />
     <Compile Include="IEnvironment.cs" />
     <Compile Include="IParseContext.cs" />

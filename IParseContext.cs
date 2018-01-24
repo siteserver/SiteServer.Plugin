@@ -16,7 +16,7 @@ namespace SiteServer.Plugin
 
         IContentInfo ContentInfo { get; }
 
-        string TemplateType { get; }
+        TemplateType TemplateType { get; }
 
         int TemplateId { get; }
     }

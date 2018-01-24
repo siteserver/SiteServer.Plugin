@@ -1,6 +1,4 @@
-﻿using SiteServer.Plugin.Apis;
-
-namespace SiteServer.Plugin
+﻿namespace SiteServer.Plugin
 {
     public interface IContext
     {

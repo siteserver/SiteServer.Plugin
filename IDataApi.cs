@@ -2,7 +2,7 @@
 using System.Data;
 using System.Xml;
 
-namespace SiteServer.Plugin.Apis
+namespace SiteServer.Plugin
 {
     public interface IDataApi
     {

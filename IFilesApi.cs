@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SiteServer.Plugin.Apis
+namespace SiteServer.Plugin
 {
     public interface IFilesApi
     {
@@ -16,13 +16,9 @@ namespace SiteServer.Plugin.Apis
 
         string GetPluginUrl(string relatedUrl = "");
 
-        string GetApiUrl(string relatedUrl = "");
+        string GetApiJsonUrl(string action = "", string id = "");
 
-        string GetApiPluginUrl(string relatedUrl = "");
-
-        string GetApiPluginJsonUrl(string action = "", string id = "");
-
-        string GetApiPluginHttpUrl(string action = "", string id = "");
+        string GetApiHttpUrl(string action = "", string id = "");
 
         string GetSiteUrl(int siteId);
 
