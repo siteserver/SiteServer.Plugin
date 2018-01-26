@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Specialized;
 
 namespace SiteServer.Plugin
 {
     public class ContentFormSubmitEventArgs : EventArgs
     {
-        public ContentFormSubmitEventArgs(int siteId, int channelId, IContentInfo contentInfo, NameValueCollection form)
+        public ContentFormSubmitEventArgs(int siteId, int channelId, IContentInfo contentInfo, IAttributes form)
         {
             SiteId = siteId;
             ChannelId = channelId;
@@ -19,6 +18,6 @@ namespace SiteServer.Plugin
 
         public IContentInfo ContentInfo { get; private set; }
 
-        public NameValueCollection Form { get; private set; }
+        public IAttributes Form { get; private set; }
     }
 }
