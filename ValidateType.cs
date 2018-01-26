@@ -96,58 +96,5 @@ namespace SiteServer.Plugin
         {
             return Value;
         }
-
-        public static string GetText(ValidateType type)
-        {
-            if (type == None)
-            {
-                return "无";
-            }
-            if (type == Chinese)
-            {
-                return "中文";
-            }
-            if (type == English)
-            {
-                return "英文";
-            }
-            if (type == Email)
-            {
-                return "Email格式";
-            }
-            if (type == Url)
-            {
-                return "网址格式";
-            }
-            if (type == Phone)
-            {
-                return "电话号码";
-            }
-            if (type == Mobile)
-            {
-                return "手机号码";
-            }
-            if (type == Integer)
-            {
-                return "整数";
-            }
-            if (type == Currency)
-            {
-                return "货币格式";
-            }
-            if (type == Zip)
-            {
-                return "邮政编码";
-            }
-            if (type == IdCard)
-            {
-                return "身份证号码";
-            }
-            if (type == RegExp)
-            {
-                return "正则表达式验证";
-            }
-            throw new Exception();
-        }
     }
 }

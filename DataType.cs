@@ -90,35 +90,5 @@ namespace SiteServer.Plugin
         {
             return Value;
         }
-
-        public static string GetText(DataType dataType)
-        {
-            if (dataType == Boolean)
-            {
-                return "布尔值";
-            }
-            if (dataType == DateTime)
-            {
-                return "日期";
-            }
-            if (dataType == Decimal)
-            {
-                return "小数";
-            }
-            if (dataType == Integer)
-            {
-                return "整数";
-            }
-            if (dataType == Text)
-            {
-                return "备注";
-            }
-            if (dataType == VarChar)
-            {
-                return "文本";
-            }
-
-            throw new Exception();
-        }
     }
 }

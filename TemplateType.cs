@@ -88,27 +88,5 @@ namespace SiteServer.Plugin
         {
             return Value;
         }
-
-        public static string GetText(TemplateType templateType)
-        {
-            if (templateType == IndexPageTemplate)
-            {
-                return "首页模板";
-            }
-            if (templateType == ChannelTemplate)
-            {
-                return "栏目模板";
-            }
-            if (templateType == ContentTemplate)
-            {
-                return "内容模板";
-            }
-            if (templateType == FileTemplate)
-            {
-                return "单页模板";
-            }
-
-            throw new Exception();
-        }
     }
 }
