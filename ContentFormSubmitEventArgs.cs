@@ -3,9 +3,9 @@ using System.Collections.Specialized;
 
 namespace SiteServer.Plugin
 {
-    public class ContentFormSubmitedEventArgs : EventArgs
+    public class ContentFormSubmitEventArgs : EventArgs
     {
-        public ContentFormSubmitedEventArgs(int siteId, int channelId, IContentInfo contentInfo, NameValueCollection form)
+        public ContentFormSubmitEventArgs(int siteId, int channelId, IContentInfo contentInfo, NameValueCollection form)
         {
             SiteId = siteId;
             ChannelId = channelId;

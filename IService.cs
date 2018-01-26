@@ -10,6 +10,22 @@ namespace SiteServer.Plugin
         // 
         // Action<object, FileSystemEventArgs> FileSystemChanged { get; }
 
+        event EventHandler<ContentEventArgs> ContentAddCompleted;
+
+        event EventHandler<ContentEventArgs> ContentDeleteCompleted;
+
+        event EventHandler<ContentTranslateEventArgs> ContentTranslateCompleted;
+
+        event EventHandler<ContentFormSubmitEventArgs> ContentFormSubmit;
+
+        event EventHandler<ContentFormLoadEventArgs> ContentFormLoad;
+
+        //IService AddContentForm(string attributeName, Func<int, int, IAttributes, string> customized);
+
+        event EventHandler<ParseEventArgs> PreParse;
+
+        event EventHandler<ParseEventArgs> PostParse;
+
         IService AddPluginMenu(Menu menu);
 
         IService AddSiteMenu(Func<int, Menu> siteMenuFunc);
@@ -20,21 +36,7 @@ namespace SiteServer.Plugin
 
         IService AddContentLinks(List<HyperLink> links);
 
-        event EventHandler<ContentEventArgs> ContentAddCompleted;
-
-        event EventHandler<ContentEventArgs> ContentDeleteCompleted;
-
-        event EventHandler<ContentTranslateEventArgs> ContentTranslateCompleted;
-
-        IService AddCustomizedContentForm(string attributeName, Func<int, int, IAttributes, string> customized);
-
-        event EventHandler<ContentFormSubmitedEventArgs> ContentFormSubmited;
-
         IService AddStlElementParser(string elementName, Func<IParseContext, string> parse);
-
-        event EventHandler<ParseEventArgs> PreParse;
-
-        event EventHandler<ParseEventArgs> PostParse;
 
         IService AddJsonGet(Func<IRequestContext, object> jsonGet);
 

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SiteServer.Plugin</RootNamespace>
     <AssemblyName>SiteServer.Plugin</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseType.cs" />
+    <Compile Include="ContentFormLoadEventArgs.cs" />
     <Compile Include="TemplateType.cs" />
     <Compile Include="ParseEventArgs.cs" />
     <Compile Include="IAdminApi.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="IFilesApi.cs" />
     <Compile Include="IContentApi.cs" />
     <Compile Include="ISiteApi.cs" />
-    <Compile Include="ContentFormSubmitedEventArgs.cs" />
+    <Compile Include="ContentFormSubmitEventArgs.cs" />
     <Compile Include="ContentTranslateEventArgs.cs" />
     <Compile Include="ContentEventArgs.cs" />
     <Compile Include="DataType.cs" />
