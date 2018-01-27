@@ -6,9 +6,9 @@ namespace SiteServer.Plugin
     /// <summary>
     /// Web.API request that plugin can use
     /// </summary>
-    public interface IRequestContext
+    public interface IRequest
     {
-        HttpRequest Request { get; }
+        HttpRequest HttpRequest { get; }
 
         string GetQueryString(string name);
 

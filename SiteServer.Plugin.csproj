@@ -77,7 +77,7 @@
     <Compile Include="InputType.cs" />
     <Compile Include="InputStyle.cs" />
     <Compile Include="ValidateType.cs" />
-    <Compile Include="IRequestContext.cs" />
+    <Compile Include="IRequest.cs" />
     <Compile Include="IEnvironment.cs" />
     <Compile Include="IParseContext.cs" />
     <Compile Include="Menu.cs" />
