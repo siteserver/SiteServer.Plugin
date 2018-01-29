@@ -18,7 +18,7 @@ namespace SiteServer.Plugin
 
         event EventHandler<ContentFormSubmitEventArgs> ContentFormSubmit;
 
-        event EventHandler<ContentFormLoadEventArgs> ContentFormLoad;
+        event ContentFormLoadEventHandler ContentFormLoad;
 
         //IService AddContentForm(string attributeName, Func<int, int, IAttributes, string> customized);
 
@@ -37,6 +37,14 @@ namespace SiteServer.Plugin
         IService AddContentLinks(List<HyperLink> links);
 
         IService AddStlElementParser(string elementName, Func<IParseContext, string> parse);
+
+        event ApiEventHandler ApiGet;
+
+        event ApiEventHandler ApiPost;
+
+        event ApiEventHandler ApiPut;
+
+        event ApiEventHandler ApiDelete;
 
         IService AddJsonGet(Func<IRequest, object> jsonGet);
 

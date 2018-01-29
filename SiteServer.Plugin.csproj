@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiEventHandler.cs" />
+    <Compile Include="ApiEventArgs.cs" />
+    <Compile Include="ContentFormLoadEventHandler.cs" />
     <Compile Include="DatabaseType.cs" />
     <Compile Include="ContentFormLoadEventArgs.cs" />
     <Compile Include="TemplateType.cs" />
