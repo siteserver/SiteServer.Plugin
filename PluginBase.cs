@@ -5,7 +5,7 @@ namespace SiteServer.Plugin
 {
     public abstract class PluginBase : PluginInitialize, IMetadata, IEnvironment, IApiCollection
     {
-        public sealed override void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection, PluginBase instance)
+        public sealed override void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
             Id = metadata.Id;
             Version = metadata.Version;
@@ -38,13 +38,9 @@ namespace SiteServer.Plugin
             PluginApi = apiCollection.PluginApi;
             SiteApi = apiCollection.SiteApi;
             UserApi = apiCollection.UserApi;
-
-            Instance = instance;
         }
 
         public abstract void Startup(IService service);
-
-        public static PluginBase Instance { get; private set; }
 
         public string Id { get; private set; }
         public string Version { get; private set; }
