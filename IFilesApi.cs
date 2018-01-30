@@ -12,14 +12,6 @@ namespace SiteServer.Plugin
 
         string GetTemporaryFilesPath(string relatedPath);
 
-        string GetPluginPath(string relatedPath);
-
-        string GetPluginUrl(string relatedUrl = "");
-
-        string GetApiJsonUrl(string action = "", string id = "");
-
-        string GetApiHttpUrl(string action = "", string id = "");
-
         string GetSiteUrl(int siteId);
 
         string GetSiteUrl(int siteId, string relatedUrl);

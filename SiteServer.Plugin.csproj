@@ -51,6 +51,8 @@
     <Compile Include="ContentFormLoadEventHandler.cs" />
     <Compile Include="DatabaseType.cs" />
     <Compile Include="ContentFormLoadEventArgs.cs" />
+    <Compile Include="PluginBase.cs" />
+    <Compile Include="IPluginApi.cs" />
     <Compile Include="TemplateType.cs" />
     <Compile Include="ParseEventArgs.cs" />
     <Compile Include="IAdminApi.cs" />
@@ -85,7 +87,6 @@
     <Compile Include="IParseContext.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="TableColumn.cs" />
-    <Compile Include="IContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
