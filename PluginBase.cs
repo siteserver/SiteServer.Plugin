@@ -5,15 +5,8 @@ namespace SiteServer.Plugin
 {
     public abstract class PluginBase : IPlugin
     {
-        protected PluginBase(IEnvironment environment, IMetadata metadata, IAdminApi adminApi, IConfigApi configApi,
-            IContentApi contentApi, IDataApi dataApi, IFilesApi filesApi, IChannelApi channelApi, IParseApi parseApi,
-            IPluginApi pluginApi, ISiteApi siteApi, IUserApi userApi)
+        protected PluginBase(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
-            DatabaseType = environment.DatabaseType;
-            ConnectionString = environment.ConnectionString;
-            AdminDirectory = environment.AdminDirectory;
-            PhysicalApplicationPath = environment.PhysicalApplicationPath;
-
             Id = metadata.Id;
             Version = metadata.Version;
             IconUrl = metadata.IconUrl;
@@ -30,24 +23,25 @@ namespace SiteServer.Plugin
             Owners = metadata.Owners;
             Language = metadata.Language;
 
-            AdminApi = adminApi;
-            ConfigApi = configApi;
-            ContentApi = contentApi;
-            DataApi = dataApi;
-            FilesApi = filesApi;
-            ChannelApi = channelApi;
-            ParseApi = parseApi;
-            PluginApi = pluginApi;
-            SiteApi = siteApi;
-            UserApi = userApi;
+            DatabaseType = environment.DatabaseType;
+            ConnectionString = environment.ConnectionString;
+            AdminDirectory = environment.AdminDirectory;
+            PhysicalApplicationPath = environment.PhysicalApplicationPath;
+
+            AdminApi = apiCollection.AdminApi;
+            ConfigApi = apiCollection.ConfigApi;
+            ContentApi = apiCollection.ContentApi;
+            DataApi = apiCollection.DataApi;
+            FilesApi = apiCollection.FilesApi;
+            ChannelApi = apiCollection.ChannelApi;
+            ParseApi = apiCollection.ParseApi;
+            PluginApi = apiCollection.PluginApi;
+            SiteApi = apiCollection.SiteApi;
+            UserApi = apiCollection.UserApi;
         }
 
         public abstract void Startup(IService service);
 
-        public DatabaseType DatabaseType { get; }
-        public string ConnectionString { get; }
-        public string AdminDirectory { get; }
-        public string PhysicalApplicationPath { get; }
         public string Id { get; }
         public string Version { get; }
         public Uri IconUrl { get; }
@@ -63,6 +57,11 @@ namespace SiteServer.Plugin
         public List<string> Authors { get; }
         public string Owners { get; }
         public string Language { get; }
+
+        public DatabaseType DatabaseType { get; }
+        public string ConnectionString { get; }
+        public string AdminDirectory { get; }
+        public string PhysicalApplicationPath { get; }
 
         public IAdminApi AdminApi { get; }
         public IConfigApi ConfigApi { get; }
