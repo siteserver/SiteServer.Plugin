@@ -3,9 +3,14 @@ using System.Collections.Generic;
 
 namespace SiteServer.Plugin
 {
-    public abstract class PluginBase : PluginInitialize, IMetadata, IEnvironment, IApiCollection
+    public abstract class PluginBase : IMetadata, IEnvironment, IApiCollection
     {
-        public sealed override void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
+        protected PluginBase()
+        {
+            
+        }
+
+        protected PluginBase(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
             Id = metadata.Id;
             Version = metadata.Version;
