@@ -5,12 +5,7 @@ namespace SiteServer.Plugin
 {
     public abstract class PluginBase : IMetadata, IEnvironment, IApiCollection
     {
-        protected PluginBase()
-        {
-            
-        }
-
-        protected PluginBase(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
+        public void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
             Id = metadata.Id;
             Version = metadata.Version;
