@@ -52,6 +52,7 @@
     <Compile Include="DatabaseType.cs" />
     <Compile Include="ContentFormLoadEventArgs.cs" />
     <Compile Include="IApiCollection.cs" />
+    <Compile Include="PluginInitialize.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="IPluginApi.cs" />
     <Compile Include="TemplateType.cs" />
@@ -79,7 +80,6 @@
     <Compile Include="IChannelInfo.cs" />
     <Compile Include="ISiteInfo.cs" />
     <Compile Include="IMetadata.cs" />
-    <Compile Include="IPlugin.cs" />
     <Compile Include="InputType.cs" />
     <Compile Include="InputStyle.cs" />
     <Compile Include="ValidateType.cs" />

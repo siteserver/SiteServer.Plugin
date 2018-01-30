@@ -8,6 +8,6 @@
 
         string GetPluginApiUrl(string action = "", string id = "");
 
-        T GetPlugin<T>(string pluginId) where T : IPlugin;
+        T GetPlugin<T>(string pluginId) where T : PluginBase;
     }
 }
