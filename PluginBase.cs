@@ -5,6 +5,11 @@ namespace SiteServer.Plugin
 {
     public abstract class PluginBase : IPlugin
     {
+        protected PluginBase()
+        {
+
+        }
+
         protected PluginBase(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
             Id = metadata.Id;

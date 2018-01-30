@@ -2,7 +2,7 @@
 {
     public interface IPluginApi
     {
-        string PluginPath(string relatedPath = "");
+        string GetPluginPath(string relatedPath = "");
 
         string GetPluginUrl(string relatedUrl = "");
 
