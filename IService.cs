@@ -33,7 +33,7 @@ namespace SiteServer.Plugin
 
         IService AddDatabaseTable(string tableName, List<TableColumn> tableColumns);
 
-        IService AddContentLinks(List<HyperLink> links);
+        IService AddContentLink(HyperLink link);
 
         IService AddStlElementParser(string elementName, Func<IParseContext, string> parse);
 
