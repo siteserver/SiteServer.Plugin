@@ -32,10 +32,6 @@
 
         string UserPasswordRestriction { get; }
 
-        string UserRegistrationVerifyType { get; }
-
-        string UserRegistrationSmsTplId { get; }
-
         int UserRegistrationMinMinutes { get; }
 
         bool IsUserFindPassword { get; }

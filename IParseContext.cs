@@ -4,9 +4,15 @@ namespace SiteServer.Plugin
 {
     public interface IParseContext
     {
-        Dictionary<string, string> Attributes { get; }
+        SortedDictionary<string, string> HeadCodes { get; }
 
-        string InnerXml { get; }
+        SortedDictionary<string, string> BodyCodes { get; }
+
+        SortedDictionary<string, string> FootCodes { get; }
+
+        Dictionary<string, string> StlElementAttributes { get; }
+
+        string StlElementInnerXml { get; }
 
         int SiteId { get; }
 
