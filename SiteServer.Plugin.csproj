@@ -71,7 +71,6 @@
     <Compile Include="DataType.cs" />
     <Compile Include="IAttributes.cs" />
     <Compile Include="IService.cs" />
-    <Compile Include="ISystemConfigInfo.cs" />
     <Compile Include="IAdministratorInfo.cs" />
     <Compile Include="ILogInfo.cs" />
     <Compile Include="IUserInfo.cs" />

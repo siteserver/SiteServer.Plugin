@@ -10,6 +10,6 @@
 
         bool RemoveConfig(int siteId, string name = "");
 
-        ISystemConfigInfo SystemConfigInfo { get; }
+        IAttributes SystemConfig { get; }
     }
 }
