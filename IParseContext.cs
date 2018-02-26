@@ -27,5 +27,7 @@ namespace SiteServer.Plugin
         int TemplateId { get; }
 
         Dictionary<string, object> Items { get; }
+
+        bool IsStlEntity { get; }
     }
 }
