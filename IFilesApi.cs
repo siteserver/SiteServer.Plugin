@@ -8,7 +8,7 @@ namespace SiteServer.Plugin
 
         void AddWaterMark(int siteId, string filePath);
 
-        string GetUploadFilePath(int siteId, string relatedPath);
+        string GetUploadFilePath(int siteId, string fileName);
 
         string GetTemporaryFilesPath(string relatedPath);
 

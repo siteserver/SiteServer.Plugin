@@ -25,5 +25,7 @@ namespace SiteServer.Plugin
         TemplateType TemplateType { get; }
 
         int TemplateId { get; }
+
+        Dictionary<string, object> Items { get; }
     }
 }

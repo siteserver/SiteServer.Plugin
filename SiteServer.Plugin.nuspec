@@ -7,6 +7,7 @@
     <authors>SiteServer CMS</authors>
     <licenseUrl>https://github.com/siteserver/SiteServer.Plugin/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/siteserver/SiteServer.Plugin</projectUrl>
+    <iconUrl>https://github.com/siteserver/SiteServer.Plugin/raw/master/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Reference this library if you want to develop a SiteServer CMS plugin.</description>
     <copyright>Copyright © SiteServer CMS 2018</copyright>
