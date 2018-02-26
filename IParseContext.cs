@@ -4,16 +4,6 @@ namespace SiteServer.Plugin
 {
     public interface IParseContext
     {
-        SortedDictionary<string, string> HeadCodes { get; }
-
-        SortedDictionary<string, string> BodyCodes { get; }
-
-        SortedDictionary<string, string> FootCodes { get; }
-
-        Dictionary<string, string> StlElementAttributes { get; }
-
-        string StlElementInnerXml { get; }
-
         int SiteId { get; }
 
         int ChannelId { get; }
@@ -26,7 +16,17 @@ namespace SiteServer.Plugin
 
         int TemplateId { get; }
 
-        Dictionary<string, object> Items { get; }
+        SortedDictionary<string, string> StlPageHead { get; }
+
+        SortedDictionary<string, string> StlPageBody { get; }
+
+        SortedDictionary<string, string> StlPageFoot { get; }
+
+        Dictionary<string, string> StlAttributes { get; }
+
+        string StlInnerXml { get; }
+
+        Dictionary<string, object> StlItems { get; }
 
         bool IsStlEntity { get; }
     }
