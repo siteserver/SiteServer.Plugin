@@ -42,6 +42,8 @@ namespace SiteServer.Plugin
 
         string AdminName { get; }
 
+        IAdministratorInfo AdminInfo { get; }
+
         void AdminLogin(string administratorName);
 
         void AdminLogout();

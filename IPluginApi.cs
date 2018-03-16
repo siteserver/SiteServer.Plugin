@@ -1,4 +1,6 @@
-﻿namespace SiteServer.Plugin
+﻿using System.Web;
+
+namespace SiteServer.Plugin
 {
     public interface IPluginApi
     {
@@ -9,5 +11,7 @@
         string GetPluginApiUrl(string action = "", string id = "");
 
         T GetPlugin<T>(string pluginId) where T : PluginBase;
+
+        IRequest AuthRequest(HttpRequest httpRequest);
     }
 }
