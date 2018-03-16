@@ -1,14 +1,21 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Web;
 
 namespace SiteServer.Plugin
 {
     /// <summary>
-    /// Web.API request that plugin can use
+    /// request with authentication that plugin can use
     /// </summary>
     public interface IRequest
     {
         HttpRequest HttpRequest { get; }
+
+        NameValueCollection QueryString { get; }
+
+        NameValueCollection Form { get; }
+
+        bool IsQueryExists(string name);
 
         string GetQueryString(string name);
 
@@ -17,6 +24,8 @@ namespace SiteServer.Plugin
         decimal GetQueryDecimal(string name, decimal defaultValue = 0);
 
         bool GetQueryBool(string name, bool defaultValue = false);
+
+        bool IsPostExists(string name);
 
         string GetPostString(string name);
 
