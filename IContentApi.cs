@@ -1,10 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Data;
 
 namespace SiteServer.Plugin
 {
     public interface IContentApi
     {
         IContentInfo NewInstance();
+
+        IContentInfo Parse(object dataItem);
+
+        IContentInfo Parse(IDataReader rdr);
+
+        IContentInfo Parse(NameValueCollection attributes);
+
+        IContentInfo Parse(string str);
 
         IContentInfo GetContentInfo(int siteId, int channelId, int contentId);
 

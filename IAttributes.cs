@@ -15,9 +15,13 @@ namespace SiteServer.Plugin
 
         void Load(string str);
 
-        string GetString(string name, string defaultValue);
+        string Get(string name);
 
-        string GetString(string name);
+        void Set(string name, object value);
+
+        void Remove(string name);
+
+        string GetString(string name, string defaultValue = "");
 
         bool GetBool(string name, bool defaultValue = false);
 
@@ -26,10 +30,6 @@ namespace SiteServer.Plugin
         decimal GetDecimal(string name, decimal defaultValue = 0);
 
         DateTime GetDateTime(string name, DateTime defaultValue);
-
-        void Remove(string name);
-
-        void Set(string name, string value);
 
         bool ContainsKey(string name);
 
