@@ -12,6 +12,8 @@ namespace SiteServer.Plugin
 
         string GetTemporaryFilesPath(string relatedPath);
 
+        string GetSitePath(int siteId, string virtualPath);
+
         string GetSiteUrl(int siteId);
 
         string GetSiteUrl(int siteId, string relatedUrl);
@@ -25,5 +27,9 @@ namespace SiteServer.Plugin
         string GetRootUrl(string relatedUrl);
 
         string GetAdminDirectoryUrl(string relatedUrl);
+
+        void CreateZip(string zipFilePath, string directoryPath);
+
+        void ExtractZip(string zipFilePath, string directoryPath);
     }
 }
