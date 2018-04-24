@@ -764,13 +764,7 @@ namespace SiteServer.Plugin
 
         #region Utility Functions
 
-        int GetPageTotalCount(string tableName, string whereSqlString);
-
-        int GetPageTotalCount(string connectionString, string tableName, string whereSqlString);
-
         string GetPageSqlString(string tableName, string columnNames, string whereSqlString, string orderSqlString, int offset, int limit);
-
-        string GetPageSqlString(string connectionString, string tableName, string columnNames, string whereSqlString, string orderSqlString, int offset, int limit);
 
         string ToPlusSqlString(string fieldName, int plusNum);
 
