@@ -16,7 +16,7 @@ namespace SiteServer.Plugin
 
         string GetSiteUrl(int siteId);
 
-        string GetSiteUrl(int siteId, string relatedUrl);
+        string GetSiteUrl(int siteId, string virtualPath);
 
         string GetSiteUrlByFilePath(string filePath);
 
