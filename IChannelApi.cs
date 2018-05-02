@@ -16,6 +16,8 @@ namespace SiteServer.Plugin
 
         List<int> GetChannelIdList(int siteId, int parentId);
 
+        string GetTableName(int siteId, int channelId);
+
         int Insert(int siteId, IChannelInfo channelInfo);
 
         void Update(int siteId, IChannelInfo channelInfo);
