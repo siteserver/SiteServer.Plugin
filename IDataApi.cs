@@ -772,9 +772,11 @@ namespace SiteServer.Plugin
 
         string ToNowSqlString();
 
-        string ToDateSqlString(DateTime date);
+        string ToDateSqlString(DateTime val);
 
-        string ToDateTimeSqlString(DateTime dateTime);
+        string ToDateTimeSqlString(DateTime val);
+
+        string ToBooleanSqlString(bool val);
 
         string Encrypt(string inputString);
 

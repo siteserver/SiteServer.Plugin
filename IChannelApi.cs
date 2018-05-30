@@ -8,6 +8,8 @@ namespace SiteServer.Plugin
 
         IChannelInfo GetChannelInfo(int siteId, int channelId);
 
+        int GetChannelId(int siteId, string channelIndex);
+
         string GetChannelName(int siteId, int channelId);
 
         List<int> GetChannelIdList(int siteId, string adminName);

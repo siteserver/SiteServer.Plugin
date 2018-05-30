@@ -24,7 +24,9 @@ namespace SiteServer.Plugin
 
         Dictionary<string, string> StlAttributes { get; }
 
-        string StlInnerXml { get; }
+        string StlOuterHtml { get; }
+
+        string StlInnerHtml { get; }
 
         Dictionary<string, object> StlItems { get; }
 
