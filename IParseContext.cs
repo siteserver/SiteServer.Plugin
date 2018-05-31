@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace SiteServer.Plugin
 {
@@ -22,7 +23,7 @@ namespace SiteServer.Plugin
 
         SortedDictionary<string, string> StlPageFoot { get; }
 
-        Dictionary<string, string> StlAttributes { get; }
+        NameValueCollection StlAttributes { get; }
 
         string StlOuterHtml { get; }
 
@@ -30,6 +31,6 @@ namespace SiteServer.Plugin
 
         Dictionary<string, object> StlItems { get; }
 
-        bool IsStlEntity { get; }
+        bool IsStlElement { get; }
     }
 }
