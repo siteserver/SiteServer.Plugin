@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SiteServer.Plugin
 {
+    [JsonConverter(typeof(DataTypeConverter))]
     public class DataType : IEquatable<DataType>, IComparable<DataType>
     {
         public static readonly DataType Boolean = new DataType(nameof(Boolean));
@@ -12,7 +14,7 @@ namespace SiteServer.Plugin
         public static readonly DataType Text = new DataType(nameof(Text));
         public static readonly DataType VarChar = new DataType(nameof(VarChar));
 
-        private DataType(string value)
+        internal DataType(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -89,6 +91,25 @@ namespace SiteServer.Plugin
         public override string ToString()
         {
             return Value;
+        }
+    }
+
+    public class DataTypeConverter : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(DataType);
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            var dataType = value as DataType;
+            serializer.Serialize(writer, dataType != null ? dataType.Value : null);
+        }
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            return new DataType((string)reader.Value);
         }
     }
 }
