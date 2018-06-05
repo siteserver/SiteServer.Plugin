@@ -23,6 +23,12 @@
 
   skip_tags: true
 
+  cache:
+    - packages -> **\packages.config
+
+  before_build:
+    - nuget restore SiteServer.Plugin.sln
+
   build:
     project: SiteServer.Plugin.sln       # path to Visual Studio solution or project
     publish_nuget: true
@@ -60,6 +66,12 @@
     TreatWarningsAsErrors: false
 
   skip_tags: true
+
+  cache:
+    - packages -> **\packages.config
+
+  before_build:
+    - nuget restore SiteServer.Plugin.sln
 
   build:
     project: SiteServer.Plugin.sln       # path to Visual Studio solution or project
