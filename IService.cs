@@ -32,6 +32,8 @@ namespace SiteServer.Plugin
 
         IService AddStlElementParser(string elementName, Func<IParseContext, string> parse);
 
+        IService AddApiAuthorization();
+
         event ApiEventHandler ApiGet;
 
         event ApiEventHandler ApiPost;

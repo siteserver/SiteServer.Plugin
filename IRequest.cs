@@ -65,6 +65,8 @@ namespace SiteServer.Plugin
 
         string GetAdminNameByToken(string token);
 
+        bool IsApiAuthorized { get; }
+
         void SetCookie(string name, string value, DateTime expires);
 
         string GetCookie(string name);
