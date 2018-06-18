@@ -11,10 +11,6 @@ namespace SiteServer.Plugin
     {
         HttpRequest HttpRequest { get; }
 
-        NameValueCollection QueryString { get; }
-
-        NameValueCollection Form { get; }
-
         bool IsQueryExists(string name);
 
         string GetQueryString(string name);
@@ -43,7 +39,7 @@ namespace SiteServer.Plugin
 
         IUserInfo UserInfo { get; }
 
-        void UserLogin(string userName);
+        string UserLogin(string userName);
 
         void UserLogout();
 
@@ -53,7 +49,7 @@ namespace SiteServer.Plugin
 
         IAdministratorInfo AdminInfo { get; }
 
-        void AdminLogin(string administratorName);
+        string AdminLogin(string adminName);
 
         void AdminLogout();
 
@@ -61,7 +57,7 @@ namespace SiteServer.Plugin
 
         string GetUserNameByToken(string token);
 
-        string GetAdminTokenByAdminName(string administratorName);
+        string GetAdminTokenByAdminName(string adminName);
 
         string GetAdminNameByToken(string token);
 
