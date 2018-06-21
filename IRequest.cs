@@ -31,7 +31,7 @@ namespace SiteServer.Plugin
 
         bool GetPostBool(string name, bool defaultValue = false);
 
-        T GetPostObject<T>(string name);
+        T GetPostObject<T>(string name = "");
 
         bool IsUserLoggin { get; }
 
