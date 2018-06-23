@@ -55,6 +55,7 @@
     <Compile Include="DatabaseType.cs" />
     <Compile Include="ContentFormLoadEventArgs.cs" />
     <Compile Include="IApiCollection.cs" />
+    <Compile Include="IContentContext.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="IPluginApi.cs" />
     <Compile Include="TemplateType.cs" />

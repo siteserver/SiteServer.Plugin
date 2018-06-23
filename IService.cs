@@ -28,7 +28,12 @@ namespace SiteServer.Plugin
 
         IService AddDatabaseTable(string tableName, List<TableColumn> tableColumns);
 
+        [Obsolete]
         IService AddContentLink(HyperLink link);
+
+        IService AddContentMenu(Menu menu);
+
+        IService AddContentColumn(string columnName, Func<IContentContext, string> columnFunc);
 
         IService AddStlElementParser(string elementName, Func<IParseContext, string> parse);
 
