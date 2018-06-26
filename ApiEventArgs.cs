@@ -4,10 +4,10 @@ namespace SiteServer.Plugin
 {
     public class ApiEventArgs : EventArgs
     {
-        public ApiEventArgs(IRequest request, string name, string id, string action)
+        public ApiEventArgs(IRequest request, string resource, string id, string action)
         {
             Request = request;
-            RouteName = name;
+            RouteResource = resource;
             if (!string.IsNullOrEmpty(id))
             {
                 int routeId;
@@ -17,13 +17,13 @@ namespace SiteServer.Plugin
                 }
             }
             RouteAction = action;
-            Action = name;
+            Action = resource;
             Id = id;
         }
 
         public IRequest Request { get; }
 
-        public string RouteName { get; }
+        public string RouteResource { get; }
 
         public int RouteId { get; }
 
