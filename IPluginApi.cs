@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 
 namespace SiteServer.Plugin
 {
@@ -8,6 +9,9 @@ namespace SiteServer.Plugin
 
         string GetPluginUrl(string relatedUrl = "");
 
+        string PluginApiUrl { get; }
+
+        [Obsolete]
         string GetPluginApiUrl(string action = "", string id = "");
 
         T GetPlugin<T>(string pluginId) where T : PluginBase;

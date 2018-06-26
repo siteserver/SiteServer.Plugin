@@ -4,17 +4,35 @@ namespace SiteServer.Plugin
 {
     public class ApiEventArgs : EventArgs
     {
-        public ApiEventArgs(IRequest request, string action, string id)
+        public ApiEventArgs(IRequest request, string name, string id, string action)
         {
             Request = request;
-            Action = action;
+            RouteName = name;
+            if (!string.IsNullOrEmpty(id))
+            {
+                int routeId;
+                if (int.TryParse(id, out routeId))
+                {
+                    RouteId = routeId;
+                }
+            }
+            RouteAction = action;
+            Action = name;
             Id = id;
         }
 
-        public IRequest Request { get; private set; }
+        public IRequest Request { get; }
 
-        public string Action { get; private set; }
+        public string RouteName { get; }
 
-        public string Id { get; private set; }
+        public int RouteId { get; }
+
+        public string RouteAction { get; }
+
+        [Obsolete]
+        public string Action { get; }
+
+        [Obsolete]
+        public string Id { get; }
     }
 }
