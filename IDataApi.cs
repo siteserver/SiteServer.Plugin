@@ -281,6 +281,8 @@ namespace SiteServer.Plugin
 
         int ExecuteNonQueryAndReturnId(string tableName, string idColumnName, IDbTransaction transaction, string commandText, params IDataParameter[] commandParameters);
 
+        int ExecuteReturnId(string tableName, string idColumnName, IDbTransaction transaction);
+
         #endregion ExecuteNonQuery
 
         #region ExecuteReader
