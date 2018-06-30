@@ -4,6 +4,8 @@ namespace SiteServer.Plugin
 {
     public interface IAdministratorInfo
     {
+        int Id { get; set; }
+
         string UserName { get; set; }
 
         DateTime CreationDate { get; set; }
