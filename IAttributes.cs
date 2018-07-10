@@ -15,7 +15,7 @@ namespace SiteServer.Plugin
 
         void Load(string str);
 
-        string Get(string name);
+        object Get(string name);
 
         void Set(string name, object value);
 
@@ -37,6 +37,6 @@ namespace SiteServer.Plugin
 
         string ToString(List<string> lowerCaseExcludeAttributeNames);
 
-        NameValueCollection ToNameValueCollection();
+        Dictionary<string, object> ToDictionary();
     }
 }
