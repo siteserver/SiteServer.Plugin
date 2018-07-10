@@ -7,13 +7,17 @@ namespace SiteServer.Plugin
 {
     public interface IAttributes
     {
-        void Load(object dataItem);
+        void Load(DataRow row);
 
-        void Load(IDataReader rdr);
+        void Load(IDataReader reader);
+
+        void Load(IDataRecord record);
 
         void Load(NameValueCollection attributes);
 
-        void Load(string str);
+        void Load(Dictionary<string, object> dict);
+
+        void Load(string json);
 
         object Get(string name);
 
