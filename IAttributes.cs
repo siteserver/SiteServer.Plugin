@@ -7,6 +7,8 @@ namespace SiteServer.Plugin
 {
     public interface IAttributes
     {
+        void Load(DataRowView view);
+
         void Load(DataRow row);
 
         void Load(IDataReader reader);
@@ -37,9 +39,11 @@ namespace SiteServer.Plugin
 
         bool ContainsKey(string name);
 
+        int Count { get; }
+
         string ToString();
 
-        string ToString(List<string> lowerCaseExcludeAttributeNames);
+        string ToString(List<string> excludeAttributeNames);
 
         Dictionary<string, object> ToDictionary();
     }
