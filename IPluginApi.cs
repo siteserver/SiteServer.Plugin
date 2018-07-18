@@ -1,8 +1,10 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 插件相关API
+    /// </summary>
     public interface IPluginApi
     {
         string GetPluginPath(string relatedPath = "");
