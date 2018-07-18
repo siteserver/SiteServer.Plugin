@@ -2,9 +2,22 @@
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 为内容转移事件提供数据
+    /// </summary>
     public class ContentTranslateEventArgs : EventArgs
     {
-        public ContentTranslateEventArgs(int siteId, int channelId, int contentId, int targetSiteId, int targetChannelId, int targetContentId)
+        /// <summary>
+        /// 初始化 <see cref="T:SiteServer.Plugin.ContentTranslateEventArgs" /> 类的新实例。
+        /// </summary>
+        /// <param name="siteId">原始内容的站点Id。</param>
+        /// <param name="channelId">原始内容的栏目Id。</param>
+        /// <param name="contentId">原始内容的Id。</param>
+        /// <param name="targetSiteId">转移后内容的站点Id。</param>
+        /// <param name="targetChannelId">转移后内容的栏目Id。</param>
+        /// <param name="targetContentId">转移后内容的Id。</param>
+        internal ContentTranslateEventArgs(int siteId, int channelId, int contentId, int targetSiteId,
+            int targetChannelId, int targetContentId)
         {
             SiteId = siteId;
             ChannelId = channelId;
@@ -14,16 +27,34 @@ namespace SiteServer.Plugin
             TargetContentId = targetContentId;
         }
 
-        public int SiteId { get; private set; }
+        /// <summary>
+        /// 原始内容的站点Id。
+        /// </summary>
+        public int SiteId { get; }
 
-        public int ChannelId { get; private set; }
+        /// <summary>
+        /// 原始内容的栏目Id。
+        /// </summary>
+        public int ChannelId { get; }
 
-        public int ContentId { get; private set; }
+        /// <summary>
+        /// 原始内容的Id。
+        /// </summary>
+        public int ContentId { get; }
 
-        public int TargetSiteId { get; private set; }
+        /// <summary>
+        /// 转移后内容的站点Id。
+        /// </summary>
+        public int TargetSiteId { get; }
 
-        public int TargetChannelId { get; private set; }
+        /// <summary>
+        /// 转移后内容的栏目Id。
+        /// </summary>
+        public int TargetChannelId { get; }
 
-        public int TargetContentId { get; private set; }
+        /// <summary>
+        /// 转移后内容的Id。
+        /// </summary>
+        public int TargetContentId { get; }
     }
 }

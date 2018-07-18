@@ -3,11 +3,29 @@ using System.Collections.Generic;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 系统支持的数据库类型
+    /// </summary>
     public class DatabaseType : IEquatable<DatabaseType>, IComparable<DatabaseType>
     {
+        /// <summary>
+        /// MySql 数据库
+        /// </summary>
         public static readonly DatabaseType MySql = new DatabaseType(nameof(MySql));
+
+        /// <summary>
+        /// SqlServer 数据库
+        /// </summary>
         public static readonly DatabaseType SqlServer = new DatabaseType(nameof(SqlServer));
+
+        /// <summary>
+        /// PostgreSql 数据库
+        /// </summary>
         public static readonly DatabaseType PostgreSql = new DatabaseType(nameof(PostgreSql));
+
+        /// <summary>
+        /// Oracle 数据库
+        /// </summary>
         public static readonly DatabaseType Oracle = new DatabaseType(nameof(Oracle));
 
         private DatabaseType(string value)
@@ -34,7 +52,7 @@ namespace SiteServer.Plugin
                 return true;
             }
 
-            if ((object)a == null || (object)b == null)
+            if ((object) a == null || (object) b == null)
             {
                 return false;
             }
@@ -65,7 +83,6 @@ namespace SiteServer.Plugin
 
         public int CompareTo(DatabaseType other)
         {
-
             if (other == null)
             {
                 return 1;

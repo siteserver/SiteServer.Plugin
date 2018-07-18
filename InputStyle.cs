@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web.UI.WebControls;
 
 namespace SiteServer.Plugin
 {
@@ -11,7 +10,7 @@ namespace SiteServer.Plugin
 
         public string HelpText { get; set; }
 
-        public List<ListItem> ListItems { get; set; }
+        public List<InputListItem> ListItems { get; set; }
 
         public string DefaultValue { get; set; }
 

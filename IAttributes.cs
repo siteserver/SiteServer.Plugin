@@ -5,6 +5,9 @@ using System.Data;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 可扩展属性的对象接口
+    /// </summary>
     public interface IAttributes
     {
         void Load(DataRowView view);

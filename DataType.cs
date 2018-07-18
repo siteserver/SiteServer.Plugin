@@ -4,14 +4,40 @@ using Newtonsoft.Json;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 系统支持的数据库数据类型
+    /// </summary>
     [JsonConverter(typeof(DataTypeConverter))]
     public class DataType : IEquatable<DataType>, IComparable<DataType>
     {
+        /// <summary>
+        /// 布尔值数据类型
+        /// </summary>
         public static readonly DataType Boolean = new DataType(nameof(Boolean));
+
+        /// <summary>
+        /// 日期数据类型
+        /// </summary>
         public static readonly DataType DateTime = new DataType(nameof(DateTime));
+
+        /// <summary>
+        /// 小数数据类型
+        /// </summary>
         public static readonly DataType Decimal = new DataType(nameof(Decimal));
+
+        /// <summary>
+        /// 整数数据类型
+        /// </summary>
         public static readonly DataType Integer = new DataType(nameof(Integer));
+
+        /// <summary>
+        /// 长文本数据类型
+        /// </summary>
         public static readonly DataType Text = new DataType(nameof(Text));
+
+        /// <summary>
+        /// 字符串数据类型
+        /// </summary>
         public static readonly DataType VarChar = new DataType(nameof(VarChar));
 
         internal DataType(string value)
@@ -38,7 +64,7 @@ namespace SiteServer.Plugin
                 return true;
             }
 
-            if ((object)a == null || (object)b == null)
+            if ((object) a == null || (object) b == null)
             {
                 return false;
             }
@@ -69,7 +95,6 @@ namespace SiteServer.Plugin
 
         public int CompareTo(DataType other)
         {
-
             if (other == null)
             {
                 return 1;
@@ -107,9 +132,10 @@ namespace SiteServer.Plugin
             serializer.Serialize(writer, dataType != null ? dataType.Value : null);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
-            return new DataType((string)reader.Value);
+            return new DataType((string) reader.Value);
         }
     }
 }

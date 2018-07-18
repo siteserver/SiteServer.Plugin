@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.UI.WebControls;
 
 namespace SiteServer.Plugin
 {
@@ -28,9 +27,6 @@ namespace SiteServer.Plugin
 
         IService AddDatabaseTable(string tableName, List<TableColumn> tableColumns);
 
-        [Obsolete]
-        IService AddContentLink(HyperLink link);
-
         IService AddContentMenu(Menu menu);
 
         IService AddContentColumn(string columnName, Func<IContentContext, string> columnFunc);
@@ -38,6 +34,8 @@ namespace SiteServer.Plugin
         IService AddStlElementParser(string elementName, Func<IParseContext, string> parse);
 
         IService AddApiAuthorization();
+
+        IService AddJob(string command, IJob job);
 
         event ApiEventHandler ApiGet;
 

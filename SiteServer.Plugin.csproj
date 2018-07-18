@@ -26,6 +26,8 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -56,6 +58,9 @@
     <Compile Include="ContentFormLoadEventArgs.cs" />
     <Compile Include="IApiCollection.cs" />
     <Compile Include="IContentContext.cs" />
+    <Compile Include="IJob.cs" />
+    <Compile Include="IJobExecutionContext.cs" />
+    <Compile Include="InputListItem.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="IPluginApi.cs" />
     <Compile Include="TemplateType.cs" />
@@ -91,9 +96,6 @@
     <Compile Include="Menu.cs" />
     <Compile Include="TableColumn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
     <None Include="appveyor.yml" />

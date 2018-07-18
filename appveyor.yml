@@ -4,7 +4,7 @@
     only:
       - master
 
-  version: 1.7.{build}
+  version: 1.8.{build}
 
   assembly_info:
     patch: true
@@ -48,7 +48,7 @@
     only:
       - dev
 
-  version: 1.7.{build}-beta
+  version: 1.8.{build}-beta
 
   assembly_info:
     patch: true

@@ -2,22 +2,53 @@
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 为内容编辑（新增）页面的提交事件提供数据。
+    /// </summary>
     public class ContentFormSubmitEventArgs : EventArgs
     {
-        public ContentFormSubmitEventArgs(int siteId, int channelId, IContentInfo contentInfo, IAttributes form)
+        /// <summary>
+        /// 初始化 <see cref="T:SiteServer.Plugin.ContentFormSubmitEventArgs" /> 类的新实例。
+        /// </summary>
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="channelId">栏目Id。</param>
+        /// <param name="contentId">内容Id。</param>
+        /// <param name="form">表单数据。</param>
+        /// <param name="contentInfo">内容对象。</param>
+        internal ContentFormSubmitEventArgs(int siteId, int channelId, int contentId, IAttributes form,
+            IContentInfo contentInfo)
         {
             SiteId = siteId;
             ChannelId = channelId;
-            ContentInfo = contentInfo;
+            ContentId = contentId;
             Form = form;
+            ContentInfo = contentInfo;
         }
 
-        public int SiteId { get; private set; }
+        /// <summary>
+        /// 站点Id。
+        /// </summary>
+        public int SiteId { get; }
 
-        public int ChannelId { get; private set; }
+        /// <summary>
+        /// 栏目Id。
+        /// </summary>
+        public int ChannelId { get; }
 
-        public IContentInfo ContentInfo { get; private set; }
+        /// <summary>
+        /// 内容Id。
+        /// 如果内容Id为0，则表示当前载入的页面为内容添加页面，否则当前载入的页面为内容编辑页面。
+        /// </summary>
+        public int ContentId { get; }
 
-        public IAttributes Form { get; private set; }
+        /// <summary>
+        /// 表单数据。
+        /// </summary>
+        public IAttributes Form { get; }
+
+        /// <summary>
+        /// 即将保存至数据库的内容对象，可以从表单数据 <see cref="T:SiteServer.Plugin.IAttributes" /> 中获取属性值并设置到内容对象中。
+        /// </summary>
+        public IContentInfo ContentInfo { get; }
     }
 }

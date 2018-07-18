@@ -11,9 +11,6 @@ namespace SiteServer.Plugin
 
         string PluginApiUrl { get; }
 
-        [Obsolete]
-        string GetPluginApiUrl(string action = "", string id = "");
-
         T GetPlugin<T>(string pluginId) where T : PluginBase;
 
         IRequest AuthRequest(HttpRequest httpRequest);
