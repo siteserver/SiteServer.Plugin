@@ -1,6 +1,4 @@
-﻿using System.Web;
-
-namespace SiteServer.Plugin
+﻿namespace SiteServer.Plugin
 {
     /// <summary>
     /// 插件Api接口。
@@ -33,12 +31,5 @@ namespace SiteServer.Plugin
         /// <param name="pluginId">插件Id。</param>
         /// <returns>插件实例。</returns>
         T GetPlugin<T>(string pluginId) where T : PluginBase;
-
-        /// <summary>
-        /// 获取插件Url访问请求IRequest。
-        /// </summary>
-        /// <param name="httpRequest">有效的HttpRequest。</param>
-        /// <returns>插件Url访问请求IRequest</returns>
-        IRequest AuthRequest(HttpRequest httpRequest);
     }
 }

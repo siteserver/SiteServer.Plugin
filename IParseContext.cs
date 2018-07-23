@@ -39,11 +39,6 @@ namespace SiteServer.Plugin
         int TemplateId { get; }
 
         /// <summary>
-        /// 生成页面的绝对路径。
-        /// </summary>
-        string FilePath { get; }
-
-        /// <summary>
         /// 生成的Html页面中包含在head标签内的代码。
         /// </summary>
         SortedDictionary<string, string> HeadCodes { get; }

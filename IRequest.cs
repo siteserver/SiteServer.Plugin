@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web;
 
 namespace SiteServer.Plugin
 {
@@ -8,11 +7,6 @@ namespace SiteServer.Plugin
     /// </summary>
     public interface IRequest
     {
-        /// <summary>
-        /// 原始HttpRequest请求。
-        /// </summary>
-        HttpRequest HttpRequest { get; }
-
         /// <summary>
         /// 访问地址是否包含指定的查询字符串。
         /// </summary>

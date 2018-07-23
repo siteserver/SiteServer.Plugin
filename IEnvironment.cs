@@ -24,5 +24,11 @@
         /// 网站根目录文件夹地址。
         /// </summary>
         string PhysicalApplicationPath { get; }
+
+        /// <summary>
+        /// 获取插件Url访问请求IRequest。
+        /// 当存在对插件的HTTP访问请求时（REST Api访问、aspx页面访问等），返回IRequest实例；否则返回 null。
+        /// </summary>
+        IRequest Request { get; }
     }
 }

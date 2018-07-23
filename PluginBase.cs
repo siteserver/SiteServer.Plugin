@@ -30,6 +30,7 @@ namespace SiteServer.Plugin
             ConnectionString = environment.ConnectionString;
             AdminDirectory = environment.AdminDirectory;
             PhysicalApplicationPath = environment.PhysicalApplicationPath;
+            Request = environment.Request;
 
             AdminApi = apiCollection.AdminApi;
             ConfigApi = apiCollection.ConfigApi;
@@ -105,6 +106,9 @@ namespace SiteServer.Plugin
 
         /// <inheritdoc />
         public string PhysicalApplicationPath { get; private set; }
+
+        /// <inheritdoc />
+        public IRequest Request { get; private set; }
 
         /// <inheritdoc />
         public IAdminApi AdminApi { get; private set; }
