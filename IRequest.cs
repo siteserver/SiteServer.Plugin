@@ -38,7 +38,7 @@ namespace SiteServer.Plugin
 
         IUserInfo UserInfo { get; }
 
-        string UserLogin(string userName);
+        string UserLogin(string userName, bool isAutoLogin);
 
         void UserLogout();
 
@@ -48,7 +48,7 @@ namespace SiteServer.Plugin
 
         IAdministratorInfo AdminInfo { get; }
 
-        string AdminLogin(string adminName);
+        string AdminLogin(string adminName, bool isAutoLogin);
 
         void AdminLogout();
 
