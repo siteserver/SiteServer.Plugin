@@ -71,7 +71,6 @@
     <Compile Include="IConfigApi.cs" />
     <Compile Include="IDatabaseApi.cs" />
     <Compile Include="IChannelApi.cs" />
-    <Compile Include="IFilesApi.cs" />
     <Compile Include="IContentApi.cs" />
     <Compile Include="ISiteApi.cs" />
     <Compile Include="ContentFormSubmitEventArgs.cs" />

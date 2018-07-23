@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 插件父类，所有插件必须继承此类并实现Startup方法。
+    /// </summary>
     public abstract class PluginBase : IMetadata, IEnvironment, IApiCollection
     {
-        public void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
+        internal void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
             Id = metadata.Id;
             Version = metadata.Version;
@@ -32,7 +35,6 @@ namespace SiteServer.Plugin
             ConfigApi = apiCollection.ConfigApi;
             ContentApi = apiCollection.ContentApi;
             DatabaseApi = apiCollection.DatabaseApi;
-            FilesApi = apiCollection.FilesApi;
             ChannelApi = apiCollection.ChannelApi;
             ParseApi = apiCollection.ParseApi;
             PluginApi = apiCollection.PluginApi;
@@ -41,39 +43,97 @@ namespace SiteServer.Plugin
             UtilsApi = apiCollection.UtilsApi;
         }
 
+        /// <summary>
+        /// Startup方法是插件机制的核心，用于定义插件能够提供的各种服务。
+        /// </summary>
+        /// <param name="service">插件服务注册接口。</param>
         public abstract void Startup(IService service);
 
+        /// <inheritdoc />
         public string Id { get; private set; }
+
+        /// <inheritdoc />
         public string Version { get; private set; }
+
+        /// <inheritdoc />
         public Uri IconUrl { get; private set; }
+
+        /// <inheritdoc />
         public Uri ProjectUrl { get; private set; }
+
+        /// <inheritdoc />
         public Uri LicenseUrl { get; private set; }
+
+        /// <inheritdoc />
         public string Copyright { get; private set; }
+
+        /// <inheritdoc />
         public string Description { get; private set; }
+
+        /// <inheritdoc />
         public string ReleaseNotes { get; private set; }
+
+        /// <inheritdoc />
         public bool RequireLicenseAcceptance { get; private set; }
+
+        /// <inheritdoc />
         public string Summary { get; private set; }
+
+        /// <inheritdoc />
         public string Title { get; private set; }
+
+        /// <inheritdoc />
         public string Tags { get; private set; }
+
+        /// <inheritdoc />
         public List<string> Authors { get; private set; }
+
+        /// <inheritdoc />
         public string Owners { get; private set; }
+
+        /// <inheritdoc />
         public string Language { get; private set; }
 
+        /// <inheritdoc />
         public DatabaseType DatabaseType { get; private set; }
+
+        /// <inheritdoc />
         public string ConnectionString { get; private set; }
+
+        /// <inheritdoc />
         public string AdminDirectory { get; private set; }
+
+        /// <inheritdoc />
         public string PhysicalApplicationPath { get; private set; }
 
+        /// <inheritdoc />
         public IAdminApi AdminApi { get; private set; }
+
+        /// <inheritdoc />
         public IConfigApi ConfigApi { get; private set; }
+
+        /// <inheritdoc />
         public IContentApi ContentApi { get; private set; }
+
+        /// <inheritdoc />
         public IDatabaseApi DatabaseApi { get; private set; }
-        public IFilesApi FilesApi { get; private set; }
+
+        /// <inheritdoc />
         public IChannelApi ChannelApi { get; private set; }
+
+        /// <inheritdoc />
         public IParseApi ParseApi { get; private set; }
+
+        /// <inheritdoc />
         public IPluginApi PluginApi { get; private set; }
+
+        /// <inheritdoc />
         public ISiteApi SiteApi { get; private set; }
+
+        /// <inheritdoc />
         public IUserApi UserApi { get; private set; }
+
+        /// <inheritdoc />
         public IUtilsApi UtilsApi { get; private set; }
     }
 }

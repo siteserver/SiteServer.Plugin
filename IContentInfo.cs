@@ -10,7 +10,7 @@ namespace SiteServer.Plugin
     public interface IContentInfo : IAttributes
     {
         /// <summary>
-        /// 自增长主键。
+        /// 内容Id。
         /// </summary>
         int Id { get; set; }
 

@@ -4,53 +4,138 @@ using System.Threading.Tasks;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 插件服务注册接口。
+    /// 插件服务注册接口是插件机制的核心，用于定义插件能够提供的各种服务，一个方法对应一个事件或者一个功能。
+    /// </summary>
     public interface IService
     {
+        /// <summary>
+        /// 内容添加完成后的触发事件。
+        /// </summary>
         event EventHandler<ContentEventArgs> ContentAddCompleted;
 
+        /// <summary>
+        /// 内容删除完成后的触发事件。
+        /// </summary>
         event EventHandler<ContentEventArgs> ContentDeleteCompleted;
 
+        /// <summary>
+        /// 内容转移完成后的触发事件。
+        /// </summary>
         event EventHandler<ContentTranslateEventArgs> ContentTranslateCompleted;
 
+        /// <summary>
+        /// 内容表单提交时的触发事件。
+        /// </summary>
         event EventHandler<ContentFormSubmitEventArgs> ContentFormSubmit;
 
+        /// <summary>
+        /// 内容表单载入时的触发事件。
+        /// </summary>
         event ContentFormLoadEventHandler ContentFormLoad;
 
+        /// <summary>
+        /// STL解析前的触发事件。
+        /// </summary>
         event EventHandler<ParseEventArgs> BeforeStlParse;
 
+        /// <summary>
+        /// STL解析后的触发事件。
+        /// </summary>
         event EventHandler<ParseEventArgs> AfterStlParse;
 
-        IService AddPluginMenu(Menu menu);
+        /// <summary>
+        /// 以GET方式对当前插件的REST Api访问的触发事件。
+        /// </summary>
+        event ApiEventHandler ApiGet;
 
+        /// <summary>
+        /// 以POST方式对当前插件的REST Api访问的触发事件。
+        /// </summary>
+        event ApiEventHandler ApiPost;
+
+        /// <summary>
+        /// 以PUT方式对当前插件的REST Api访问的触发事件。
+        /// </summary>
+        event ApiEventHandler ApiPut;
+
+        /// <summary>
+        /// 以DELETE方式对当前插件的REST Api访问的触发事件。
+        /// </summary>
+        event ApiEventHandler ApiDelete;
+
+        /// <summary>
+        /// 添加系统菜单。
+        /// 系统菜单位于系统头部的插件管理下拉菜单中。
+        /// </summary>
+        /// <param name="menu">插件菜单。</param>
+        /// <returns>返回插件服务注册实例。</returns>
+        IService AddSystemMenu(Menu menu);
+
+        /// <summary>
+        /// 添加站点菜单。
+        /// 站点菜单位于系统左侧的插件管理菜单中。
+        /// 此菜单的Url地址将自动加上对应的站点Id。
+        /// </summary>
+        /// <param name="siteMenuFunc">插件菜单生成方法，可以根据第一个参数siteId（站点Id）计算并返回菜单。</param>
+        /// <returns>返回插件服务注册实例。</returns>
         IService AddSiteMenu(Func<int, Menu> siteMenuFunc);
 
-        IService AddContentModel(string tableName, List<TableColumn> tableColumns);
-
-        IService AddDatabaseTable(string tableName, List<TableColumn> tableColumns);
-
+        /// <summary>
+        /// 添加内容菜单。
+        /// 内容菜单位于内容管理的内容列表中。
+        /// </summary>
+        /// <param name="menu">插件菜单。</param>
+        /// <returns>返回插件服务注册实例。</returns>
         IService AddContentMenu(Menu menu);
 
+        /// <summary>
+        /// 添加插件的内容模型，包含内容存储的表名称以及内容表的字段列表。
+        /// </summary>
+        /// <param name="tableName">内容表名称。</param>
+        /// <param name="tableColumns">内容表字段列表。</param>
+        /// <returns>返回插件服务注册实例。</returns>
+        IService AddContentModel(string tableName, List<TableColumn> tableColumns);
+
+        /// <summary>
+        /// 添加插件的数据库表，包含表名称以及表字段列表。
+        /// 此方法可以多次调用，系统将为此插件创建指定的数据库表结构。
+        /// </summary>
+        /// <param name="tableName">表名称。</param>
+        /// <param name="tableColumns">表字段列表。</param>
+        /// <returns>返回插件服务注册实例。</returns>
+        IService AddDatabaseTable(string tableName, List<TableColumn> tableColumns);
+
+        /// <summary>
+        /// 添加插件的内容列表显示项。
+        /// </summary>
+        /// <param name="columnName">内容列表显示项名称。</param>
+        /// <param name="columnFunc">插件内容列表显示项生成方法，可以根据第一个参数IContentContext（内容上下文）计算并返回显示项的值。</param>
+        /// <returns>返回插件服务注册实例。</returns>
         IService AddContentColumn(string columnName, Func<IContentContext, string> columnFunc);
 
+        /// <summary>
+        /// 添加STL元素解析器。
+        /// </summary>
+        /// <param name="elementName">STL元素名称。</param>
+        /// <param name="parse">STL元素解析方法，可以根据第一个参数IParseContext（STL解析上下文）计算并返回解析后的Html。</param>
+        /// <returns>返回插件服务注册实例。</returns>
         IService AddStlElementParser(string elementName, Func<IParseContext, string> parse);
 
+        /// <summary>
+        /// 添加REST Api插件授权。
+        /// </summary>
+        /// <returns>返回插件服务注册实例。</returns>
         IService AddApiAuthorization();
 
         /// <summary>
         /// 添加SiteServer Cli命令行可以执行的任务。
         /// 实现此方法的插件将能够在SiteServer Cli命令行中运行任务。
         /// </summary>
-        /// <param name="command"></param>
-        /// <param name="job"></param>
-        /// <returns></returns>
+        /// <param name="command">命令行命令。</param>
+        /// <param name="job">可以执行的任务，可以根据第一个参数IJobContext（任务执行上下文）执行任务。</param>
+        /// <returns>返回插件服务注册实例。</returns>
         IService AddJob(string command, Func<IJobContext, Task> job);
-
-        event ApiEventHandler ApiGet;
-
-        event ApiEventHandler ApiPost;
-
-        event ApiEventHandler ApiPut;
-
-        event ApiEventHandler ApiDelete;
     }
 }

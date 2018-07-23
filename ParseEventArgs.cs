@@ -4,13 +4,20 @@ using System.Text;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 为STL解析事件提供数据。
+    /// </summary>
     public class ParseEventArgs : EventArgs
     {
-        public ParseEventArgs(int siteId, int channelId, int contentId, TemplateType templateType, int templateId, string filePath, SortedDictionary<string, string> headCodes, SortedDictionary<string, string> bodyCodes, SortedDictionary<string, string> footCodes, StringBuilder contentBuilder)
+        internal ParseEventArgs(int siteId, int channelId, int contentId, IContentInfo contentInfo,
+            TemplateType templateType, int templateId, string filePath, SortedDictionary<string, string> headCodes,
+            SortedDictionary<string, string> bodyCodes, SortedDictionary<string, string> footCodes,
+            StringBuilder contentBuilder)
         {
             SiteId = siteId;
             ChannelId = channelId;
             ContentId = contentId;
+            ContentInfo = contentInfo;
             TemplateType = templateType;
             TemplateId = templateId;
             FilePath = filePath;
@@ -20,24 +27,59 @@ namespace SiteServer.Plugin
             ContentBuilder = contentBuilder;
         }
 
-        public int SiteId { get; private set; }
+        /// <summary>
+        /// 站点Id。
+        /// </summary>
+        public int SiteId { get; }
 
-        public int ChannelId { get; private set; }
+        /// <summary>
+        /// 栏目Id。
+        /// </summary>
+        public int ChannelId { get; }
 
-        public int ContentId { get; private set; }
+        /// <summary>
+        /// 内容Id。
+        /// </summary>
+        public int ContentId { get; }
 
-        public TemplateType TemplateType { get; private set; }
+        /// <summary>
+        /// 内容实体。
+        /// </summary>
+        IContentInfo ContentInfo { get; }
 
-        public int TemplateId { get; private set; }
+        /// <summary>
+        /// 模板类型。
+        /// </summary>
+        public TemplateType TemplateType { get; }
 
-        public string FilePath { get; private set; }
+        /// <summary>
+        /// 模板Id。
+        /// </summary>
+        public int TemplateId { get; }
 
-        public SortedDictionary<string, string> HeadCodes { get; private set; }
+        /// <summary>
+        /// 生成页面的绝对路径。
+        /// </summary>
+        public string FilePath { get; }
 
-        public SortedDictionary<string, string> BodyCodes { get; private set; }
+        /// <summary>
+        /// 生成的Html页面中包含在head标签内的代码。
+        /// </summary>
+        public SortedDictionary<string, string> HeadCodes { get; }
 
-        public SortedDictionary<string, string> FootCodes { get; private set; }
+        /// <summary>
+        /// 生成的Html页面中包含在body标签内的代码。
+        /// </summary>
+        public SortedDictionary<string, string> BodyCodes { get; }
 
-        public StringBuilder ContentBuilder { get; private set; }
+        /// <summary>
+        /// 生成的Html页面中包含在页面最底部的代码。
+        /// </summary>
+        public SortedDictionary<string, string> FootCodes { get; }
+
+        /// <summary>
+        /// 生成的Html页面代码。
+        /// </summary>
+        public StringBuilder ContentBuilder { get; }
     }
 }

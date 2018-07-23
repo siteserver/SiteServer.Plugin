@@ -60,28 +60,84 @@ namespace SiteServer.Plugin
         /// </returns>
         IUserInfo GetUserInfoByAccount(string account);
 
+        /// <summary>
+        /// 判断用户名是否存在。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <returns>如果用户名存在，则返回 true，否则返回 false。</returns>
         bool IsUserNameExists(string userName);
 
+        /// <summary>
+        /// 判断用户邮箱是否存在。
+        /// </summary>
+        /// <param name="email">用户邮箱。</param>
+        /// <returns>如果用户邮箱存在，则返回 true，否则返回 false。</returns>
         bool IsEmailExists(string email);
 
+        /// <summary>
+        /// 判断用户手机是否存在。
+        /// </summary>
+        /// <param name="mobile">用户手机。</param>
+        /// <returns>如果用户手机存在，则返回 true，否则返回 false。</returns>
         bool IsMobileExists(string mobile);
 
+        /// <summary>
+        /// 新增用户。
+        /// </summary>
+        /// <param name="userInfo">用户对象实例。</param>
+        /// <param name="password">用户登录密码。</param>
+        /// <param name="errorMessage">如果新增失败用户，返回失败原因。</param>
+        /// <returns>如果新增用户成功，则返回 true，否则返回 false。</returns>
         bool Insert(IUserInfo userInfo, string password, out string errorMessage);
 
+        /// <summary>
+        /// 验证用户登录。
+        /// </summary>
+        /// <param name="account">用户账号（用户名、用户邮箱或者用户手机均可）。</param>
+        /// <param name="password">用户密码。</param>
+        /// <param name="userName">如果验证成功，返回用户的用户名。</param>
+        /// <param name="errorMessage">如果验证失败，返回失败原因。</param>
+        /// <returns>如果用户验证成功，则返回 true，否则返回 false。</returns>
         bool Validate(string account, string password, out string userName, out string errorMessage);
 
-        void UpdateLastActivityDateAndCountOfFailedLogin(string userName);
-
-        void UpdateLastActivityDateAndCountOfLogin(string userName);
-
+        /// <summary>
+        /// 修改用户登录密码。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <param name="password">新密码。</param>
+        /// <param name="errorMessage">如果修改用户密码失败，返回失败原因。</param>
+        /// <returns>如果密码修改成功，则返回 true，否则返回 false。</returns>
         bool ChangePassword(string userName, string password, out string errorMessage);
 
+        /// <summary>
+        /// 修改用户属性。
+        /// </summary>
+        /// <param name="userInfo">用户对象实例。</param>
         void Update(IUserInfo userInfo);
 
+        /// <summary>
+        /// 判断用户密码是否符合规则。
+        /// </summary>
+        /// <param name="password">用户密码。</param>
+        /// <param name="errorMessage">如果用户密码不符合规则，返回原因。</param>
+        /// <returns>如果密码符合规则，则返回 true，否则返回 false。</returns>
         bool IsPasswordCorrect(string password, out string errorMessage);
 
+        /// <summary>
+        /// 添加用户日志。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <param name="action">动作。</param>
+        /// <param name="summary">描述。</param>
         void AddLog(string userName, string action, string summary);
 
+        /// <summary>
+        /// 获取用户日志列表。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <param name="totalNum">需要获取的日志总数。</param>
+        /// <param name="action">动作，可以为空。</param>
+        /// <returns>返回用户日志列表。</returns>
         List<ILogInfo> GetLogs(string userName, int totalNum, string action = "");
     }
 }

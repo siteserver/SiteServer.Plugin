@@ -26,11 +26,6 @@
         IDatabaseApi DatabaseApi { get; }
 
         /// <summary>
-        /// 文件及路径Api接口。
-        /// </summary>
-        IFilesApi FilesApi { get; }
-
-        /// <summary>
         /// 栏目Api接口。
         /// </summary>
         IChannelApi ChannelApi { get; }

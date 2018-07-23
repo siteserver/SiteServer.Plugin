@@ -3,8 +3,7 @@
 namespace SiteServer.Plugin
 {
     /// <summary>
-    /// 插件日志实体接口。
-    /// 对应数据库中的siteserver_Log表。
+    /// 日志实体接口。
     /// </summary>
     public interface ILogInfo
     {
@@ -14,7 +13,7 @@ namespace SiteServer.Plugin
         int Id { get; set; }
 
         /// <summary>
-        /// 管理员账号。
+        /// 用户名。
         /// </summary>
         string UserName { get; set; }
 

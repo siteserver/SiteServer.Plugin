@@ -128,5 +128,14 @@ namespace SiteServer.Plugin
         /// <param name="channelId">栏目Id。</param>
         /// <param name="contentId">需要删除的内容Id。</param>
         void Delete(int siteId, int channelId, int contentId);
+
+        /// <summary>
+        /// 获取内容Url访问地址。
+        /// </summary>
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="channelId">栏目Id。</param>
+        /// <param name="contentId">内容Id。</param>
+        /// <returns>内容Url访问地址。</returns>
+        string GetContentUrl(int siteId, int channelId, int contentId);
     }
 }

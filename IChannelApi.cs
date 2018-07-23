@@ -52,7 +52,7 @@ namespace SiteServer.Plugin
         /// <returns>
         /// 如果管理员存在并拥有此站点的栏目管理权限，则返回对应的栏目Id列表；否则返回 null。
         /// </returns>
-        List<int> GetChannelIdList(int siteId, string adminName);
+        List<int> GetChannelIdListByAdminName(int siteId, string adminName);
 
         /// <summary>
         /// 通过站点Id获取此站点下的所有栏目Id的列表。
@@ -96,5 +96,13 @@ namespace SiteServer.Plugin
         /// <param name="siteId">站点Id。</param>
         /// <param name="channelId">需要删除的栏目Id。</param>
         void Delete(int siteId, int channelId);
+
+        /// <summary>
+        /// 获取栏目Url访问地址。
+        /// </summary>
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="channelId">栏目Id。</param>
+        /// <returns>栏目Url访问地址。</returns>
+        string GetChannelUrl(int siteId, int channelId);
     }
 }

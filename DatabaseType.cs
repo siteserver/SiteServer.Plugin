@@ -38,13 +38,23 @@ namespace SiteServer.Plugin
             Value = value;
         }
 
+        /// <summary>
+        /// 数据库类型的值。
+        /// </summary>
         public string Value { get; }
 
+        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             return Equals(obj as DatabaseType);
         }
 
+        /// <summary>
+        /// 比较两个数据库类型是否一致。
+        /// </summary>
+        /// <param name="a">需要比较的数据库类型。</param>
+        /// <param name="b">需要比较的数据库类型。</param>
+        /// <returns>如果一致，则为true；否则为false。</returns>
         public static bool operator ==(DatabaseType a, DatabaseType b)
         {
             if (ReferenceEquals(a, b))
@@ -60,11 +70,22 @@ namespace SiteServer.Plugin
             return a.Equals(b);
         }
 
+        /// <summary>
+        /// 比较两个数据库类型是否不一致。
+        /// </summary>
+        /// <param name="a">需要比较的数据库类型。</param>
+        /// <param name="b">需要比较的数据库类型。</param>
+        /// <returns>如果不一致，则为true；否则为false。</returns>
         public static bool operator !=(DatabaseType a, DatabaseType b)
         {
             return !(a == b);
         }
 
+        /// <summary>
+        /// 比较两个数据库类型是否一致。
+        /// </summary>
+        /// <param name="other">需要比较的数据库类型。</param>
+        /// <returns>如果一致，则为true；否则为false。</returns>
         public bool Equals(DatabaseType other)
         {
             if (other == null)
@@ -81,6 +102,11 @@ namespace SiteServer.Plugin
                 Value.Equals(other.Value, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// 比较两个数据库类型是否一致。
+        /// </summary>
+        /// <param name="other">需要比较的数据库类型。</param>
+        /// <returns>如果一致，则为0；否则为1。</returns>
         public int CompareTo(DatabaseType other)
         {
             if (other == null)
@@ -96,11 +122,13 @@ namespace SiteServer.Plugin
             return StringComparer.OrdinalIgnoreCase.Compare(Value, other.Value);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             return EqualityComparer<string>.Default.GetHashCode(Value);
         }
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return Value;

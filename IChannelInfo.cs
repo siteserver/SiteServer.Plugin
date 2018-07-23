@@ -9,7 +9,7 @@ namespace SiteServer.Plugin
     public interface IChannelInfo
     {
         /// <summary>
-        /// 自增长主键。
+        /// 栏目Id。
         /// </summary>
         int Id { get; set; }
 

@@ -79,7 +79,7 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// 验证规则。
+        /// 验证规则的值。
         /// </summary>
         public string Value { get; }
 
@@ -90,11 +90,11 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// 
+        /// 比较两个验证规则是否一致。
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /// <param name="a">需要比较的验证规则。</param>
+        /// <param name="b">需要比较的验证规则。</param>
+        /// <returns>如果一致，则为true；否则为false。</returns>
         public static bool operator ==(ValidateType a, ValidateType b)
         {
             if (ReferenceEquals(a, b))
@@ -109,12 +109,21 @@ namespace SiteServer.Plugin
 
             return a.Equals(b);
         }
-
+        /// <summary>
+        /// 比较两个验证规则是否不一致。
+        /// </summary>
+        /// <param name="a">需要比较的验证规则。</param>
+        /// <param name="b">需要比较的验证规则。</param>
+        /// <returns>如果不一致，则为true；否则为false。</returns>
         public static bool operator !=(ValidateType a, ValidateType b)
         {
             return !(a == b);
         }
-
+        /// <summary>
+        /// 比较两个验证规则是否一致。
+        /// </summary>
+        /// <param name="other">需要比较的验证规则。</param>
+        /// <returns>如果一致，则为true；否则为false。</returns>
         public bool Equals(ValidateType other)
         {
             if (other == null)
@@ -130,7 +139,11 @@ namespace SiteServer.Plugin
             return
                 Value.Equals(other.Value, StringComparison.OrdinalIgnoreCase);
         }
-
+        /// <summary>
+        /// 比较两个验证规则是否一致。
+        /// </summary>
+        /// <param name="other">需要比较的验证规则。</param>
+        /// <returns>如果一致，则为0；否则为1。</returns>
         public int CompareTo(ValidateType other)
         {
             if (other == null)
