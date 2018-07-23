@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace SiteServer.Plugin
 {
     /// <summary>
-    /// 验证规则类型。
+    /// 表单输入的验证规则类型。
     /// </summary>
     public class ValidateType : IEquatable<ValidateType>, IComparable<ValidateType>
     {
@@ -64,7 +64,7 @@ namespace SiteServer.Plugin
         public static readonly ValidateType IdCard = new ValidateType(nameof(IdCard));
 
         /// <summary>
-        /// 正则表达式验证验证。
+        /// 正则表达式验证。
         /// </summary>
         public static readonly ValidateType RegExp = new ValidateType(nameof(RegExp));
 

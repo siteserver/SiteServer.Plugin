@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 表示表单的输入类型。
+    /// </summary>
     public class InputType : IEquatable<InputType>, IComparable<InputType>
     {
         public static readonly InputType Text = new InputType(nameof(Text));

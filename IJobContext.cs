@@ -5,7 +5,7 @@ namespace SiteServer.Plugin
     /// <summary>
     /// 包含SiteServer Cli命令行执行任务时的上下文信息。
     /// </summary>
-    public interface IJobExecutionContext
+    public interface IJobContext
     {
         /// <summary>
         /// 当前所执行的命令。
@@ -16,11 +16,6 @@ namespace SiteServer.Plugin
         /// 执行命令行时用户传递的参数。
         /// </summary>
         string[] Args { get; }
-
-        /// <summary>
-        /// 获取为该执行创建的实例。
-        /// </summary>
-        IJob JobInstance { get; }
 
         /// <summary>
         /// 任务的实际执行时间。

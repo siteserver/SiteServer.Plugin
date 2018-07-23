@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SiteServer.Plugin
 {
@@ -35,7 +36,14 @@ namespace SiteServer.Plugin
 
         IService AddApiAuthorization();
 
-        IService AddJob(string command, IJob job);
+        /// <summary>
+        /// 添加SiteServer Cli命令行可以执行的任务。
+        /// 实现此方法的插件将能够在SiteServer Cli命令行中运行任务。
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="job"></param>
+        /// <returns></returns>
+        IService AddJob(string command, Func<IJobContext, Task> job);
 
         event ApiEventHandler ApiGet;
 

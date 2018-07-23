@@ -59,8 +59,7 @@
     <Compile Include="IApiCollection.cs" />
     <Compile Include="IContentContext.cs" />
     <Compile Include="IUtilsApi.cs" />
-    <Compile Include="IJob.cs" />
-    <Compile Include="IJobExecutionContext.cs" />
+    <Compile Include="IJobContext.cs" />
     <Compile Include="InputListItem.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="IPluginApi.cs" />
