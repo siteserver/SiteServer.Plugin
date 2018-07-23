@@ -3,7 +3,7 @@
 namespace SiteServer.Plugin
 {
     /// <summary>
-    /// 插件相关API
+    /// 插件Api接口。
     /// </summary>
     public interface IPluginApi
     {

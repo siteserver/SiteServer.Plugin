@@ -36,6 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\SiteServer.Plugin.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -57,6 +58,7 @@
     <Compile Include="ContentFormLoadEventArgs.cs" />
     <Compile Include="IApiCollection.cs" />
     <Compile Include="IContentContext.cs" />
+    <Compile Include="IUtilsApi.cs" />
     <Compile Include="IJob.cs" />
     <Compile Include="IJobExecutionContext.cs" />
     <Compile Include="InputListItem.cs" />
@@ -68,7 +70,7 @@
     <Compile Include="IUserApi.cs" />
     <Compile Include="IParseApi.cs" />
     <Compile Include="IConfigApi.cs" />
-    <Compile Include="IDataApi.cs" />
+    <Compile Include="IDatabaseApi.cs" />
     <Compile Include="IChannelApi.cs" />
     <Compile Include="IFilesApi.cs" />
     <Compile Include="IContentApi.cs" />

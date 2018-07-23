@@ -2,6 +2,9 @@
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// 站点Api接口。
+    /// </summary>
     public interface ISiteApi
     {
         int GetSiteIdByFilePath(string path);

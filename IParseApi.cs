@@ -2,6 +2,9 @@
 
 namespace SiteServer.Plugin
 {
+    /// <summary>
+    /// STL解析Api接口。
+    /// </summary>
     public interface IParseApi
     {
         Dictionary<string, string> GetStlElements(string html, List<string> stlElementNames);

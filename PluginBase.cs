@@ -31,13 +31,14 @@ namespace SiteServer.Plugin
             AdminApi = apiCollection.AdminApi;
             ConfigApi = apiCollection.ConfigApi;
             ContentApi = apiCollection.ContentApi;
-            DataApi = apiCollection.DataApi;
+            DatabaseApi = apiCollection.DatabaseApi;
             FilesApi = apiCollection.FilesApi;
             ChannelApi = apiCollection.ChannelApi;
             ParseApi = apiCollection.ParseApi;
             PluginApi = apiCollection.PluginApi;
             SiteApi = apiCollection.SiteApi;
             UserApi = apiCollection.UserApi;
+            UtilsApi = apiCollection.UtilsApi;
         }
 
         public abstract void Startup(IService service);
@@ -66,12 +67,13 @@ namespace SiteServer.Plugin
         public IAdminApi AdminApi { get; private set; }
         public IConfigApi ConfigApi { get; private set; }
         public IContentApi ContentApi { get; private set; }
-        public IDataApi DataApi { get; private set; }
+        public IDatabaseApi DatabaseApi { get; private set; }
         public IFilesApi FilesApi { get; private set; }
         public IChannelApi ChannelApi { get; private set; }
         public IParseApi ParseApi { get; private set; }
         public IPluginApi PluginApi { get; private set; }
         public ISiteApi SiteApi { get; private set; }
         public IUserApi UserApi { get; private set; }
+        public IUtilsApi UtilsApi { get; private set; }
     }
 }
