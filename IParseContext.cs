@@ -54,6 +54,22 @@ namespace SiteServer.Plugin
         SortedDictionary<string, string> FootCodes { get; }
 
         /// <summary>
+        /// 将键/值对放入STL解析上下文中，对包含下级标签STL解析情况下共享数据有用。
+        /// 注意：该数据是不稳定的 —— 它在当前STL解析完成后将丢失。
+        /// </summary>
+        /// <param name="key">键。</param>
+        /// <param name="objectValue">值。</param>
+        void Set<T>(string key, T objectValue);
+
+
+        /// <summary>
+        /// 从STL解析上下文中获取指定键的值。
+        /// </summary>
+        /// <param name="key">键。</param>
+        /// <returns>如果STL解析上下文中存在指定的键，则返回对应的值；否则返回类型T的默认值。</returns>
+        T Get<T>(string key);
+
+        /// <summary>
         /// 当前解析的STL标签的属性键值集合。
         /// </summary>
         NameValueCollection StlAttributes { get; }
