@@ -10,10 +10,32 @@ namespace SiteServer.Plugin
     public class ParseEventArgs : EventArgs
     {
         /// <summary>
-        /// 默认构造函数。
+        /// 初始化 <see cref="T:SiteServer.Plugin.ParseEventArgs" /> 类的新实例。
         /// </summary>
-        public ParseEventArgs()
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="channelId">栏目Id。</param>
+        /// <param name="contentId">内容Id。</param>
+        /// <param name="contentInfo">内容实体。</param>
+        /// <param name="templateType">模板类型。</param>
+        /// <param name="templateId">模板Id。</param>
+        /// <param name="filePath">生成页面的绝对路径。</param>
+        /// <param name="headCodes">生成的Html页面中包含在head标签内的代码。</param>
+        /// <param name="bodyCodes">生成的Html页面中包含在body标签内的代码。</param>
+        /// <param name="footCodes">生成的Html页面中包含在页面最底部的代码。</param>
+        /// <param name="contentBuilder">生成的Html页面代码。</param>
+        public ParseEventArgs(int siteId, int channelId, int contentId, IContentInfo contentInfo, TemplateType templateType, int templateId, string filePath, SortedDictionary<string, string> headCodes, SortedDictionary<string, string> bodyCodes, SortedDictionary<string, string> footCodes, StringBuilder contentBuilder)
         {
+            SiteId = siteId;
+            ChannelId = channelId;
+            ContentId = contentId;
+            ContentInfo = contentInfo;
+            TemplateType = templateType;
+            TemplateId = templateId;
+            FilePath = filePath;
+            HeadCodes = headCodes;
+            BodyCodes = bodyCodes;
+            FootCodes = footCodes;
+            ContentBuilder = contentBuilder;
         }
 
         /// <summary>
