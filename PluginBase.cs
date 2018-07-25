@@ -8,7 +8,14 @@ namespace SiteServer.Plugin
     /// </summary>
     public abstract class PluginBase : IMetadata, IEnvironment, IApiCollection
     {
-        internal void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
+        /// <summary>
+        /// 初始化插件。
+        /// 此方法将由 SiteServer CMS 系统载入插件时调用。
+        /// </summary>
+        /// <param name="metadata">插件元数据接口。</param>
+        /// <param name="environment">环境变量接口。</param>
+        /// <param name="apiCollection">API类集合接口。</param>
+        public virtual void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
             Id = metadata.Id;
             Version = metadata.Version;

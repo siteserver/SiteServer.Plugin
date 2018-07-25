@@ -8,19 +8,6 @@ namespace SiteServer.Plugin
     public class ContentEventArgs : EventArgs
     {
         /// <summary>
-        /// 初始化 <see cref="T:SiteServer.Plugin.ContentEventArgs" /> 类的新实例。
-        /// </summary>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="channelId">栏目Id。</param>
-        /// <param name="contentId">内容Id。</param>
-        internal ContentEventArgs(int siteId, int channelId, int contentId)
-        {
-            SiteId = siteId;
-            ChannelId = channelId;
-            ContentId = contentId;
-        }
-
-        /// <summary>
         /// 内容的站点Id。
         /// </summary>
         public int SiteId { get; }

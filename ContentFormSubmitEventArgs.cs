@@ -8,24 +8,6 @@ namespace SiteServer.Plugin
     public class ContentFormSubmitEventArgs : EventArgs
     {
         /// <summary>
-        /// 初始化 <see cref="T:SiteServer.Plugin.ContentFormSubmitEventArgs" /> 类的新实例。
-        /// </summary>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="channelId">栏目Id。</param>
-        /// <param name="contentId">内容Id。</param>
-        /// <param name="form">表单数据。</param>
-        /// <param name="contentInfo">内容对象。</param>
-        internal ContentFormSubmitEventArgs(int siteId, int channelId, int contentId, IAttributes form,
-            IContentInfo contentInfo)
-        {
-            SiteId = siteId;
-            ChannelId = channelId;
-            ContentId = contentId;
-            Form = form;
-            ContentInfo = contentInfo;
-        }
-
-        /// <summary>
         /// 站点Id。
         /// </summary>
         public int SiteId { get; }

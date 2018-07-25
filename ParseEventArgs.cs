@@ -9,24 +9,6 @@ namespace SiteServer.Plugin
     /// </summary>
     public class ParseEventArgs : EventArgs
     {
-        internal ParseEventArgs(int siteId, int channelId, int contentId, IContentInfo contentInfo,
-            TemplateType templateType, int templateId, string filePath, SortedDictionary<string, string> headCodes,
-            SortedDictionary<string, string> bodyCodes, SortedDictionary<string, string> footCodes,
-            StringBuilder contentBuilder)
-        {
-            SiteId = siteId;
-            ChannelId = channelId;
-            ContentId = contentId;
-            ContentInfo = contentInfo;
-            TemplateType = templateType;
-            TemplateId = templateId;
-            FilePath = filePath;
-            HeadCodes = headCodes;
-            BodyCodes = bodyCodes;
-            FootCodes = footCodes;
-            ContentBuilder = contentBuilder;
-        }
-
         /// <summary>
         /// 站点Id。
         /// </summary>
