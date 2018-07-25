@@ -10,6 +10,13 @@ namespace SiteServer.Plugin
     public class ParseEventArgs : EventArgs
     {
         /// <summary>
+        /// 默认构造函数。
+        /// </summary>
+        public ParseEventArgs()
+        {
+        }
+
+        /// <summary>
         /// 站点Id。
         /// </summary>
         public int SiteId { get; }

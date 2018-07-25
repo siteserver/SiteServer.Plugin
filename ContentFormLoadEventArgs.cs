@@ -8,6 +8,26 @@ namespace SiteServer.Plugin
     public class ContentFormLoadEventArgs : EventArgs
     {
         /// <summary>
+        /// 初始化 <see cref="T:SiteServer.Plugin.ContentFormLoadEventArgs" /> 类的新实例。
+        /// </summary>
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="channelId">栏目Id。</param>
+        /// <param name="contentId">内容Id。</param>
+        /// <param name="form">表单数据。</param>
+        /// <param name="attributeName">内容属性名称。</param>
+        /// <param name="attributeHtml">内容属性Html标签。</param>
+        public ContentFormLoadEventArgs(int siteId, int channelId, int contentId, IAttributes form,
+            string attributeName, string attributeHtml)
+        {
+            SiteId = siteId;
+            ChannelId = channelId;
+            ContentId = contentId;
+            Form = form;
+            AttributeName = attributeName;
+            AttributeHtml = attributeHtml;
+        }
+
+        /// <summary>
         /// 站点Id。
         /// </summary>
         public int SiteId { get; }
