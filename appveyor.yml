@@ -5,6 +5,7 @@
       - master
 
   version: 1.9.{build}
+  image: Visual Studio 2017
 
   assembly_info:
     patch: true
@@ -27,7 +28,7 @@
     - packages -> **\packages.config
 
   before_build:
-    - nuget restore SiteServer.Plugin.sln
+    - dotnet restore SiteServer.Plugin.sln
 
   build:
     project: SiteServer.Plugin.sln       # path to Visual Studio solution or project
@@ -49,6 +50,7 @@
       - dev
 
   version: 1.9.{build}-beta
+  image: Visual Studio 2017
 
   assembly_info:
     patch: true
