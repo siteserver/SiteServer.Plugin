@@ -4,7 +4,7 @@
     only:
       - master
 
-  version: 1.9.{build}
+  version: 2.0.{build}
   image: Visual Studio 2017
 
   dotnet_csproj:
@@ -49,7 +49,7 @@
     only:
       - dev
 
-  version: 1.9.{build}-beta
+  version: 2.0.{build}-beta
   image: Visual Studio 2017
 
   assembly_info:
