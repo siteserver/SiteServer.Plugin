@@ -6,7 +6,7 @@ namespace SiteServer.Plugin
     /// <summary>
     /// 插件父类，所有插件必须继承此类并实现Startup方法。
     /// </summary>
-    public abstract class PluginBase : IMetadata, IEnvironment, IApiCollection
+    public abstract class PluginBase : Initializer, IMetadata, IEnvironment, IApiCollection
     {
         /// <summary>
         /// 初始化插件。
@@ -15,7 +15,7 @@ namespace SiteServer.Plugin
         /// <param name="metadata">插件元数据接口。</param>
         /// <param name="environment">环境变量接口。</param>
         /// <param name="apiCollection">API类集合接口。</param>
-        public virtual void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
+        public sealed override void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
         {
             Id = metadata.Id;
             Version = metadata.Version;

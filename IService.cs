@@ -48,27 +48,71 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 以GET方式对当前插件的REST Api访问的触发事件。
         /// </summary>
-        event ApiEventHandler ApiGet;
+        event RestApiEventHandler RestApiGet;
 
         /// <summary>
         /// 以POST方式对当前插件的REST Api访问的触发事件。
         /// </summary>
-        event ApiEventHandler ApiPost;
+        event RestApiEventHandler RestApiPost;
 
         /// <summary>
         /// 以PUT方式对当前插件的REST Api访问的触发事件。
         /// </summary>
-        event ApiEventHandler ApiPut;
+        event RestApiEventHandler RestApiPut;
 
         /// <summary>
         /// 以DELETE方式对当前插件的REST Api访问的触发事件。
         /// </summary>
-        event ApiEventHandler ApiDelete;
+        event RestApiEventHandler RestApiDelete;
 
         /// <summary>
         /// 添加系统菜单。
         /// 系统菜单位于系统头部的插件管理下拉菜单中。
+        /// <seealso cref="SiteServer.Plugin.Menu"/>
         /// </summary>
+        /// <example> 
+        /// 下面的例子显示如何添加系统菜单。
+        /// <code>
+        /// public class Main : PluginBase
+        /// {
+        ///     public override void Startup(IService service)
+        ///     {
+        ///         service.AddSystemMenu(new Menu
+        ///         {
+        ///             Text = "插件菜单",
+        ///             Href = "page.html"
+        ///         });
+        ///     }
+        /// }
+        /// </code>
+        /// 下面的例子显示如何添加带有下级菜单的系统菜单。
+        /// <code>
+        /// public class Main : PluginBase
+        /// {
+        ///     public override void Startup(IService service)
+        ///     {
+        ///         service.AddSystemMenu(new Menu
+        ///         {
+        ///             Text = "插件菜单",
+        ///             Href = "page.html",
+        ///             Menus = new List&lt;Menu&gt;
+        ///             {
+        ///                 new Menu
+        ///                 {
+        ///                     Text = "下级菜单1",
+        ///                     Href = "page1.html"
+        ///                 },
+        ///                 new Menu
+        ///                 {
+        ///                     Text = "下级菜单1",
+        ///                     Href = "page2.html"
+        ///                 }
+        ///             }
+        ///         });
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
         /// <param name="menu">插件菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
         IService AddSystemMenu(Menu menu);

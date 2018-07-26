@@ -6,5 +6,5 @@
     /// <returns>
     /// Rest Api请求将返回的对象，系统将把此对象系列化为JSON字符串返回。
     /// </returns>
-    public delegate object ApiEventHandler(object sender, ApiEventArgs e);
+    public delegate object RestApiEventHandler(object sender, RestApiEventArgs e);
 }
