@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SiteServer.Plugin
 {
     /// <summary>
     /// 系统支持的数据库类型
     /// </summary>
+    [JsonConverter(typeof(DatabaseTypeConverter))]
     public class DatabaseType : IEquatable<DatabaseType>, IComparable<DatabaseType>
     {
         /// <summary>
@@ -28,7 +30,7 @@ namespace SiteServer.Plugin
         /// </summary>
         public static readonly DatabaseType Oracle = new DatabaseType(nameof(Oracle));
 
-        private DatabaseType(string value)
+        internal DatabaseType(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -132,6 +134,30 @@ namespace SiteServer.Plugin
         public override string ToString()
         {
             return Value;
+        }
+    }
+
+    /// <inheritdoc />
+    public class DatabaseTypeConverter : JsonConverter
+    {
+        /// <inheritdoc />
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(DatabaseType);
+        }
+
+        /// <inheritdoc />
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            var databaseType = value as DatabaseType;
+            serializer.Serialize(writer, databaseType != null ? databaseType.Value : null);
+        }
+
+        /// <inheritdoc />
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
+        {
+            return new DatabaseType((string)reader.Value);
         }
     }
 }

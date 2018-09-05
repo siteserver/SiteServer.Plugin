@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SiteServer.Plugin
 {
     /// <summary>
     /// 系统支持的模板类型。
     /// </summary>
+    [JsonConverter(typeof(TemplateTypeConverter))]
     public class TemplateType : IEquatable<TemplateType>, IComparable<TemplateType>
     {
         /// <summary>
@@ -28,7 +30,7 @@ namespace SiteServer.Plugin
         /// </summary>
         public static readonly TemplateType FileTemplate = new TemplateType(nameof(FileTemplate));
 
-        private TemplateType(string value)
+        internal TemplateType(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -132,6 +134,30 @@ namespace SiteServer.Plugin
         public override string ToString()
         {
             return Value;
+        }
+    }
+
+    /// <inheritdoc />
+    public class TemplateTypeConverter : JsonConverter
+    {
+        /// <inheritdoc />
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(TemplateType);
+        }
+
+        /// <inheritdoc />
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            var templateType = value as TemplateType;
+            serializer.Serialize(writer, templateType != null ? templateType.Value : null);
+        }
+
+        /// <inheritdoc />
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
+        {
+            return new TemplateType((string)reader.Value);
         }
     }
 }

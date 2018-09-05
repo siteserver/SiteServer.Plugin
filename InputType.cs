@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SiteServer.Plugin
 {
     /// <summary>
     /// 表单的输入类型。
     /// </summary>
+    [JsonConverter(typeof(InputTypeConverter))]
     public class InputType : IEquatable<InputType>, IComparable<InputType>
     {
         /// <summary>
@@ -83,7 +85,7 @@ namespace SiteServer.Plugin
         /// </summary>
         public static readonly InputType Hidden = new InputType(nameof(Hidden));
 
-        private InputType(string value)
+        internal InputType(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -187,6 +189,30 @@ namespace SiteServer.Plugin
         public override string ToString()
         {
             return Value;
+        }
+    }
+
+    /// <inheritdoc />
+    public class InputTypeConverter : JsonConverter
+    {
+        /// <inheritdoc />
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(InputType);
+        }
+
+        /// <inheritdoc />
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            var inputType = value as InputType;
+            serializer.Serialize(writer, inputType != null ? inputType.Value : null);
+        }
+
+        /// <inheritdoc />
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
+        {
+            return new InputType((string)reader.Value);
         }
     }
 }

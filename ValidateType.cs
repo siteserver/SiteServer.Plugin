@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SiteServer.Plugin
 {
     /// <summary>
     /// 表单输入的验证规则类型。
     /// </summary>
+    [JsonConverter(typeof(ValidateTypeConverter))]
     public class ValidateType : IEquatable<ValidateType>, IComparable<ValidateType>
     {
         /// <summary>
@@ -68,7 +70,7 @@ namespace SiteServer.Plugin
         /// </summary>
         public static readonly ValidateType RegExp = new ValidateType(nameof(RegExp));
 
-        private ValidateType(string value)
+        internal ValidateType(string value)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -169,6 +171,30 @@ namespace SiteServer.Plugin
         public override string ToString()
         {
             return Value;
+        }
+    }
+
+    /// <inheritdoc />
+    public class ValidateTypeConverter : JsonConverter
+    {
+        /// <inheritdoc />
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(ValidateType);
+        }
+
+        /// <inheritdoc />
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            var validateType = value as ValidateType;
+            serializer.Serialize(writer, validateType != null ? validateType.Value : null);
+        }
+
+        /// <inheritdoc />
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
+        {
+            return new ValidateType((string)reader.Value);
         }
     }
 }
