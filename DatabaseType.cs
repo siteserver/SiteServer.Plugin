@@ -157,7 +157,8 @@ namespace SiteServer.Plugin
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
             JsonSerializer serializer)
         {
-            return new DatabaseType((string)reader.Value);
+            var value = (string)reader.Value;
+            return string.IsNullOrEmpty(value) ? null : new DatabaseType(value);
         }
     }
 }

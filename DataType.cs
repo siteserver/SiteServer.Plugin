@@ -167,7 +167,8 @@ namespace SiteServer.Plugin
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
             JsonSerializer serializer)
         {
-            return new DataType((string) reader.Value);
+            var value = (string)reader.Value;
+            return string.IsNullOrEmpty(value) ? null : new DataType(value);
         }
     }
 }
