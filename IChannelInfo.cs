@@ -91,11 +91,6 @@ namespace SiteServer.Plugin
         string Content { get; set; }
 
         /// <summary>
-        /// 栏目下的内容总数，不包含下级栏目的内容数。
-        /// </summary>
-        int ContentNum { get; set; }
-
-        /// <summary>
         /// 栏目生成页面路径。
         /// </summary>
         string FilePath { get; set; }
