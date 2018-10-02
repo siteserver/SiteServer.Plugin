@@ -2,10 +2,11 @@
 
 namespace SiteServer.Plugin
 {
+    /// <inheritdoc />
     /// <summary>
     /// 用户实体接口。
     /// </summary>
-    public interface IUserInfo
+    public interface IUserInfo : IAttributes
     {
         /// <summary>
         /// 用户Id。
@@ -58,7 +59,7 @@ namespace SiteServer.Plugin
         bool IsLockedOut { get; set; }
 
         /// <summary>
-        /// 用户姓名。
+        /// 姓名。
         /// </summary>
         string DisplayName { get; set; }
 
@@ -78,21 +79,6 @@ namespace SiteServer.Plugin
         string AvatarUrl { get; set; }
 
         /// <summary>
-        /// 组织。
-        /// </summary>
-        string Organization { get; set; }
-
-        /// <summary>
-        /// 部门。
-        /// </summary>
-        string Department { get; set; }
-
-        /// <summary>
-        /// 职位。
-        /// </summary>
-        string Position { get; set; }
-
-        /// <summary>
         /// 性别。
         /// </summary>
         string Gender { get; set; }
@@ -101,21 +87,6 @@ namespace SiteServer.Plugin
         /// 出生日期。
         /// </summary>
         string Birthday { get; set; }
-
-        /// <summary>
-        /// 毕业院校。
-        /// </summary>
-        string Education { get; set; }
-
-        /// <summary>
-        /// 学历。
-        /// </summary>
-        string Graduation { get; set; }
-
-        /// <summary>
-        /// 地址。
-        /// </summary>
-        string Address { get; set; }
 
         /// <summary>
         /// 微信。
@@ -133,13 +104,8 @@ namespace SiteServer.Plugin
         string WeiBo { get; set; }
 
         /// <summary>
-        /// 兴趣。
+        /// 简介。
         /// </summary>
-        string Interests { get; set; }
-
-        /// <summary>
-        /// 签名。
-        /// </summary>
-        string Signature { get; set; }
+        string Bio { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 用户Id。
         /// </summary>
-        int Id { get; set; }
+        int UserId { get; set; }
 
         /// <summary>
         /// 用户名。
