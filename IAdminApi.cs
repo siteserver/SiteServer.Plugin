@@ -1,4 +1,6 @@
-﻿namespace SiteServer.Plugin
+﻿using System;
+
+namespace SiteServer.Plugin
 {
     /// <summary>
     /// 管理员及权限Api接口
@@ -57,5 +59,21 @@
         /// 如果拥有指定的栏目权限（任意一个），则为true；否则为false。
         /// </returns>
         bool HasChannelPermissions(int siteId, int channelId, params string[] channelPermissions);
+
+        /// <summary>
+        /// 获取Access Token字符串。
+        /// </summary>
+        /// <param name="userId">用户Id。</param>
+        /// <param name="userName">用户名。</param>
+        /// <param name="expiresAt">Access Token 到期时间。</param>
+        /// <returns>返回此用户的Access Token。</returns>
+        string GetAccessToken(int userId, string userName, DateTime expiresAt);
+
+        /// <summary>
+        /// 解析Access Token字符串。
+        /// </summary>
+        /// <param name="accessToken">用户Access Token。</param>
+        /// <returns>存储于用户Token中的用户名。</returns>
+        IAccessToken ParseAccessToken(string accessToken);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SiteServer.Plugin
 {
@@ -139,5 +140,21 @@ namespace SiteServer.Plugin
         /// <param name="action">动作，可以为空。</param>
         /// <returns>返回用户日志列表。</returns>
         List<ILogInfo> GetLogs(string userName, int totalNum, string action = "");
+
+        /// <summary>
+        /// 获取Access Token字符串。
+        /// </summary>
+        /// <param name="userId">用户Id。</param>
+        /// <param name="userName">用户名。</param>
+        /// <param name="expiresAt">Access Token 到期时间。</param>
+        /// <returns>返回此用户的Access Token。</returns>
+        string GetAccessToken(int userId, string userName, DateTime expiresAt);
+
+        /// <summary>
+        /// 解析Access Token字符串。
+        /// </summary>
+        /// <param name="accessToken">用户Access Token。</param>
+        /// <returns>存储于用户Token中的用户名。</returns>
+        IAccessToken ParseAccessToken(string accessToken);
     }
 }

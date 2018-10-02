@@ -97,6 +97,11 @@ namespace SiteServer.Plugin
         bool IsUserLoggin { get; }
 
         /// <summary>
+        /// 如果用户已登录，则返回登录用户的Id；否则返回 0。
+        /// </summary>
+        int UserId { get; }
+
+        /// <summary>
         /// 如果用户已登录，则返回登录用户的用户名；否则返回空。
         /// </summary>
         string UserName { get; }
@@ -109,13 +114,14 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 用户登录，调用此方法后系统将计算此用户的Token并存储在cookie中，同时此方法将返回用户Token，用于REST Api以及其他场景中。
         /// </summary>
+        /// <param name="userId">登录用户的Id。</param>
         /// <param name="userName">登录用户的用户名。</param>
         /// <param name="isAutoLogin">
         /// 是否下次自动登录。
         /// 如果设置为 true，则登录cookie将保留7天；否则当浏览器关闭时系统将清除登录cookie。
         /// </param>
         /// <returns>返回此用户的Token，7天内可用。</returns>
-        string UserLogin(string userName, bool isAutoLogin);
+        string UserLogin(int userId, string userName, bool isAutoLogin);
 
         /// <summary>
         /// 用户退出登录，调用此方法后系统将清除登录cookie。
@@ -126,6 +132,11 @@ namespace SiteServer.Plugin
         /// 判断管理员是否登录。
         /// </summary>
         bool IsAdminLoggin { get; }
+
+        /// <summary>
+        /// 如果管理员已登录，则返回登录管理员的Id；否则返回 0。
+        /// </summary>
+        int AdminId { get; }
 
         /// <summary>
         /// 如果管理员已登录，则返回登录管理员的用户名；否则返回空。
@@ -140,46 +151,19 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 管理员登录，调用此方法后系统将计算此管理员的Token并存储在cookie中，同时此方法将返回管理员Token，用于REST Api以及其他场景中。
         /// </summary>
+        /// <param name="adminId">登录管理员的Id。</param>
         /// <param name="adminName">登录管理员的用户名。</param>
         /// <param name="isAutoLogin">
         /// 是否下次自动登录。
         /// 如果设置为 true，则登录cookie将保留7天；否则当浏览器关闭时系统将清除登录cookie。
         /// </param>
         /// <returns>返回此管理员的Token，7天内可用。</returns>
-        string AdminLogin(string adminName, bool isAutoLogin);
+        string AdminLogin(int adminId, string adminName, bool isAutoLogin);
 
         /// <summary>
         /// 管理员退出登录，调用此方法后系统将清除登录cookie。
         /// </summary>
         void AdminLogout();
-
-        /// <summary>
-        /// 根据用户名获取用户Token，7天内可用。
-        /// </summary>
-        /// <param name="userName">用户名。</param>
-        /// <returns>返回此用户的Token，7天内可用。</returns>
-        string GetUserTokenByUserName(string userName);
-
-        /// <summary>
-        /// 根据用户Token获取用户名。
-        /// </summary>
-        /// <param name="token">用户Token。</param>
-        /// <returns>存储于用户Token中的用户名。</returns>
-        string GetUserNameByToken(string token);
-
-        /// <summary>
-        /// 根据管理员用户名获取管理员Token，7天内可用。
-        /// </summary>
-        /// <param name="adminName">管理员用户名。</param>
-        /// <returns>返回此管理员的Token，7天内可用。</returns>
-        string GetAdminTokenByAdminName(string adminName);
-
-        /// <summary>
-        /// 根据管理员Token获取管理员用户名。
-        /// </summary>
-        /// <param name="token">管理员Token。</param>
-        /// <returns>存储于管理员Token中的管理员用户名。</returns>
-        string GetAdminNameByToken(string token);
 
         /// <summary>
         /// 是否针对此插件的REST Api访问包含Api认证Token。
