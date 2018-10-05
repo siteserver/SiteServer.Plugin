@@ -114,14 +114,13 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 用户登录，调用此方法后系统将计算此用户的Token并存储在cookie中，同时此方法将返回用户Token，用于REST Api以及其他场景中。
         /// </summary>
-        /// <param name="userId">登录用户的Id。</param>
         /// <param name="userName">登录用户的用户名。</param>
         /// <param name="isAutoLogin">
         /// 是否下次自动登录。
         /// 如果设置为 true，则登录cookie将保留7天；否则当浏览器关闭时系统将清除登录cookie。
         /// </param>
-        /// <returns>返回此用户的Token，7天内可用。</returns>
-        string UserLogin(int userId, string userName, bool isAutoLogin);
+        /// <returns>返回此用户的Token。</returns>
+        string UserLogin(string userName, bool isAutoLogin);
 
         /// <summary>
         /// 用户退出登录，调用此方法后系统将清除登录cookie。
@@ -151,14 +150,13 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 管理员登录，调用此方法后系统将计算此管理员的Token并存储在cookie中，同时此方法将返回管理员Token，用于REST Api以及其他场景中。
         /// </summary>
-        /// <param name="adminId">登录管理员的Id。</param>
-        /// <param name="adminName">登录管理员的用户名。</param>
+        /// <param name="userName">登录管理员的用户名。</param>
         /// <param name="isAutoLogin">
         /// 是否下次自动登录。
         /// 如果设置为 true，则登录cookie将保留7天；否则当浏览器关闭时系统将清除登录cookie。
         /// </param>
-        /// <returns>返回此管理员的Token，7天内可用。</returns>
-        string AdminLogin(int adminId, string adminName, bool isAutoLogin);
+        /// <returns>返回此管理员的Token。</returns>
+        string AdminLogin(string userName, bool isAutoLogin);
 
         /// <summary>
         /// 管理员退出登录，调用此方法后系统将清除登录cookie。
