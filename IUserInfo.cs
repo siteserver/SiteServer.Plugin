@@ -21,6 +21,21 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 创建时间。
         /// </summary>
+        string Password { get; set; }
+
+        /// <summary>
+        /// 创建时间。
+        /// </summary>
+        string PasswordFormat { get; set; }
+
+        /// <summary>
+        /// 创建时间。
+        /// </summary>
+        string PasswordSalt { get; set; }
+
+        /// <summary>
+        /// 创建时间。
+        /// </summary>
         DateTime CreateDate { get; set; }
 
         /// <summary>
@@ -42,11 +57,6 @@ namespace SiteServer.Plugin
         /// 连续登录失败次数。
         /// </summary>
         int CountOfFailedLogin { get; set; }
-
-        /// <summary>
-        /// 投稿次数。
-        /// </summary>
-        int CountOfWriting { get; set; }
 
         /// <summary>
         /// 是否已审核用户。
@@ -107,5 +117,10 @@ namespace SiteServer.Plugin
         /// 简介。
         /// </summary>
         string Bio { get; set; }
+
+        /// <summary>
+        /// 附加字段。
+        /// </summary>
+        string SettingsXml { get; set; }
     }
 }
