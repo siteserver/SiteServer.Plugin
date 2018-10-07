@@ -83,6 +83,18 @@ namespace SiteServer.Plugin
         bool IsMobileExists(string mobile);
 
         /// <summary>
+        /// 表示当前登录的用户Id。
+        /// 此字段为只读。
+        /// </summary>
+        int UserId { get; }
+
+        /// <summary>
+        /// 表示当前登录的用户名。
+        /// 此字段为只读。
+        /// </summary>
+        string UserName { get; }
+
+        /// <summary>
         /// 新增用户。
         /// </summary>
         /// <param name="userInfo">用户对象实例。</param>

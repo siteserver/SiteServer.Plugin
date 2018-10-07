@@ -107,11 +107,6 @@ namespace SiteServer.Plugin
         string UserName { get; }
 
         /// <summary>
-        /// 如果用户已登录，则返回登录用户的用户实体；否则返回 null。
-        /// </summary>
-        IUserInfo UserInfo { get; }
-
-        /// <summary>
         /// 用户登录，调用此方法后系统将计算此用户的Token并存储在cookie中，同时此方法将返回用户Token，用于REST Api以及其他场景中。
         /// </summary>
         /// <param name="userName">登录用户的用户名。</param>
@@ -141,11 +136,6 @@ namespace SiteServer.Plugin
         /// 如果管理员已登录，则返回登录管理员的用户名；否则返回空。
         /// </summary>
         string AdminName { get; }
-
-        /// <summary>
-        /// 如果管理员已登录，则返回登录管理员的管理员实体；否则返回 null。
-        /// </summary>
-        IAdministratorInfo AdminInfo { get; }
 
         /// <summary>
         /// 管理员登录，调用此方法后系统将计算此管理员的Token并存储在cookie中，同时此方法将返回管理员Token，用于REST Api以及其他场景中。

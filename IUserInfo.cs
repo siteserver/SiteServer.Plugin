@@ -59,6 +59,11 @@ namespace SiteServer.Plugin
         int CountOfFailedLogin { get; set; }
 
         /// <summary>
+        /// 用户组Id。
+        /// </summary>
+        int GroupId { get; set; }
+
+        /// <summary>
         /// 是否已审核用户。
         /// </summary>
         bool IsChecked { get; set; }
