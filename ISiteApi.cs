@@ -28,13 +28,6 @@ namespace SiteServer.Plugin
         List<int> GetSiteIdList();
 
         /// <summary>
-        /// 返回指定管理员有权限管理的站点的Id列表。
-        /// </summary>
-        /// <param name="adminName">管理员用户名。</param>
-        /// <returns>指定管理员有权限管理的站点Id列表。</returns>
-        List<int> GetSiteIdListByAdminName(string adminName);
-
-        /// <summary>
         /// 通过站点Id获取指定站点的对象实体。
         /// </summary>
         /// <param name="siteId">站点Id。</param>
