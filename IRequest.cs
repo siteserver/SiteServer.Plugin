@@ -106,6 +106,8 @@ namespace SiteServer.Plugin
         /// </summary>
         string UserName { get; }
 
+        IPermissions UserPermissions { get; }
+
         /// <summary>
         /// 用户登录，调用此方法后系统将计算此用户的Token并存储在cookie中，同时此方法将返回用户Token，用于REST Api以及其他场景中。
         /// </summary>
@@ -136,6 +138,8 @@ namespace SiteServer.Plugin
         /// 如果管理员已登录，则返回登录管理员的用户名；否则返回空。
         /// </summary>
         string AdminName { get; }
+
+        IPermissions AdminPermissions { get; }
 
         /// <summary>
         /// 管理员登录，调用此方法后系统将计算此管理员的Token并存储在cookie中，同时此方法将返回管理员Token，用于REST Api以及其他场景中。
