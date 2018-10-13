@@ -10,7 +10,7 @@ namespace SiteServer.Plugin
     {
         List<int> GetSiteIdList();
 
-        List<int> ChannelIdList { get; }
+        List<int> GetChannelIdList(int siteId, params string[] permissions);
 
         bool HasSystemPermissions(params string[] permissions);
 

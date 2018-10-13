@@ -35,9 +35,14 @@ namespace SiteServer.Plugin
         string LastEditUserName { get; set; }
 
         /// <summary>
-        /// 投稿人。
+        /// 新增内容的管理员Id。
         /// </summary>
-        string WritingUserName { get; set; }
+        int AdminId { get; set; }
+
+        /// <summary>
+        /// 新增投稿的用户Id。
+        /// </summary>
+        int UserId { get; set; }
 
         /// <summary>
         /// 修改时间。
