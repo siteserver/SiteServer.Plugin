@@ -8,6 +8,8 @@ namespace SiteServer.Plugin
     /// </summary>
     public abstract class PluginBase : Initializer, IMetadata, IEnvironment, IApiCollection
     {
+        private IEnvironment _environment;
+
         /// <summary>
         /// 初始化插件。
         /// 此方法将由 SiteServer CMS 系统载入插件时调用。
@@ -33,11 +35,11 @@ namespace SiteServer.Plugin
             Owners = metadata.Owners;
             Language = metadata.Language;
 
+            _environment = environment;
             DatabaseType = environment.DatabaseType;
             ConnectionString = environment.ConnectionString;
             AdminDirectory = environment.AdminDirectory;
             PhysicalApplicationPath = environment.PhysicalApplicationPath;
-            Request = environment.Request;
 
             AdminApi = apiCollection.AdminApi;
             ConfigApi = apiCollection.ConfigApi;
@@ -115,7 +117,7 @@ namespace SiteServer.Plugin
         public string PhysicalApplicationPath { get; private set; }
 
         /// <inheritdoc />
-        public IRequest Request { get; private set; }
+        public IRequest Request => _environment.Request;
 
         /// <inheritdoc />
         public IAdminApi AdminApi { get; private set; }

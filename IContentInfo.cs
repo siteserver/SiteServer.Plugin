@@ -35,6 +35,11 @@ namespace SiteServer.Plugin
         string LastEditUserName { get; set; }
 
         /// <summary>
+        /// 修改时间。
+        /// </summary>
+        DateTime LastEditDate { get; set; }
+
+        /// <summary>
         /// 新增内容的管理员Id。
         /// </summary>
         int AdminId { get; set; }
@@ -43,11 +48,6 @@ namespace SiteServer.Plugin
         /// 新增投稿的用户Id。
         /// </summary>
         int UserId { get; set; }
-
-        /// <summary>
-        /// 修改时间。
-        /// </summary>
-        DateTime LastEditDate { get; set; }
 
         /// <summary>
         /// 排序。
