@@ -10,19 +10,19 @@
         /// </summary>
         /// <param name="relatedPath">相对路径。</param>
         /// <returns>当前插件文件夹下的目录/文件绝对路径。</returns>
-        string GetPluginPath(string relatedPath = "");
+        string GetPluginPath(string pluginId, string relatedPath = "");
 
         /// <summary>
         /// 获取当前插件文件夹下的目录/文件访问Url地址。
         /// </summary>
         /// <param name="relatedUrl">相对地址。</param>
         /// <returns>当前插件文件夹下的目录/文件访问Url地址。</returns>
-        string GetPluginUrl(string relatedUrl = "");
+        string GetPluginUrl(string pluginId, string relatedUrl = "");
 
         /// <summary>
         /// 当前插件的Rest Api访问Url地址。
         /// </summary>
-        string PluginApiUrl { get; }
+        string GetPluginApiUrl(string pluginId);
 
         /// <summary>
         /// 通过插件Id获取插件实例。

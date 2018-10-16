@@ -9,7 +9,7 @@
 
         /// <param name="environment">环境变量接口。</param>
         /// <param name="apiCollection">API类集合接口。</param>
-        internal PluginContext(IEnvironment environment, IApiCollection apiCollection)
+        public PluginContext(IEnvironment environment, IApiCollection apiCollection)
         {
             _environment = environment;
             _apiCollection = apiCollection;
