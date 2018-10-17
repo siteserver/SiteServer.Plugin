@@ -8,6 +8,9 @@
         private static IEnvironment _environment;
         private static IApiCollection _apiCollection;
 
+        /// <summary>
+        /// 初始化上下文
+        /// </summary>
         /// <param name="environment">环境变量接口。</param>
         /// <param name="apiCollection">API类集合接口。</param>
         public static void Initialize(IEnvironment environment, IApiCollection apiCollection)
@@ -45,7 +48,7 @@
 
         /// <summary>
         /// 获取插件Url访问请求IRequest。
-        /// 当存在对插件的HTTP访问请求时（REST Api访问、aspx页面访问等），返回IRequest实例；否则返回 null。
+        /// 当存在对插件的HTTP访问请求时（REST Api访问、页面访问等），返回IRequest实例；否则返回 null。
         /// </summary>
         public static IRequest Request => _environment.Request;
 

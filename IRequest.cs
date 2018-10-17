@@ -163,11 +163,6 @@ namespace SiteServer.Plugin
         bool IsApiAuthenticated { get; }
 
         /// <summary>
-        /// 是否针对当前插件的REST Api访问包含Api认证Token且此Token拥有当前插件的授权。
-        /// </summary>
-        bool IsApiAuthorized { get; }
-
-        /// <summary>
         /// 设置cookie。
         /// 此cookie将随着浏览器的关闭而删除。
         /// </summary>

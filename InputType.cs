@@ -192,23 +192,43 @@ namespace SiteServer.Plugin
         }
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// 字符串与InputType转换类。
+    /// </summary>
     public class InputTypeConverter : JsonConverter
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// 确定此实例是否可以转换指定的对象类型。
+        /// </summary>
+        /// <param name="objectType">对象实例</param>
+        /// <returns>
+        /// <c>true</c> 如果这个实例可以转换指定的对象类型; 否则, <c>false</c>。
+        /// </returns>
         public override bool CanConvert(Type objectType)
         {
             return objectType == typeof(InputType);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// 编写对象的JSON表示。
+        /// </summary>
+        /// <param name="writer">JsonWriter</param>
+        /// <param name="value">值</param>
+        /// <param name="serializer">序列化类</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var inputType = value as InputType;
             serializer.Serialize(writer, inputType != null ? inputType.Value : null);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// 读取对象的JSON表示。
+        /// </summary>
+        /// <param name="reader">JsonReader</param>
+        /// <param name="objectType">对象类型</param>
+        /// <param name="existingValue">正在读取的对象的现有值</param>
+        /// <param name="serializer">序列化类</param>
+        /// <returns>返回对象</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
             JsonSerializer serializer)
         {
