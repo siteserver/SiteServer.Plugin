@@ -1,9 +1,9 @@
 ﻿namespace SiteServer.Plugin
 {
     /// <summary>
-    /// 封装插件上下文相关信息
+    /// 封装系统上下文相关信息
     /// </summary>
-    public static class PluginContext
+    public static class Context
     {
         private static IEnvironment _environment;
         private static IApiCollection _apiCollection;
