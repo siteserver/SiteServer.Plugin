@@ -196,7 +196,7 @@ namespace SiteServer.Plugin
         /// </summary>
         /// <param name="menuFunc">插件菜单生成方法，可以根据内容上下文计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddContentMenu(Func<IContentContext, Menu> menuFunc);
+        IService AddContentMenu(Func<IContentInfo, Menu> menuFunc);
 
         /// <summary>
         /// 添加插件的内容模型，包含内容存储的表名称以及内容表的字段列表。
