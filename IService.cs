@@ -127,17 +127,17 @@ namespace SiteServer.Plugin
         /// }
         /// </code>
         /// </example>
-        /// <param name="menu">插件菜单。</param>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据当前登录管理员计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddSystemMenu(Menu menu);
+        IService AddSystemMenu(Func<Menu> menuFunc);
         /// <summary>
         /// 添加站点菜单。
         /// 站点菜单位于系统左侧的插件管理菜单中。
         /// 此菜单的Url地址将自动加上对应的站点Id。
         /// </summary>
-        /// <param name="siteMenuFunc">插件菜单生成方法，可以根据第一个参数siteId（站点Id）计算并返回菜单。</param>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据第一个参数siteId（站点Id）计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddSiteMenu(Func<int, Menu> siteMenuFunc);
+        IService AddSiteMenu(Func<int, Menu> menuFunc);
 
         /// <summary>
         /// 添加用户中心菜单。
@@ -186,17 +186,17 @@ namespace SiteServer.Plugin
         /// }
         /// </code>
         /// </example>
-        /// <param name="menu">插件菜单。</param>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据当前登录用户计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddHomeMenu(Menu menu);
+        IService AddHomeMenu(Func<Menu> menuFunc);
 
         /// <summary>
         /// 添加内容菜单。
         /// 内容菜单位于内容管理的内容列表中。
         /// </summary>
-        /// <param name="menu">插件菜单。</param>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据内容上下文计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddContentMenu(Menu menu);
+        IService AddContentMenu(Func<IContentContext, Menu> menuFunc);
 
         /// <summary>
         /// 添加插件的内容模型，包含内容存储的表名称以及内容表的字段列表。
