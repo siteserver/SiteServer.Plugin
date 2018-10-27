@@ -16,11 +16,6 @@
         string ConnectionString { get; }
 
         /// <summary>
-        /// 系统后台文件夹名称，默认为SiteServer。
-        /// </summary>
-        string AdminDirectory { get; }
-
-        /// <summary>
         /// 网站根目录文件夹地址。
         /// </summary>
         string PhysicalApplicationPath { get; }

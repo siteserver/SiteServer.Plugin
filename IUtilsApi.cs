@@ -70,14 +70,28 @@ namespace SiteServer.Plugin
         /// </summary>
         /// <param name="relatedUrl">相对地址。</param>
         /// <returns>系统根目录访问Url地址。</returns>
-        string GetRootUrl(string relatedUrl);
+        string GetRootUrl(string relatedUrl = "");
 
         /// <summary>
         /// 获取管理后台文件访问Url地址。
         /// </summary>
         /// <param name="relatedUrl">相对地址。</param>
         /// <returns>管理后台文件访问Url地址。</returns>
-        string GetAdminDirectoryUrl(string relatedUrl);
+        string GetAdminUrl(string relatedUrl = "");
+
+        /// <summary>
+        /// 获取用户中心文件访问Url地址。
+        /// </summary>
+        /// <param name="relatedUrl">相对地址。</param>
+        /// <returns>用户中心文件访问Url地址。</returns>
+        string GetHomeUrl(string relatedUrl = "");
+
+        /// <summary>
+        /// 获取API访问Url地址。
+        /// </summary>
+        /// <param name="relatedUrl">相对地址。</param>
+        /// <returns>API访问Url地址。</returns>
+        string GetApiUrl(string relatedUrl = "");
 
         /// <summary>
         /// 压缩文件夹。
