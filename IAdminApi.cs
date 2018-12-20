@@ -62,56 +62,13 @@ namespace SiteServer.Plugin
         List<string> GetUserNameList();
 
         /// <summary>
-        /// 判断管理员是否是超级管理员。
+        /// 获取管理员权限。
         /// </summary>
         /// <param name="userName">用户名。</param>
         /// <returns>
-        /// 如果管理员是超级管理员，则返回 true，否则返回 false。
+        /// 管理员权限。
         /// </returns>
-        bool IsSuperAdmin(string userName);
-
-        /// <summary>
-        /// 判断管理员是否是站点管理员。
-        /// </summary>
-        /// <param name="userName">用户名。</param>
-        /// <param name="siteId">站点Id。</param>
-        /// <returns>
-        /// 如果管理员是对应的站点管理员，则返回 true，否则返回 false。
-        /// </returns>
-        bool IsSiteAdmin(string userName, int siteId);
-
-        /// <summary>
-        /// 判断管理员是否拥有指定的系统权限（非站点权限）。
-        /// </summary>
-        /// <param name="userName">用户名。</param>
-        /// <param name="permissions">系统权限，可以输入多个。</param>
-        /// <returns>
-        /// 如果管理员拥有指定的系统权限，则返回 true，否则返回 false。
-        /// </returns>
-        bool HasSystemPermissions(string userName, params string[] permissions);
-
-        /// <summary>
-        /// 判断管理员是否拥有指定的站点权限。
-        /// </summary>
-        /// <param name="userName">用户名。</param>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="permissions">站点权限，可以输入多个。</param>
-        /// <returns>
-        /// 如果管理员拥有指定的站点权限，则返回 true，否则返回 false。
-        /// </returns>
-        bool HasSitePermissions(string userName, int siteId, params string[] permissions);
-
-        /// <summary>
-        /// 判断管理员是否拥有指定的栏目权限。
-        /// </summary>
-        /// <param name="userName">用户名。</param>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="channelId">栏目Id。</param>
-        /// <param name="permissions">栏目权限，可以输入多个。</param>
-        /// <returns>
-        /// 如果管理员拥有指定的栏目权限，则返回 true，否则返回 false。
-        /// </returns>
-        bool HasChannelPermissions(string userName, int siteId, int channelId, params string[] permissions);
+        IPermissions GetPermissions(string userName);
 
         /// <summary>
         /// 判断用户名是否存在。
