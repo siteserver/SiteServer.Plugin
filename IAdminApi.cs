@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SiteServer.Plugin
 {
@@ -51,6 +52,66 @@ namespace SiteServer.Plugin
         /// 如果用户名、管理员邮箱或者管理员手机均不存在，则返回 null，否则返回指定的管理员对象实例。
         /// </returns>
         IAdministratorInfo GetAdminInfoByAccount(string account);
+
+        /// <summary>
+        /// 获取管理员用户名列表。
+        /// </summary>
+        /// <returns>
+        /// 管理员用户名列表。
+        /// </returns>
+        List<string> GetUserNameList();
+
+        /// <summary>
+        /// 判断管理员是否是超级管理员。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <returns>
+        /// 如果管理员是超级管理员，则返回 true，否则返回 false。
+        /// </returns>
+        bool IsSuperAdmin(string userName);
+
+        /// <summary>
+        /// 判断管理员是否是站点管理员。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <param name="siteId">站点Id。</param>
+        /// <returns>
+        /// 如果管理员是对应的站点管理员，则返回 true，否则返回 false。
+        /// </returns>
+        bool IsSiteAdmin(string userName, int siteId);
+
+        /// <summary>
+        /// 判断管理员是否拥有指定的系统权限（非站点权限）。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <param name="permissions">系统权限，可以输入多个。</param>
+        /// <returns>
+        /// 如果管理员拥有指定的系统权限，则返回 true，否则返回 false。
+        /// </returns>
+        bool HasSystemPermissions(string userName, params string[] permissions);
+
+        /// <summary>
+        /// 判断管理员是否拥有指定的站点权限。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="permissions">站点权限，可以输入多个。</param>
+        /// <returns>
+        /// 如果管理员拥有指定的站点权限，则返回 true，否则返回 false。
+        /// </returns>
+        bool HasSitePermissions(string userName, int siteId, params string[] permissions);
+
+        /// <summary>
+        /// 判断管理员是否拥有指定的栏目权限。
+        /// </summary>
+        /// <param name="userName">用户名。</param>
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="channelId">栏目Id。</param>
+        /// <param name="permissions">栏目权限，可以输入多个。</param>
+        /// <returns>
+        /// 如果管理员拥有指定的栏目权限，则返回 true，否则返回 false。
+        /// </returns>
+        bool HasChannelPermissions(string userName, int siteId, int channelId, params string[] permissions);
 
         /// <summary>
         /// 判断用户名是否存在。
