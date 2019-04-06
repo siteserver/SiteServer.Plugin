@@ -2,6 +2,7 @@
 
 namespace SiteServer.Plugin
 {
+    /// <inheritdoc />
     /// <summary>
     /// 用户实体接口。
     /// </summary>
@@ -20,17 +21,32 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 创建时间。
         /// </summary>
-        DateTime CreateDate { get; set; }
+        string Password { get; set; }
+
+        /// <summary>
+        /// 创建时间。
+        /// </summary>
+        string PasswordFormat { get; set; }
+
+        /// <summary>
+        /// 创建时间。
+        /// </summary>
+        string PasswordSalt { get; set; }
+
+        /// <summary>
+        /// 创建时间。
+        /// </summary>
+        DateTime? CreateDate { get; set; }
 
         /// <summary>
         /// 最后一次重设密码时间。
         /// </summary>
-        DateTime LastResetPasswordDate { get; set; }
+        DateTime? LastResetPasswordDate { get; set; }
 
         /// <summary>
         /// 最后活动时间。
         /// </summary>
-        DateTime LastActivityDate { get; set; }
+        DateTime? LastActivityDate { get; set; }
 
         /// <summary>
         /// 登录次数。
@@ -43,22 +59,22 @@ namespace SiteServer.Plugin
         int CountOfFailedLogin { get; set; }
 
         /// <summary>
-        /// 投稿次数。
+        /// 用户组Id。
         /// </summary>
-        int CountOfWriting { get; set; }
+        int GroupId { get; set; }
 
         /// <summary>
         /// 是否已审核用户。
         /// </summary>
-        bool IsChecked { get; set; }
+        bool Checked { get; set; }
 
         /// <summary>
         /// 是否被锁定。
         /// </summary>
-        bool IsLockedOut { get; set; }
+        bool Locked { get; set; }
 
         /// <summary>
-        /// 用户姓名。
+        /// 姓名。
         /// </summary>
         string DisplayName { get; set; }
 
@@ -78,21 +94,6 @@ namespace SiteServer.Plugin
         string AvatarUrl { get; set; }
 
         /// <summary>
-        /// 组织。
-        /// </summary>
-        string Organization { get; set; }
-
-        /// <summary>
-        /// 部门。
-        /// </summary>
-        string Department { get; set; }
-
-        /// <summary>
-        /// 职位。
-        /// </summary>
-        string Position { get; set; }
-
-        /// <summary>
         /// 性别。
         /// </summary>
         string Gender { get; set; }
@@ -101,21 +102,6 @@ namespace SiteServer.Plugin
         /// 出生日期。
         /// </summary>
         string Birthday { get; set; }
-
-        /// <summary>
-        /// 毕业院校。
-        /// </summary>
-        string Education { get; set; }
-
-        /// <summary>
-        /// 学历。
-        /// </summary>
-        string Graduation { get; set; }
-
-        /// <summary>
-        /// 地址。
-        /// </summary>
-        string Address { get; set; }
 
         /// <summary>
         /// 微信。
@@ -133,13 +119,8 @@ namespace SiteServer.Plugin
         string WeiBo { get; set; }
 
         /// <summary>
-        /// 兴趣。
+        /// 简介。
         /// </summary>
-        string Interests { get; set; }
-
-        /// <summary>
-        /// 签名。
-        /// </summary>
-        string Signature { get; set; }
+        string Bio { get; set; }
     }
 }

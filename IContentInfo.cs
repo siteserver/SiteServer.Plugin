@@ -7,7 +7,7 @@ namespace SiteServer.Plugin
     /// 内容实体接口。
     /// 内容表默认名称为model_Content，SiteServer CMS 后台可以新建新的内容表，或者修改现有内容表的字段。
     /// </summary>
-    public interface IContentInfo : IAttributes
+    public interface IContentInfo
     {
         /// <summary>
         /// 内容Id。
@@ -35,14 +35,19 @@ namespace SiteServer.Plugin
         string LastEditUserName { get; set; }
 
         /// <summary>
-        /// 投稿人。
-        /// </summary>
-        string WritingUserName { get; set; }
-
-        /// <summary>
         /// 修改时间。
         /// </summary>
-        DateTime LastEditDate { get; set; }
+        DateTime? LastEditDate { get; set; }
+
+        /// <summary>
+        /// 新增内容的管理员Id。
+        /// </summary>
+        int AdminId { get; set; }
+
+        /// <summary>
+        /// 新增投稿的用户Id。
+        /// </summary>
+        int UserId { get; set; }
 
         /// <summary>
         /// 排序。
@@ -82,7 +87,7 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 最后点击时间。
         /// </summary>
-        DateTime LastHitsDate { get; set; }
+        DateTime? LastHitsDate { get; set; }
 
         /// <summary>
         /// 内容标题。
@@ -92,22 +97,22 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 是否置顶内容。
         /// </summary>
-        bool IsTop { get; set; }
+        bool Top { get; set; }
 
         /// <summary>
         /// 是否推荐内容。
         /// </summary>
-        bool IsRecommend { get; set; }
+        bool Recommend { get; set; }
 
         /// <summary>
         /// 是否热点内容。
         /// </summary>
-        bool IsHot { get; set; }
+        bool Hot { get; set; }
 
         /// <summary>
         /// 是否醒目内容。
         /// </summary>
-        bool IsColor { get; set; }
+        bool Color { get; set; }
 
         /// <summary>
         /// 内容组。
@@ -124,7 +129,7 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 是否终审通过通过。
         /// </summary>
-        bool IsChecked { get; set; }
+        bool Checked { get; set; }
 
         /// <summary>
         /// 未终审通过情况下，处于第几级审核状态。
@@ -139,6 +144,6 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 添加时间。
         /// </summary>
-        DateTime AddDate { get; set; }
+        DateTime? AddDate { get; set; }
     }
 }

@@ -12,9 +12,7 @@
         /// 此方法将由 SiteServer CMS 系统载入插件时调用。
         /// </remarks>
         /// <param name="metadata">插件元数据接口。</param>
-        /// <param name="environment">环境变量接口。</param>
-        /// <param name="apiCollection">API类集合接口。</param>
-        public virtual void Initialize(IMetadata metadata, IEnvironment environment, IApiCollection apiCollection)
+        public virtual void Initialize(IMetadata metadata)
         {
             
         }

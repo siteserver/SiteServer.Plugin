@@ -5,6 +5,7 @@
     /// </summary>
     public interface IConfigApi
     {
+#pragma warning disable CS1573 // 参数“pluginId”在“IConfigApi.SetConfig(string, int, string, object)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
         /// <summary>
         /// 存储当前插件的配置信息。
         /// </summary>
@@ -17,8 +18,10 @@
         /// <returns>
         /// 如果设置成功，则为true；否则为false。
         /// </returns>
-        bool SetConfig(int siteId, string key, object value);
+        bool SetConfig(string pluginId, int siteId, string key, object value);
+#pragma warning restore CS1573 // 参数“pluginId”在“IConfigApi.SetConfig(string, int, string, object)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
 
+#pragma warning disable CS1573 // 参数“pluginId”在“IConfigApi.SetConfig(string, int, object)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
         /// <summary>
         /// 存储当前插件的配置信息。
         /// </summary>
@@ -31,8 +34,10 @@
         /// 如果设置成功，则为true；否则为false。
         /// 等同于SetConfig(siteId, string.Empty, value);
         /// </returns>
-        bool SetConfig(int siteId, object value);
+        bool SetConfig(string pluginId, int siteId, object value);
+#pragma warning restore CS1573 // 参数“pluginId”在“IConfigApi.SetConfig(string, int, object)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
 
+#pragma warning disable CS1573 // 参数“pluginId”在“IConfigApi.GetConfig<T>(string, int, string)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
         /// <summary>
         /// 获取当前插件的配置信息。
         /// </summary>
@@ -45,8 +50,10 @@
         /// <returns>
         /// 如果找到指定键，则包含与该键相关的值；否则包含参数类型T的默认值。
         /// </returns>
-        T GetConfig<T>(int siteId, string key = "");
+        T GetConfig<T>(string pluginId, int siteId, string key = "");
+#pragma warning restore CS1573 // 参数“pluginId”在“IConfigApi.GetConfig<T>(string, int, string)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
 
+#pragma warning disable CS1573 // 参数“pluginId”在“IConfigApi.RemoveConfig(string, int, string)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
         /// <summary>
         /// 删除当前插件的配置信息。
         /// </summary>
@@ -58,11 +65,7 @@
         /// <returns>
         /// 如果删除成功，则为true；否则为false。
         /// </returns>
-        bool RemoveConfig(int siteId, string key = "");
-
-        /// <summary>
-        /// 获取 SiteServer CMS 的系统配置字典。
-        /// </summary>
-        IAttributes SystemConfig { get; }
+        bool RemoveConfig(string pluginId, int siteId, string key = "");
+#pragma warning restore CS1573 // 参数“pluginId”在“IConfigApi.RemoveConfig(string, int, string)”的 XML 注释中没有匹配的 param 标记(但其他参数有)
     }
 }

@@ -97,14 +97,18 @@ namespace SiteServer.Plugin
         bool IsUserLoggin { get; }
 
         /// <summary>
+        /// 如果用户已登录，则返回登录用户的Id；否则返回 0。
+        /// </summary>
+        int UserId { get; }
+
+        /// <summary>
         /// 如果用户已登录，则返回登录用户的用户名；否则返回空。
         /// </summary>
         string UserName { get; }
 
-        /// <summary>
-        /// 如果用户已登录，则返回登录用户的用户实体；否则返回 null。
-        /// </summary>
-        IUserInfo UserInfo { get; }
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员“IRequest.UserPermissions”的 XML 注释
+        IPermissions UserPermissions { get; }
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员“IRequest.UserPermissions”的 XML 注释
 
         /// <summary>
         /// 用户登录，调用此方法后系统将计算此用户的Token并存储在cookie中，同时此方法将返回用户Token，用于REST Api以及其他场景中。
@@ -114,7 +118,7 @@ namespace SiteServer.Plugin
         /// 是否下次自动登录。
         /// 如果设置为 true，则登录cookie将保留7天；否则当浏览器关闭时系统将清除登录cookie。
         /// </param>
-        /// <returns>返回此用户的Token，7天内可用。</returns>
+        /// <returns>返回此用户的Token。</returns>
         string UserLogin(string userName, bool isAutoLogin);
 
         /// <summary>
@@ -128,25 +132,29 @@ namespace SiteServer.Plugin
         bool IsAdminLoggin { get; }
 
         /// <summary>
+        /// 如果管理员已登录，则返回登录管理员的Id；否则返回 0。
+        /// </summary>
+        int AdminId { get; }
+
+        /// <summary>
         /// 如果管理员已登录，则返回登录管理员的用户名；否则返回空。
         /// </summary>
         string AdminName { get; }
 
-        /// <summary>
-        /// 如果管理员已登录，则返回登录管理员的管理员实体；否则返回 null。
-        /// </summary>
-        IAdministratorInfo AdminInfo { get; }
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员“IRequest.AdminPermissions”的 XML 注释
+        IPermissions AdminPermissions { get; }
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员“IRequest.AdminPermissions”的 XML 注释
 
         /// <summary>
         /// 管理员登录，调用此方法后系统将计算此管理员的Token并存储在cookie中，同时此方法将返回管理员Token，用于REST Api以及其他场景中。
         /// </summary>
-        /// <param name="adminName">登录管理员的用户名。</param>
+        /// <param name="userName">登录管理员的用户名。</param>
         /// <param name="isAutoLogin">
         /// 是否下次自动登录。
         /// 如果设置为 true，则登录cookie将保留7天；否则当浏览器关闭时系统将清除登录cookie。
         /// </param>
-        /// <returns>返回此管理员的Token，7天内可用。</returns>
-        string AdminLogin(string adminName, bool isAutoLogin);
+        /// <returns>返回此管理员的Token。</returns>
+        string AdminLogin(string userName, bool isAutoLogin);
 
         /// <summary>
         /// 管理员退出登录，调用此方法后系统将清除登录cookie。
@@ -154,42 +162,9 @@ namespace SiteServer.Plugin
         void AdminLogout();
 
         /// <summary>
-        /// 根据用户名获取用户Token，7天内可用。
-        /// </summary>
-        /// <param name="userName">用户名。</param>
-        /// <returns>返回此用户的Token，7天内可用。</returns>
-        string GetUserTokenByUserName(string userName);
-
-        /// <summary>
-        /// 根据用户Token获取用户名。
-        /// </summary>
-        /// <param name="token">用户Token。</param>
-        /// <returns>存储于用户Token中的用户名。</returns>
-        string GetUserNameByToken(string token);
-
-        /// <summary>
-        /// 根据管理员用户名获取管理员Token，7天内可用。
-        /// </summary>
-        /// <param name="adminName">管理员用户名。</param>
-        /// <returns>返回此管理员的Token，7天内可用。</returns>
-        string GetAdminTokenByAdminName(string adminName);
-
-        /// <summary>
-        /// 根据管理员Token获取管理员用户名。
-        /// </summary>
-        /// <param name="token">管理员Token。</param>
-        /// <returns>存储于管理员Token中的管理员用户名。</returns>
-        string GetAdminNameByToken(string token);
-
-        /// <summary>
         /// 是否针对此插件的REST Api访问包含Api认证Token。
         /// </summary>
         bool IsApiAuthenticated { get; }
-
-        /// <summary>
-        /// 是否针对当前插件的REST Api访问包含Api认证Token且此Token拥有当前插件的授权。
-        /// </summary>
-        bool IsApiAuthorized { get; }
 
         /// <summary>
         /// 设置cookie。
@@ -205,8 +180,8 @@ namespace SiteServer.Plugin
         /// </summary>
         /// <param name="name">cookie名称。</param>
         /// <param name="value">cookie值。</param>
-        /// <param name="expires">到期时间。</param>
-        void SetCookie(string name, string value, DateTime expires);
+        /// <param name="expiresAt">到期时间。</param>
+        void SetCookie(string name, string value, TimeSpan expiresAt);
 
         /// <summary>
         /// 获取cookie。

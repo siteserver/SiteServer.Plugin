@@ -45,16 +45,6 @@ namespace SiteServer.Plugin
         string GetChannelName(int siteId, int channelId);
 
         /// <summary>
-        /// 通过站点Id以及管理员用户名获取此管理员拥有权限的栏目Id的列表。
-        /// </summary>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="adminName">管理员用户名</param>
-        /// <returns>
-        /// 如果管理员存在并拥有此站点的栏目管理权限，则返回对应的栏目Id列表；否则返回 null。
-        /// </returns>
-        List<int> GetChannelIdListByAdminName(int siteId, string adminName);
-
-        /// <summary>
         /// 通过站点Id获取此站点下的所有栏目Id的列表。
         /// </summary>
         /// <param name="siteId">站点Id。</param>

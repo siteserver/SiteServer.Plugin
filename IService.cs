@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -40,10 +41,6 @@ namespace SiteServer.Plugin
         /// </summary>
         event EventHandler<ParseEventArgs> BeforeStlParse;
 
-        /// <summary>
-        /// STL解析后的触发事件。
-        /// </summary>
-        event EventHandler<ParseEventArgs> AfterStlParse;
 
         /// <summary>
         /// 以GET方式对当前插件的REST Api访问的触发事件。
@@ -64,6 +61,25 @@ namespace SiteServer.Plugin
         /// 以DELETE方式对当前插件的REST Api访问的触发事件。
         /// </summary>
         event RestApiEventHandler RestApiDelete;
+
+        /// <summary>
+        /// STL解析后的触发事件。
+        /// </summary>
+        event EventHandler<ParseEventArgs> AfterStlParse;
+
+        /// <summary>
+        /// 设置管理员登录后台后默认显示的页面地址。
+        /// </summary>
+        /// <param name="pageUrl">默认页面地址。</param>
+        /// <returns>返回插件服务注册实例。</returns>
+        IService SetSystemDefaultPage(string pageUrl);
+
+        /// <summary>
+        /// 设置用户登录用户中心后默认显示的页面地址。
+        /// </summary>
+        /// <param name="pageUrl">默认页面地址。</param>
+        /// <returns>返回插件服务注册实例。</returns>
+        IService SetHomeDefaultPage(string pageUrl);
 
         /// <summary>
         /// 添加系统菜单。
@@ -113,26 +129,76 @@ namespace SiteServer.Plugin
         /// }
         /// </code>
         /// </example>
-        /// <param name="menu">插件菜单。</param>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据当前登录管理员计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddSystemMenu(Menu menu);
-
+        IService AddSystemMenu(Func<Menu> menuFunc);
         /// <summary>
         /// 添加站点菜单。
         /// 站点菜单位于系统左侧的插件管理菜单中。
         /// 此菜单的Url地址将自动加上对应的站点Id。
         /// </summary>
-        /// <param name="siteMenuFunc">插件菜单生成方法，可以根据第一个参数siteId（站点Id）计算并返回菜单。</param>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据第一个参数siteId（站点Id）计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddSiteMenu(Func<int, Menu> siteMenuFunc);
+        IService AddSiteMenu(Func<int, Menu> menuFunc);
+
+        /// <summary>
+        /// 添加用户中心菜单。
+        /// <seealso cref="SiteServer.Plugin.Menu"/>
+        /// </summary>
+        /// <example> 
+        /// 下面的例子显示如何添加用户中心菜单。
+        /// <code>
+        /// public class Main : PluginBase
+        /// {
+        ///     public override void Startup(IService service)
+        ///     {
+        ///         service.AddHomeMenu(new Menu
+        ///         {
+        ///             Text = "用户中心菜单",
+        ///             Href = "page.html"
+        ///         });
+        ///     }
+        /// }
+        /// </code>
+        /// 下面的例子显示如何添加带有下级菜单的系统菜单。
+        /// <code>
+        /// public class Main : PluginBase
+        /// {
+        ///     public override void Startup(IService service)
+        ///     {
+        ///         service.AddHomeMenu(new Menu
+        ///         {
+        ///             Text = "用户中心菜单",
+        ///             Href = "page.html",
+        ///             Menus = new List&lt;Menu&gt;
+        ///             {
+        ///                 new Menu
+        ///                 {
+        ///                     Text = "下级菜单1",
+        ///                     Href = "page1.html"
+        ///                 },
+        ///                 new Menu
+        ///                 {
+        ///                     Text = "下级菜单1",
+        ///                     Href = "page2.html"
+        ///                 }
+        ///             }
+        ///         });
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据当前登录用户计算并返回菜单。</param>
+        /// <returns>返回插件服务注册实例。</returns>
+        IService AddHomeMenu(Func<Menu> menuFunc);
 
         /// <summary>
         /// 添加内容菜单。
         /// 内容菜单位于内容管理的内容列表中。
         /// </summary>
-        /// <param name="menu">插件菜单。</param>
+        /// <param name="menuFunc">插件菜单生成方法，可以根据内容上下文计算并返回菜单。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddContentMenu(Menu menu);
+        IService AddContentMenu(Func<IContentInfo, Menu> menuFunc);
 
         /// <summary>
         /// 添加插件的内容模型，包含内容存储的表名称以及内容表的字段列表。
@@ -141,7 +207,6 @@ namespace SiteServer.Plugin
         /// <param name="tableColumns">内容表字段列表。</param>
         /// <returns>返回插件服务注册实例。</returns>
         IService AddContentModel(string tableName, List<TableColumn> tableColumns);
-
         /// <summary>
         /// 添加插件的数据库表，包含表名称以及表字段列表。
         /// 此方法可以多次调用，系统将为此插件创建指定的数据库表结构。
@@ -172,7 +237,6 @@ namespace SiteServer.Plugin
         /// </summary>
         /// <returns>返回插件服务注册实例。</returns>
         IService AddApiAuthorization();
-
         /// <summary>
         /// 添加SiteServer Cli命令行可以执行的任务。
         /// 实现此方法的插件将能够在SiteServer Cli命令行中运行任务。

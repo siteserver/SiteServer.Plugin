@@ -57,7 +57,7 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 是否最后一级栏目。
         /// </summary>
-        bool IsLastNode { get; set; }
+        bool LastNode { get; set; }
 
         /// <summary>
         /// 栏目索引。
@@ -78,7 +78,7 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 栏目添加时间。
         /// </summary>
-        DateTime AddDate { get; set; }
+        DateTime? AddDate { get; set; }
 
         /// <summary>
         /// 栏目图片，存储图片地址。
@@ -89,11 +89,6 @@ namespace SiteServer.Plugin
         /// 栏目正文，以编辑器提交信息。
         /// </summary>
         string Content { get; set; }
-
-        /// <summary>
-        /// 栏目下的内容总数，不包含下级栏目的内容数。
-        /// </summary>
-        int ContentNum { get; set; }
 
         /// <summary>
         /// 栏目生成页面路径。
@@ -139,11 +134,5 @@ namespace SiteServer.Plugin
         /// 页面描述。
         /// </summary>
         string Description { get; set; }
-
-        /// <summary>
-        /// 栏目可扩展属性，以键/值对的方式存储栏目数据，键不区分大小写。
-        /// 除了存储栏目本身数据，还将用于存储栏目的自定义字段数据。
-        /// </summary>
-        IAttributes Attributes { get; }
     }
 }

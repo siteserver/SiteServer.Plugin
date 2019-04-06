@@ -51,12 +51,20 @@ namespace SiteServer.Plugin
         void AddWaterMark(int siteId, string imagePath);
 
         /// <summary>
-        /// 根据后台设置获取指定文件名的上传路径。
+        /// 根据后台设置获取指定上传文件名的路径。
         /// </summary>
         /// <param name="siteId">站点Id。</param>
         /// <param name="fileName">需要上传的文件名称。</param>
         /// <returns>需要上传文件的地址。</returns>
         string GetUploadFilePath(int siteId, string fileName);
+
+        /// <summary>
+        /// 根据后台设置获取指定上传文件名的Url地址。
+        /// </summary>
+        /// <param name="siteId">站点Id。</param>
+        /// <param name="fileName">上传的文件名称。</param>
+        /// <returns>上传文件的Url地址。</returns>
+        string GetUploadFileUrl(int siteId, string fileName);
 
         /// <summary>
         /// 获取系统临时文件夹的绝对路径。
@@ -70,14 +78,28 @@ namespace SiteServer.Plugin
         /// </summary>
         /// <param name="relatedUrl">相对地址。</param>
         /// <returns>系统根目录访问Url地址。</returns>
-        string GetRootUrl(string relatedUrl);
+        string GetRootUrl(string relatedUrl = "");
 
         /// <summary>
         /// 获取管理后台文件访问Url地址。
         /// </summary>
         /// <param name="relatedUrl">相对地址。</param>
         /// <returns>管理后台文件访问Url地址。</returns>
-        string GetAdminDirectoryUrl(string relatedUrl);
+        string GetAdminUrl(string relatedUrl = "");
+
+        /// <summary>
+        /// 获取用户中心文件访问Url地址。
+        /// </summary>
+        /// <param name="relatedUrl">相对地址。</param>
+        /// <returns>用户中心文件访问Url地址。</returns>
+        string GetHomeUrl(string relatedUrl = "");
+
+        /// <summary>
+        /// 获取API访问Url地址。
+        /// </summary>
+        /// <param name="relatedUrl">相对地址。</param>
+        /// <returns>API访问Url地址。</returns>
+        string GetApiUrl(string relatedUrl = "");
 
         /// <summary>
         /// 压缩文件夹。
