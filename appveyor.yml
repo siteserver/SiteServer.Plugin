@@ -47,7 +47,7 @@
     only:
       - dev
 
-  version: 2.0.{build}-beta
+  version: 2.1.{build}-beta
   image: Visual Studio 2017
 
   assembly_info:
