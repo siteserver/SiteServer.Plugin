@@ -3,9 +3,9 @@
 namespace SiteServer.Plugin
 {
     /// <summary>
-    /// 访问插件时的认证请求。
+    /// 表示与请求关联的上下文。
     /// </summary>
-    public interface IRequest
+    public interface IAuthenticatedRequest
     {
         /// <summary>
         /// 访问地址是否包含指定的查询字符串。
@@ -106,9 +106,10 @@ namespace SiteServer.Plugin
         /// </summary>
         string UserName { get; }
 
-#pragma warning disable CS1591 // 缺少对公共可见类型或成员“IRequest.UserPermissions”的 XML 注释
+        /// <summary>
+        /// 当前登录前台用户的权限。
+        /// </summary>
         IPermissions UserPermissions { get; }
-#pragma warning restore CS1591 // 缺少对公共可见类型或成员“IRequest.UserPermissions”的 XML 注释
 
         /// <summary>
         /// 用户登录，调用此方法后系统将计算此用户的Token并存储在cookie中，同时此方法将返回用户Token，用于REST Api以及其他场景中。
@@ -141,9 +142,10 @@ namespace SiteServer.Plugin
         /// </summary>
         string AdminName { get; }
 
-#pragma warning disable CS1591 // 缺少对公共可见类型或成员“IRequest.AdminPermissions”的 XML 注释
+        /// <summary>
+        /// 当前登录后台管理员的权限。
+        /// </summary>
         IPermissions AdminPermissions { get; }
-#pragma warning restore CS1591 // 缺少对公共可见类型或成员“IRequest.AdminPermissions”的 XML 注释
 
         /// <summary>
         /// 管理员登录，调用此方法后系统将计算此管理员的Token并存储在cookie中，同时此方法将返回管理员Token，用于REST Api以及其他场景中。

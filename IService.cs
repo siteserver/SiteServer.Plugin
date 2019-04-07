@@ -41,27 +41,6 @@ namespace SiteServer.Plugin
         /// </summary>
         event EventHandler<ParseEventArgs> BeforeStlParse;
 
-
-        /// <summary>
-        /// 以GET方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiGet;
-
-        /// <summary>
-        /// 以POST方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiPost;
-
-        /// <summary>
-        /// 以PUT方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiPut;
-
-        /// <summary>
-        /// 以DELETE方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiDelete;
-
         /// <summary>
         /// STL解析后的触发事件。
         /// </summary>

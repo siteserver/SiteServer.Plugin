@@ -1,4 +1,6 @@
-﻿using Datory;
+﻿using System;
+using System.Net.Http;
+using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -92,5 +94,13 @@ namespace SiteServer.Plugin
         /// 工具类Api接口。
         /// </summary>
         public static IUtilsApi UtilsApi => _apiCollection.UtilsApi;
+
+        public static IAuthenticatedRequest GetAuthenticatedRequest(this HttpRequestMessage request)
+        {
+            if (request == null)
+                throw new ArgumentNullException(nameof(request));
+            
+            return _apiCollection.UtilsApi.GetAuthenticatedRequest(request);
+        }
     }
 }
