@@ -116,6 +116,10 @@ namespace SiteServer.Plugin
         /// <param name="directoryPath">解压缩后的文件夹绝对地址。</param>
         void ExtractZip(string zipFilePath, string directoryPath);
 
+        string JsonSerialize(object obj);
+
+        T JsonDeserialize<T>(string json, T defaultValue = default(T));
+
         IAuthenticatedRequest GetAuthenticatedRequest(HttpRequestMessage request);
     }
 }
