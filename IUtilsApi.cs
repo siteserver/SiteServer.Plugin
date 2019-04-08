@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 
 namespace SiteServer.Plugin
 {
@@ -120,6 +119,6 @@ namespace SiteServer.Plugin
 
         T JsonDeserialize<T>(string json, T defaultValue = default(T));
 
-        IAuthenticatedRequest GetAuthenticatedRequest(HttpRequestMessage request);
+        IAuthenticatedRequest GetAuthenticatedRequest();
     }
 }

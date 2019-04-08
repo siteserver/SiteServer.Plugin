@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SiteServer.Plugin
+﻿namespace SiteServer.Plugin
 {
     /// <summary>
     /// 站点实体接口。

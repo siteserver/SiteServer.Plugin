@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using Datory;
+﻿using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -31,19 +29,11 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// 系统使用的数据库类型。
+        /// 系统信息。
         /// </summary>
-        public static DatabaseType DatabaseType => _environment.DatabaseType;
+        public static IEnvironment Environment => _environment;
 
-        /// <summary>
-        /// 系统使用的数据库连接字符串。
-        /// </summary>
-        public static string ConnectionString => _environment.ConnectionString;
-
-        /// <summary>
-        /// 网站根目录文件夹地址。
-        /// </summary>
-        public static string PhysicalApplicationPath => _environment.PhysicalApplicationPath;
+        public static IAuthenticatedRequest AuthenticatedRequest => UtilsApi.GetAuthenticatedRequest();
 
         /// <summary>
         /// 管理员及权限Api接口。

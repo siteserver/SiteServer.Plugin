@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SiteServer.Plugin
+﻿namespace SiteServer.Plugin
 {
     /// <summary>
     /// 表示与请求关联的上下文。
