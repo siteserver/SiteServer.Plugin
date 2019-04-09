@@ -3,7 +3,7 @@
     only:
       - master
 
-  version: 2.1.{build}
+  version: 2.2.{build}
   image: Visual Studio 2017
 
   dotnet_csproj:
