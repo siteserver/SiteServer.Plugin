@@ -21,12 +21,12 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 创建时间。
         /// </summary>
-        DateTime CreationDate { get; set; }
+        DateTime? CreationDate { get; set; }
 
         /// <summary>
         /// 最后活动时间。
         /// </summary>
-        DateTime LastActivityDate { get; set; }
+        DateTime? LastActivityDate { get; set; }
 
         /// <summary>
         /// 登录次数。
@@ -46,7 +46,7 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 是否被锁定。
         /// </summary>
-        bool IsLockedOut { get; set; }
+        bool Locked { get; set; }
 
         /// <summary>
         /// 拥有管理权限的站点Id列表。
@@ -82,5 +82,10 @@ namespace SiteServer.Plugin
         /// 手机号码，具有唯一性，可作为登录账号使用。
         /// </summary>
         string Mobile { get; set; }
+
+        /// <summary>
+        /// 管理员头像图片地址。
+        /// </summary>
+        string AvatarUrl { get; set; }
     }
 }

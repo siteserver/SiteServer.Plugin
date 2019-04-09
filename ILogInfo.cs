@@ -25,7 +25,7 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 添加时间。
         /// </summary>
-        DateTime AddDate { get; set; }
+        DateTime? AddDate { get; set; }
 
         /// <summary>
         /// 动作。

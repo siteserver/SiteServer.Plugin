@@ -3,7 +3,7 @@
     only:
       - master
 
-  version: 2.1.{build}
+  version: 2.3.{build}
   image: Visual Studio 2017
 
   dotnet_csproj:
@@ -47,17 +47,17 @@
     only:
       - dev
 
-  version: 2.0.{build}-beta
+  version: 2.3.{build}-beta
   image: Visual Studio 2017
 
-  assembly_info:
+  dotnet_csproj:
     patch: true
-    file: AssemblyInfo.*
+    file: '**\*.csproj'
+    version: '{version}'
+    package_version: '{version}'
     assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
-
-  platform: Any CPU
+    file_version: '{version}'
+    informational_version: '{version}'
 
   configuration:
     - Release
@@ -71,7 +71,7 @@
     - packages -> **\packages.config
 
   before_build:
-    - nuget restore SiteServer.Plugin.sln
+    - dotnet restore SiteServer.Plugin.sln
 
   build:
     project: SiteServer.Plugin.sln # path to Visual Studio solution or project
@@ -79,9 +79,9 @@
 
   deploy:
     provider: NuGet
-    server: https://www.myget.org/F/siteserver/api/v2/package # remove to push to NuGet.org
+    server: # remove to push to NuGet.org
     api_key:
-      secure: i9vISdFyCeWbRUQw+jhcF748i4oWdeatGBrx+dJ07SDTpt7Hsk9YCRp/ha3ZXfZF
+      secure: B9umZPwBVx2TMfYt7G1Eppy7XX0FkqWioXxwR+lKv5XVRc6ezjOXP8D9iuisOWBF
     skip_symbols: false
     symbol_server: # remove to push symbols to SymbolSource.org
     artifact: /.*\.nupkg/

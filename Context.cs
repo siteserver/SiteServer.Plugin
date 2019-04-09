@@ -1,4 +1,6 @@
-﻿namespace SiteServer.Plugin
+﻿using Datory;
+
+namespace SiteServer.Plugin
 {
     /// <summary>
     /// 封装系统上下文相关信息
@@ -27,28 +29,11 @@
         }
 
         /// <summary>
-        /// 系统使用的数据库类型。
+        /// 系统信息。
         /// </summary>
-        public static DatabaseType DatabaseType => _environment.DatabaseType;
+        public static IEnvironment Environment => _environment;
 
-        /// <summary>
-        /// 系统使用的数据库连接字符串。
-        /// </summary>
-        public static string ConnectionString => _environment.ConnectionString;
-
-        /// <summary>
-        /// 网站根目录文件夹地址。
-        /// </summary>
-        public static string PhysicalApplicationPath => _environment.PhysicalApplicationPath;
-
-        /// <summary>
-        /// 获取插件Url访问请求IRequest。
-        /// 当存在对插件的HTTP访问请求时（REST Api访问、页面访问等），返回IRequest实例；否则返回 null。
-        /// </summary>
-        public static IRequest GetCurrentRequest()
-        {
-            return _environment.Request;
-        }
+        public static IAuthenticatedRequest AuthenticatedRequest => UtilsApi.GetAuthenticatedRequest();
 
         /// <summary>
         /// 管理员及权限Api接口。
@@ -65,10 +50,10 @@
         /// </summary>
         public static IContentApi ContentApi => _apiCollection.ContentApi;
 
-        /// <summary>
-        /// 数据库操作Api接口。
-        /// </summary>
-        public static IDatabaseApi DatabaseApi => _apiCollection.DatabaseApi;
+        ///// <summary>
+        ///// 数据库操作Api接口。
+        ///// </summary>
+        //public static IDatabaseApi DatabaseApi => _apiCollection.DatabaseApi;
 
         /// <summary>
         /// 栏目Api接口。

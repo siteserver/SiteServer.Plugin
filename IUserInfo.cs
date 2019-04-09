@@ -6,7 +6,7 @@ namespace SiteServer.Plugin
     /// <summary>
     /// 用户实体接口。
     /// </summary>
-    public interface IUserInfo : IAttributes
+    public interface IUserInfo
     {
         /// <summary>
         /// 用户Id。
@@ -36,17 +36,17 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 创建时间。
         /// </summary>
-        DateTime CreateDate { get; set; }
+        DateTime? CreateDate { get; set; }
 
         /// <summary>
         /// 最后一次重设密码时间。
         /// </summary>
-        DateTime LastResetPasswordDate { get; set; }
+        DateTime? LastResetPasswordDate { get; set; }
 
         /// <summary>
         /// 最后活动时间。
         /// </summary>
-        DateTime LastActivityDate { get; set; }
+        DateTime? LastActivityDate { get; set; }
 
         /// <summary>
         /// 登录次数。
@@ -66,12 +66,12 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 是否已审核用户。
         /// </summary>
-        bool IsChecked { get; set; }
+        bool Checked { get; set; }
 
         /// <summary>
         /// 是否被锁定。
         /// </summary>
-        bool IsLockedOut { get; set; }
+        bool Locked { get; set; }
 
         /// <summary>
         /// 姓名。
@@ -122,10 +122,5 @@ namespace SiteServer.Plugin
         /// 简介。
         /// </summary>
         string Bio { get; set; }
-
-        /// <summary>
-        /// 附加字段。
-        /// </summary>
-        string SettingsXml { get; set; }
     }
 }

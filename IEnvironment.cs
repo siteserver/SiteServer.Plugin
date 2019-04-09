@@ -1,4 +1,6 @@
-﻿namespace SiteServer.Plugin
+﻿using Datory;
+
+namespace SiteServer.Plugin
 {
     /// <summary>
     /// 插件运行环境接口。
@@ -8,22 +10,21 @@
         /// <summary>
         /// 系统使用的数据库类型。
         /// </summary>
-        DatabaseType DatabaseType { get; }
+        Database Database { get; }
 
         /// <summary>
-        /// 系统使用的数据库连接字符串。
+        /// 用户中心文件夹名称。
         /// </summary>
-        string ConnectionString { get; }
+        string HomeDirectory { get; }
+
+        /// <summary>
+        /// 管理后台文件夹名称。
+        /// </summary>
+        string AdminDirectory { get; }
 
         /// <summary>
         /// 网站根目录文件夹地址。
         /// </summary>
         string PhysicalApplicationPath { get; }
-
-        /// <summary>
-        /// 获取插件Url访问请求IRequest。
-        /// 当存在对插件的HTTP访问请求时（REST Api访问、aspx页面访问等），返回IRequest实例；否则返回 null。
-        /// </summary>
-        IRequest Request { get; }
     }
 }

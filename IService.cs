@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -46,31 +47,11 @@ namespace SiteServer.Plugin
         event EventHandler<ParseEventArgs> AfterStlParse;
 
         /// <summary>
-        /// 以GET方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiGet;
-
-        /// <summary>
-        /// 以POST方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiPost;
-
-        /// <summary>
-        /// 以PUT方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiPut;
-
-        /// <summary>
-        /// 以DELETE方式对当前插件的REST Api访问的触发事件。
-        /// </summary>
-        event RestApiEventHandler RestApiDelete;
-
-        /// <summary>
         /// 设置管理员登录后台后默认显示的页面地址。
         /// </summary>
         /// <param name="pageUrl">默认页面地址。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService SetSystemDefaltPage(string pageUrl);
+        IService SetSystemDefaultPage(string pageUrl);
 
         /// <summary>
         /// 设置用户登录用户中心后默认显示的页面地址。
