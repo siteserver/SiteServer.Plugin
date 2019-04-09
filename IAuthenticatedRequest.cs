@@ -76,5 +76,27 @@
         /// 管理员退出登录，调用此方法后系统将清除登录cookie。
         /// </summary>
         void AdminLogout();
+
+        bool IsQueryExists(string name);
+
+        string GetQueryString(string name);
+
+        int GetQueryInt(string name, int defaultValue = 0);
+
+        decimal GetQueryDecimal(string name, decimal defaultValue = 0);
+
+        bool GetQueryBool(string name, bool defaultValue = false);
+
+        bool IsPostExists(string name);
+
+        T GetPostObject<T>(string name = "");
+
+        string GetPostString(string name);
+
+        int GetPostInt(string name, int defaultValue = 0);
+
+        decimal GetPostDecimal(string name, decimal defaultValue = 0);
+
+        bool GetPostBool(string name, bool defaultValue = false);
     }
 }
