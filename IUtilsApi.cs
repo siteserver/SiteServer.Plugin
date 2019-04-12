@@ -36,37 +36,6 @@ namespace SiteServer.Plugin
         string FilterSql(string sql);
 
         /// <summary>
-        /// 跨站转移文件。
-        /// </summary>
-        /// <param name="sourceSiteId">原站点Id。</param>
-        /// <param name="targetSiteId">转移到站点Id。</param>
-        /// <param name="relatedUrls">包含所有需要转移的文件的相对地址列表。</param>
-        void MoveFiles(int sourceSiteId, int targetSiteId, List<string> relatedUrls);
-
-        /// <summary>
-        /// 根据后台设置为图片添加水印。
-        /// </summary>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="imagePath">图片文件的地址。</param>
-        void AddWaterMark(int siteId, string imagePath);
-
-        /// <summary>
-        /// 根据后台设置获取指定上传文件名的路径。
-        /// </summary>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="fileName">需要上传的文件名称。</param>
-        /// <returns>需要上传文件的地址。</returns>
-        string GetUploadFilePath(int siteId, string fileName);
-
-        /// <summary>
-        /// 根据后台设置获取指定上传文件名的Url地址。
-        /// </summary>
-        /// <param name="siteId">站点Id。</param>
-        /// <param name="fileName">上传的文件名称。</param>
-        /// <returns>上传文件的Url地址。</returns>
-        string GetUploadFileUrl(int siteId, string fileName);
-
-        /// <summary>
         /// 获取系统临时文件夹的绝对路径。
         /// </summary>
         /// <param name="relatedPath">相对路径。</param>
