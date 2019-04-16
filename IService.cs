@@ -184,8 +184,9 @@ namespace SiteServer.Plugin
         /// </summary>
         /// <param name="tableName">内容表名称。</param>
         /// <param name="tableColumns">内容表字段列表。</param>
+        /// /// <param name="inputStyles">内容表单样式。</param>
         /// <returns>返回插件服务注册实例。</returns>
-        IService AddContentModel(string tableName, List<TableColumn> tableColumns);
+        IService AddContentModel(string tableName, List<TableColumn> tableColumns, List<InputStyle> inputStyles);
         /// <summary>
         /// 添加插件的数据库表，包含表名称以及表字段列表。
         /// 此方法可以多次调用，系统将为此插件创建指定的数据库表结构。
