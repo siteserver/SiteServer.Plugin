@@ -64,13 +64,6 @@ namespace SiteServer.Plugin
         string GetHomeUrl(string relatedUrl = "");
 
         /// <summary>
-        /// 获取API访问Url地址。
-        /// </summary>
-        /// <param name="relatedUrl">相对地址。</param>
-        /// <returns>API访问Url地址。</returns>
-        string GetApiUrl(string relatedUrl = "");
-
-        /// <summary>
         /// 压缩文件夹。
         /// </summary>
         /// <param name="zipFilePath">压缩后的zip文件绝对地址。</param>

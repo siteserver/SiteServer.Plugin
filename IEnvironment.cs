@@ -10,7 +10,12 @@ namespace SiteServer.Plugin
         /// <summary>
         /// 系统使用的数据库类型。
         /// </summary>
-        Database Database { get; }
+        DatabaseType DatabaseType { get; }
+
+        /// <summary>
+        /// 系统使用的数据库连接字符串。
+        /// </summary>
+        DatabaseType ConnectionString { get; }
 
         /// <summary>
         /// 用户中心文件夹名称。
@@ -26,5 +31,10 @@ namespace SiteServer.Plugin
         /// 网站根目录文件夹地址。
         /// </summary>
         string PhysicalApplicationPath { get; }
+
+        /// <summary>
+        /// API访问地址。
+        /// </summary>
+        string ApiUrl { get; }
     }
 }

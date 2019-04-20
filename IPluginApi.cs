@@ -22,11 +22,6 @@
         string GetPluginUrl(string pluginId, string relatedUrl = "");
 
         /// <summary>
-        /// 当前插件的Rest Api访问Url地址。
-        /// </summary>
-        string GetPluginApiUrl(string pluginId);
-
-        /// <summary>
         /// 通过插件Id获取插件实例。
         /// </summary>
         /// <typeparam name="T">插件类。</typeparam>
