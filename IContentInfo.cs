@@ -2,7 +2,6 @@
 
 namespace SiteServer.Plugin
 {
-    /// <inheritdoc />
     /// <summary>
     /// 内容实体接口。
     /// 内容表默认名称为model_Content，SiteServer CMS 后台可以新建新的内容表，或者修改现有内容表的字段。
@@ -145,5 +144,25 @@ namespace SiteServer.Plugin
         /// 添加时间。
         /// </summary>
         DateTime? AddDate { get; set; }
+
+        string SubTitle { get; set; }
+
+        string ImageUrl { get; set; }
+
+        string VideoUrl { get; set; }
+
+        string FileUrl { get; set; }
+
+        string Author { get; set; }
+
+        string Source { get; set; }
+
+        string Summary { get; set; }
+
+        string Content { get; set; }
+
+        void Set(string name, object value);
+
+        T Get<T>(string name);
     }
 }
