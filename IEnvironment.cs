@@ -33,6 +33,11 @@ namespace SiteServer.Plugin
         string PhysicalApplicationPath { get; }
 
         /// <summary>
+        /// 网站根目录访问地址。
+        /// </summary>
+        string ApplicationPath { get; }
+
+        /// <summary>
         /// API访问地址。
         /// </summary>
         string ApiUrl { get; }

@@ -1,4 +1,6 @@
-﻿namespace SiteServer.Plugin
+﻿using System.Collections.Generic;
+
+namespace SiteServer.Plugin
 {
     /// <summary>
     /// 表示与请求关联的上下文。
@@ -76,6 +78,30 @@
         /// 管理员退出登录，调用此方法后系统将清除登录cookie。
         /// </summary>
         void AdminLogout();
+
+        /// <summary>
+        /// Returns true if the RequestScheme is https.
+        /// </summary>
+        /// <returns>true if this request is using https; otherwise, false.</returns>
+        bool IsHttps { get; }
+
+        /// <summary>
+        /// Gets or sets the Host header. May include the port.
+        /// </summary>
+        /// <return>The Host header.</return>
+        string Host { get; }
+
+        /// <summary>
+        /// Gets or sets the request path from RequestPath.
+        /// </summary>
+        /// <returns>The request path from RequestPath.</returns>
+        string Path { get; set; }
+
+        Dictionary<string, string> HeaderValues { get; set; }
+
+        Dictionary<string, string> QueryValues { get; set; }
+
+        Dictionary<string, object> PostValues { get; set; }
 
         bool IsQueryExists(string name);
 
