@@ -104,7 +104,7 @@ namespace SiteServer.Plugin
                 return true;
             }
 
-            if ((object) a == null || (object) b == null)
+            if ((object)a == null || (object)b == null)
             {
                 return false;
             }
@@ -214,7 +214,7 @@ namespace SiteServer.Plugin
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
             JsonSerializer serializer)
         {
-            var value = (string) reader.Value;
+            var value = (string)reader.Value;
             return string.IsNullOrEmpty(value) ? null : new ValidateType(value);
         }
     }

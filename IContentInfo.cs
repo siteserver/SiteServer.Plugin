@@ -1,4 +1,5 @@
 ﻿using System;
+using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -6,13 +7,8 @@ namespace SiteServer.Plugin
     /// 内容实体接口。
     /// 内容表默认名称为model_Content，SiteServer CMS 后台可以新建新的内容表，或者修改现有内容表的字段。
     /// </summary>
-    public interface IContentInfo
+    public interface IContentInfo : IEntity
     {
-        /// <summary>
-        /// 内容Id。
-        /// </summary>
-        int Id { get; set; }
-
         /// <summary>
         /// 栏目Id。
         /// </summary>
@@ -163,6 +159,6 @@ namespace SiteServer.Plugin
 
         void Set(string name, object value);
 
-        T Get<T>(string name);
+        T Get<T>(string name, T defaultValue = default);
     }
 }

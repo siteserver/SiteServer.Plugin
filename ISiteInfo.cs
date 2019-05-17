@@ -1,16 +1,13 @@
-﻿namespace SiteServer.Plugin
+﻿using Datory;
+
+namespace SiteServer.Plugin
 {
     /// <summary>
     /// 站点实体接口。
     /// 对应数据库中的siteserver_Site表。
     /// </summary>
-    public interface ISiteInfo
+    public interface ISiteInfo : IEntity
     {
-        /// <summary>
-        /// 站点Id。
-        /// </summary>
-        int Id { get; set; }
-
         /// <summary>
         /// 站点名称。
         /// </summary>

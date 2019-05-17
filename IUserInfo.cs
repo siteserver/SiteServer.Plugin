@@ -1,4 +1,5 @@
 ﻿using System;
+using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -6,13 +7,8 @@ namespace SiteServer.Plugin
     /// <summary>
     /// 用户实体接口。
     /// </summary>
-    public interface IUserInfo
+    public interface IUserInfo : IEntity
     {
-        /// <summary>
-        /// 用户Id。
-        /// </summary>
-        int Id { get; set; }
-
         /// <summary>
         /// 用户名。
         /// </summary>

@@ -80,7 +80,5 @@ namespace SiteServer.Plugin
         string JsonSerialize(object obj);
 
         T JsonDeserialize<T>(string json, T defaultValue = default(T));
-
-        IAuthenticatedRequest GetAuthenticatedRequest();
     }
 }

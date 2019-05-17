@@ -5,28 +5,28 @@ using Newtonsoft.Json;
 namespace SiteServer.Plugin
 {
     /// <summary>
-    /// ÏµÍ³Ö§³ÖµÄÄ£°åÀàĞÍ¡£
+    /// ç³»ç»Ÿæ”¯æŒçš„æ¨¡æ¿ç±»å‹ã€‚
     /// </summary>
     [JsonConverter(typeof(TemplateTypeConverter))]
     public class TemplateType : IEquatable<TemplateType>, IComparable<TemplateType>
     {
         /// <summary>
-        /// Ê×Ò³Ä£°å¡£
+        /// é¦–é¡µæ¨¡æ¿ã€‚
         /// </summary>
         public static readonly TemplateType IndexPageTemplate = new TemplateType(nameof(IndexPageTemplate));
 
         /// <summary>
-        /// À¸Ä¿Ä£°å¡£
+        /// æ ç›®æ¨¡æ¿ã€‚
         /// </summary>
         public static readonly TemplateType ChannelTemplate = new TemplateType(nameof(ChannelTemplate));
 
         /// <summary>
-        /// ÄÚÈİÄ£°å¡£
+        /// å†…å®¹æ¨¡æ¿ã€‚
         /// </summary>
         public static readonly TemplateType ContentTemplate = new TemplateType(nameof(ContentTemplate));
 
         /// <summary>
-        /// µ¥Ò³Ä£°å¡£
+        /// å•é¡µæ¨¡æ¿ã€‚
         /// </summary>
         public static readonly TemplateType FileTemplate = new TemplateType(nameof(FileTemplate));
 
@@ -41,7 +41,7 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// Êı¾İÀàĞÍµÄÖµ¡£
+        /// æ•°æ®ç±»å‹çš„å€¼ã€‚
         /// </summary>
         public string Value { get; }
 
@@ -52,11 +52,11 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// ±È½ÏÁ½¸öÊı¾İÀàĞÍÊÇ·ñÒ»ÖÂ¡£
+        /// æ¯”è¾ƒä¸¤ä¸ªæ•°æ®ç±»å‹æ˜¯å¦ä¸€è‡´ã€‚
         /// </summary>
-        /// <param name="a">ĞèÒª±È½ÏµÄÊı¾İÀàĞÍ¡£</param>
-        /// <param name="b">ĞèÒª±È½ÏµÄÊı¾İÀàĞÍ¡£</param>
-        /// <returns>Èç¹ûÒ»ÖÂ£¬ÔòÎªtrue£»·ñÔòÎªfalse¡£</returns>
+        /// <param name="a">éœ€è¦æ¯”è¾ƒçš„æ•°æ®ç±»å‹ã€‚</param>
+        /// <param name="b">éœ€è¦æ¯”è¾ƒçš„æ•°æ®ç±»å‹ã€‚</param>
+        /// <returns>å¦‚æœä¸€è‡´ï¼Œåˆ™ä¸ºtrueï¼›å¦åˆ™ä¸ºfalseã€‚</returns>
         public static bool operator ==(TemplateType a, TemplateType b)
         {
             if (ReferenceEquals(a, b))
@@ -64,7 +64,7 @@ namespace SiteServer.Plugin
                 return true;
             }
 
-            if ((object) a == null || (object) b == null)
+            if ((object)a == null || (object)b == null)
             {
                 return false;
             }
@@ -73,21 +73,21 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// ±È½ÏÁ½¸öÊı¾İÀàĞÍÊÇ·ñ²»Ò»ÖÂ¡£
+        /// æ¯”è¾ƒä¸¤ä¸ªæ•°æ®ç±»å‹æ˜¯å¦ä¸ä¸€è‡´ã€‚
         /// </summary>
-        /// <param name="a">ĞèÒª±È½ÏµÄÊı¾İÀàĞÍ¡£</param>
-        /// <param name="b">ĞèÒª±È½ÏµÄÊı¾İÀàĞÍ¡£</param>
-        /// <returns>Èç¹û²»Ò»ÖÂ£¬ÔòÎªtrue£»·ñÔòÎªfalse¡£</returns>
+        /// <param name="a">éœ€è¦æ¯”è¾ƒçš„æ•°æ®ç±»å‹ã€‚</param>
+        /// <param name="b">éœ€è¦æ¯”è¾ƒçš„æ•°æ®ç±»å‹ã€‚</param>
+        /// <returns>å¦‚æœä¸ä¸€è‡´ï¼Œåˆ™ä¸ºtrueï¼›å¦åˆ™ä¸ºfalseã€‚</returns>
         public static bool operator !=(TemplateType a, TemplateType b)
         {
             return !(a == b);
         }
 
         /// <summary>
-        /// ±È½ÏÁ½¸öÊı¾İÀàĞÍÊÇ·ñÒ»ÖÂ¡£
+        /// æ¯”è¾ƒä¸¤ä¸ªæ•°æ®ç±»å‹æ˜¯å¦ä¸€è‡´ã€‚
         /// </summary>
-        /// <param name="other">ĞèÒª±È½ÏµÄÊı¾İÀàĞÍ¡£</param>
-        /// <returns>Èç¹ûÒ»ÖÂ£¬ÔòÎªtrue£»·ñÔòÎªfalse¡£</returns>
+        /// <param name="other">éœ€è¦æ¯”è¾ƒçš„æ•°æ®ç±»å‹ã€‚</param>
+        /// <returns>å¦‚æœä¸€è‡´ï¼Œåˆ™ä¸ºtrueï¼›å¦åˆ™ä¸ºfalseã€‚</returns>
         public bool Equals(TemplateType other)
         {
             if (other == null)
@@ -105,10 +105,10 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// ±È½ÏÁ½¸öÊı¾İÀàĞÍÊÇ·ñÒ»ÖÂ¡£
+        /// æ¯”è¾ƒä¸¤ä¸ªæ•°æ®ç±»å‹æ˜¯å¦ä¸€è‡´ã€‚
         /// </summary>
-        /// <param name="other">ĞèÒª±È½ÏµÄÊı¾İÀàĞÍ¡£</param>
-        /// <returns>Èç¹ûÒ»ÖÂ£¬ÔòÎª0£»·ñÔòÎª1¡£</returns>
+        /// <param name="other">éœ€è¦æ¯”è¾ƒçš„æ•°æ®ç±»å‹ã€‚</param>
+        /// <returns>å¦‚æœä¸€è‡´ï¼Œåˆ™ä¸º0ï¼›å¦åˆ™ä¸º1ã€‚</returns>
         public int CompareTo(TemplateType other)
         {
             if (other == null)
@@ -138,16 +138,16 @@ namespace SiteServer.Plugin
     }
 
     /// <summary>
-    /// ×Ö·û´®ÓëTemplateType×ª»»Àà¡£
+    /// å­—ç¬¦ä¸²ä¸TemplateTypeè½¬æ¢ç±»ã€‚
     /// </summary>
     public class TemplateTypeConverter : JsonConverter
     {
         /// <summary>
-        /// È·¶¨´ËÊµÀıÊÇ·ñ¿ÉÒÔ×ª»»Ö¸¶¨µÄ¶ÔÏóÀàĞÍ¡£
+        /// ç¡®å®šæ­¤å®ä¾‹æ˜¯å¦å¯ä»¥è½¬æ¢æŒ‡å®šçš„å¯¹è±¡ç±»å‹ã€‚
         /// </summary>
-        /// <param name="objectType">¶ÔÏóÊµÀı</param>
+        /// <param name="objectType">å¯¹è±¡å®ä¾‹</param>
         /// <returns>
-        /// <c>true</c> Èç¹ûÕâ¸öÊµÀı¿ÉÒÔ×ª»»Ö¸¶¨µÄ¶ÔÏóÀàĞÍ; ·ñÔò, <c>false</c>¡£
+        /// <c>true</c> å¦‚æœè¿™ä¸ªå®ä¾‹å¯ä»¥è½¬æ¢æŒ‡å®šçš„å¯¹è±¡ç±»å‹; å¦åˆ™, <c>false</c>ã€‚
         /// </returns>
         public override bool CanConvert(Type objectType)
         {
@@ -155,11 +155,11 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// ±àĞ´¶ÔÏóµÄJSON±íÊ¾¡£
+        /// ç¼–å†™å¯¹è±¡çš„JSONè¡¨ç¤ºã€‚
         /// </summary>
         /// <param name="writer">JsonWriter</param>
-        /// <param name="value">Öµ</param>
-        /// <param name="serializer">ĞòÁĞ»¯Àà</param>
+        /// <param name="value">å€¼</param>
+        /// <param name="serializer">åºåˆ—åŒ–ç±»</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var templateType = value as TemplateType;
@@ -167,13 +167,13 @@ namespace SiteServer.Plugin
         }
 
         /// <summary>
-        /// ¶ÁÈ¡¶ÔÏóµÄJSON±íÊ¾¡£
+        /// è¯»å–å¯¹è±¡çš„JSONè¡¨ç¤ºã€‚
         /// </summary>
         /// <param name="reader">JsonReader</param>
-        /// <param name="objectType">¶ÔÏóÀàĞÍ</param>
-        /// <param name="existingValue">ÕıÔÚ¶ÁÈ¡µÄ¶ÔÏóµÄÏÖÓĞÖµ</param>
-        /// <param name="serializer">ĞòÁĞ»¯Àà</param>
-        /// <returns>·µ»Ø¶ÔÏó</returns>
+        /// <param name="objectType">å¯¹è±¡ç±»å‹</param>
+        /// <param name="existingValue">æ­£åœ¨è¯»å–çš„å¯¹è±¡çš„ç°æœ‰å€¼</param>
+        /// <param name="serializer">åºåˆ—åŒ–ç±»</param>
+        /// <returns>è¿”å›å¯¹è±¡</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
             JsonSerializer serializer)
         {

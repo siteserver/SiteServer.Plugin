@@ -20,8 +20,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Datory" Version="0.1.15" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Datory" Version="0.1.16" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
   </ItemGroup>
 
 </Project>
