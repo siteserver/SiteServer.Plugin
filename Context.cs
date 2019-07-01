@@ -1,6 +1,4 @@
 ﻿using Datory;
-using System;
-using System.Runtime.Caching;
 
 namespace SiteServer.Plugin
 {
@@ -9,116 +7,82 @@ namespace SiteServer.Plugin
     /// </summary>
     public static class Context
     {
-        public static IEnvironment Environment { get; private set; }
-        public static IApiCollection ApiCollection { get; private set; }
-        private static Func<IRequest> _requestFunc;
+        private static IEnvironment _environment;
+        private static IApiCollection _apiCollection;
 
         /// <summary>
         /// 初始化上下文
         /// </summary>
         /// <param name="environment">环境变量接口。</param>
         /// <param name="apiCollection">API类集合接口。</param>
-        public static void Initialize(IEnvironment environment, IApiCollection apiCollection, Func<IRequest> requestFunc)
+        public static void Initialize(IEnvironment environment, IApiCollection apiCollection)
         {
-            if (Environment == null)
+            if (_environment == null)
             {
-                Environment = environment;
+                _environment = environment;
             }
 
-            if (ApiCollection == null)
+            if (_apiCollection == null)
             {
-                ApiCollection = apiCollection;
-            }
-
-            if (_requestFunc == null)
-            {
-                _requestFunc = requestFunc;
+                _apiCollection = apiCollection;
             }
         }
 
         /// <summary>
-        /// 系统使用的数据库类型。
+        /// 系统信息。
         /// </summary>
-        public static DatabaseType DatabaseType => Environment.DatabaseType;
+        public static IEnvironment Environment => _environment;
 
-        /// <summary>
-        /// 系统使用的数据库连接字符串。
-        /// </summary>
-        public static string ConnectionString => Environment.ConnectionString;
-
-        /// <summary>
-        /// 用户中心文件夹名称。
-        /// </summary>
-        public static string HomeDirectory => Environment.HomeDirectory;
-
-        /// <summary>
-        /// 管理后台文件夹名称。
-        /// </summary>
-        public static string AdminDirectory => Environment.AdminDirectory;
-
-        /// <summary>
-        /// 网站根目录文件夹地址。
-        /// </summary>
-        public static string PhysicalApplicationPath => Environment.PhysicalApplicationPath;
-
-        /// <summary>
-        /// 网站根目录访问地址。
-        /// </summary>
-        public static string ApplicationPath => Environment.ApplicationPath;
-
-        /// <summary>
-        /// API访问地址。
-        /// </summary>
-        public static string ApiUrl => Environment.ApiUrl;
+        public static IAuthenticatedRequest AuthenticatedRequest => UtilsApi.GetAuthenticatedRequest();
 
         /// <summary>
         /// 管理员及权限Api接口。
         /// </summary>
-        public static IAdminApi AdminApi => ApiCollection.AdminApi;
+        public static IAdminApi AdminApi => _apiCollection.AdminApi;
 
         /// <summary>
         /// 插件及系统配置Api接口。
         /// </summary>
-        public static IConfigApi ConfigApi => ApiCollection.ConfigApi;
+        public static IConfigApi ConfigApi => _apiCollection.ConfigApi;
 
         /// <summary>
         /// 内容Api接口。
         /// </summary>
-        public static IContentApi ContentApi => ApiCollection.ContentApi;
+        public static IContentApi ContentApi => _apiCollection.ContentApi;
+
+        ///// <summary>
+        ///// 数据库操作Api接口。
+        ///// </summary>
+        //public static IDatabaseApi DatabaseApi => _apiCollection.DatabaseApi;
 
         /// <summary>
         /// 栏目Api接口。
         /// </summary>
-        public static IChannelApi ChannelApi => ApiCollection.ChannelApi;
+        public static IChannelApi ChannelApi => _apiCollection.ChannelApi;
 
         /// <summary>
         /// STL解析Api接口。
         /// </summary>
-        public static IParseApi ParseApi => ApiCollection.ParseApi;
+        public static IParseApi ParseApi => _apiCollection.ParseApi;
 
         /// <summary>
         /// 插件Api接口。
         /// </summary>
-        public static IPluginApi PluginApi => ApiCollection.PluginApi;
+        public static IPluginApi PluginApi => _apiCollection.PluginApi;
 
         /// <summary>
         /// 站点Api接口。
         /// </summary>
-        public static ISiteApi SiteApi => ApiCollection.SiteApi;
+        public static ISiteApi SiteApi => _apiCollection.SiteApi;
 
         /// <summary>
         /// 用户Api接口。
         /// </summary>
-        public static IUserApi UserApi => ApiCollection.UserApi;
+        public static IUserApi UserApi => _apiCollection.UserApi;
 
         /// <summary>
         /// 工具类Api接口。
         /// </summary>
-        public static IUtilsApi UtilsApi => ApiCollection.UtilsApi;
-
-        /// <summary>
-        /// 当前HTTP请求接口。
-        /// </summary>
-        public static IRequest Request => _requestFunc == null ? null : _requestFunc();
+        public static IUtilsApi UtilsApi => _apiCollection.UtilsApi;
     }
 }

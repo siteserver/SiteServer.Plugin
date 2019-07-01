@@ -1,5 +1,4 @@
 ﻿using System;
-using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -7,8 +6,13 @@ namespace SiteServer.Plugin
     /// 栏目实体接口。
     /// 对应数据库中的siteserver_Channel表。
     /// </summary>
-    public interface IChannelInfo : IEntity
+    public interface IChannelInfo
     {
+        /// <summary>
+        /// 栏目Id。
+        /// </summary>
+        int Id { get; set; }
+
         /// <summary>
         /// 栏目名称。
         /// </summary>

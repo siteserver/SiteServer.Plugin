@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-namespace SiteServer.Plugin
+﻿namespace SiteServer.Plugin
 {
     /// <summary>
     /// 表示与请求关联的上下文。
     /// </summary>
-    public interface IRequest
+    public interface IAuthenticatedRequest
     {
         /// <summary>
         /// 判断用户是否登录。
@@ -23,8 +19,6 @@ namespace SiteServer.Plugin
         /// 如果用户已登录，则返回登录用户的用户名；否则返回空。
         /// </summary>
         string UserName { get; }
-
-        IUserInfo UserInfo { get; }
 
         /// <summary>
         /// 当前登录前台用户的权限。
@@ -62,8 +56,6 @@ namespace SiteServer.Plugin
         /// </summary>
         string AdminName { get; }
 
-        IAdministratorInfo AdminInfo { get; }
-
         /// <summary>
         /// 当前登录后台管理员的权限。
         /// </summary>
@@ -84,24 +76,6 @@ namespace SiteServer.Plugin
         /// 管理员退出登录，调用此方法后系统将清除登录cookie。
         /// </summary>
         void AdminLogout();
-
-        /// <summary>
-        /// Returns true if the RequestScheme is https.
-        /// </summary>
-        /// <returns>true if this request is using https; otherwise, false.</returns>
-        bool IsHttps { get; }
-
-        /// <summary>
-        /// Gets or sets the Host header. May include the port.
-        /// </summary>
-        /// <return>The Host header.</return>
-        string Host { get; }
-
-        /// <summary>
-        /// Gets or sets the request path from RequestPath.
-        /// </summary>
-        /// <returns>The request path from RequestPath.</returns>
-        string Path { get; }
 
         bool IsQueryExists(string name);
 
@@ -124,29 +98,5 @@ namespace SiteServer.Plugin
         decimal GetPostDecimal(string name, decimal defaultValue = 0);
 
         bool GetPostBool(string name, bool defaultValue = false);
-
-        string RawUrl { get; }
-
-        string IpAddress { get; }
-
-        Stream Body { get; }
-
-        bool TryGetHeader(string name, out string value);
-
-        bool TryGetCookie(string name, out Cookie value);
-
-        List<string> QueryKeys { get; }
-
-        List<string> PostKeys { get; }
-
-        void AddSiteLog(int siteId, string action, string summary = "");
-
-        void AddChannelLog(int siteId, int channelId, string action, string summary = "");
-
-        void AddContentLog(int siteId, int channelId, int contentId, string action, string summary = "");
-
-        void AddAdminLog(string action, string summary = "");
-
-        void AddUserLog(string action, string summary = "");
     }
 }

@@ -1,13 +1,17 @@
 ﻿using System;
-using Datory;
 
 namespace SiteServer.Plugin
 {
     /// <summary>
     /// 日志实体接口。
     /// </summary>
-    public interface ILogInfo : IEntity
+    public interface ILogInfo
     {
+        /// <summary>
+        /// 自增长主键。
+        /// </summary>
+        int Id { get; set; }
+
         /// <summary>
         /// 用户名。
         /// </summary>

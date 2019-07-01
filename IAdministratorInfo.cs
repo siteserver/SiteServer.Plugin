@@ -1,5 +1,4 @@
 ﻿using System;
-using Datory;
 
 namespace SiteServer.Plugin
 {
@@ -7,8 +6,13 @@ namespace SiteServer.Plugin
     /// 管理员实体接口。
     /// 对应数据库中的siteserver_Administrator表。
     /// </summary>
-    public interface IAdministratorInfo : IEntity
+    public interface IAdministratorInfo
     {
+        /// <summary>
+        /// 自增长主键。
+        /// </summary>
+        int Id { get; set; }
+
         /// <summary>
         /// 管理员账号，具有唯一性。
         /// </summary>
