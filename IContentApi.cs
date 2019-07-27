@@ -103,6 +103,8 @@ namespace SiteServer.Plugin
         /// </returns>
         List<TableColumn> GetTableColumns(int siteId, int channelId);
 
+        List<InputStyle> GetInputStyles(int siteId, int channelId);
+
         /// <summary>
         /// 新增内容。
         /// </summary>
