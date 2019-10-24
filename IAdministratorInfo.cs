@@ -59,16 +59,6 @@ namespace SiteServer.Plugin
         int SiteId { get; set; }
 
         /// <summary>
-        /// 所属部门Id，对应 siteserver_Department 表的 Id 字段。
-        /// </summary>
-        int DepartmentId { get; set; }
-
-        /// <summary>
-        /// 所在区域Id，对应 siteserver_Area 表的 Id 字段。
-        /// </summary>
-        int AreaId { get; set; }
-
-        /// <summary>
         /// 管理员显示名称。
         /// </summary>
         string DisplayName { get; set; }
