@@ -3,8 +3,8 @@
     only:
       - master
 
-  version: 2.3.{build}
-  image: Visual Studio 2017
+  version: 2.4.{build}
+  image: Visual Studio 2019
 
   dotnet_csproj:
     patch: true
@@ -47,8 +47,8 @@
     only:
       - dev
 
-  version: 2.3.{build}-beta
-  image: Visual Studio 2017
+  version: 2.4.{build}-beta
+  image: Visual Studio 2019
 
   dotnet_csproj:
     patch: true
